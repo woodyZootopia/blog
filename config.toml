@@ -64,7 +64,7 @@ theme = "hugo-icarus-theme"
 
 # Enter a link for the follow button on the left
 [params.profile]
-    follow_button = "https://github.com/woodyZootopia"
+    follow_button = "https://twitter.com/woodyOutOfABase"
 
 
 [social]

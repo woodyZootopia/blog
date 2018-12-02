@@ -16,3 +16,6 @@ tags:
   - "shell"
 # menu: main # Optional, add page to a menu. Options: main, side, footer
 ---
+
+<script type="text/x-mathjax-config" scr="/mathjaxconf/script.js"></script>
+<link rel="stylesheet" type="text/css" href="/mathjaxconf/style.css">
