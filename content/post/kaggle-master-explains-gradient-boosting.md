@@ -19,8 +19,6 @@ tags:
 
 ---
 
-<!--<script type="text/x-mathjax-config" scr="/mathjaxconf/script.js"></script>-->
-<!--<link rel="stylesheet" type="text/css" href="/mathjaxconf/style.css">-->
 
 >この記事は、Kaggle Masterである[Ben Gorman](http://blog.kaggle.com/author/bengorman/)さんによる[Gradient Boosting Explained](https://gormanalysis.com/gradient-boosting-explained/)を和訳したものです。日本語でGradient Boostingの原理を解説した記事があまりなかったのですが、この記事が非常にわかりやすかったので、ご本人に和訳の許可をお願いしたところ、快諾していただきました。Benさん、ありがとうございます。この記事が日本人Kagglerの助けになれば幸いです。\
 >また、この記事は[以前Qiitaに投稿したもの](https://qiita.com/woodyOutOfABase/items/232e982094cd3c80b3ee)と同じです。
@@ -47,9 +45,11 @@ tags:
 | 9        | 73  | TRUE           | FALSE           | TRUE      |
 
 直感的には、
+
 - 庭いじりが好きな人は年寄りだろう
 - ビデオゲームが好きな人は若いだろう
 - 帽子が好きかはただのランダムノイズだろう
+
 という気がするかもしれません。
 これらの仮説が正しいかどうか、（雑ですが）簡単に見ることもできます：
 
@@ -198,6 +198,7 @@ $
 **for m = 1 to M:**
 1. $L$の点$s^{(m-1)}$における勾配を計算する
 2. 勾配が（負に）もっとも大きい向きにその$\gamma$倍だけ「移動」する。すなわち、$s^{m} = s^{(m-1)} - \gamma \nabla L(s^{(m-1)})$
+
 （ここまで、擬似コードです）
 
 
