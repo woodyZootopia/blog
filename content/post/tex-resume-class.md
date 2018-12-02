@@ -36,7 +36,7 @@ WithOptionsとは、texファイルで`\documentclass[letterpaper]{woody-cv}`の
 \documentclass[letterpaper]{article}
 ```
 
-のようにletterpaperオプションを付けたものに相当するようになるという意味。
+のようにletterpaperオプションを付けたものをベースに利用することに相当するようになるという意味。
 
 ## \newcommand
 
@@ -52,6 +52,8 @@ WithOptionsとは、texファイルで`\documentclass[letterpaper]{woody-cv}`の
 のように、[n]をつけると自作コマンドはその数だけの引数を取るようになり、{#n}のところにそれぞれ代入される。引数は最大９個。
 例えば、
 ```latex
+\newcommand*{\firstnamefont}[1]{{\fontsize{24pt}{4em}\textbf {#1}}}
+\newcommand*{\lastnamefont}[1]{{\fontsize{24pt}{4em}\textbf {#1}}}
 \newcommand*{\fullname}[2]{{\firstnamefont{#1}\fontsize{24pt}{4em}\ \ \lastnamefont{#2}}}
 ```
 をクラスファイルで定義しているので、
