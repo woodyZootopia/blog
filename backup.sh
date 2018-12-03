@@ -1,6 +1,6 @@
 #!/bin/bash
 git add .
-msg="new articles backup`date`"
+msg="new articles backup `date`"
 if [ $# -eq 1 ]
   then msg="$1"
 fi

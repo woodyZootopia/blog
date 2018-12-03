@@ -10,9 +10,8 @@ description: "git submoduleってなんで便利なのか、例とともに解�
 categories:
   - "技術"
   - "備忘録"
-  - "ポエム"
 tags:
-  - "Latex"
+  - "git"
   - "shell"
 # menu: main # Optional, add page to a menu. Options: main, side, footer
 ---
@@ -93,7 +92,7 @@ git push origin master
 cd ..
 ```
 
-みたいな感じのシェルスクリプトでも書いておけば、これを実行するだけでブログが更新される。\
+みたいな感じのシェルスクリプトでも書いておけば、**これを実行するだけでブログが更新される。**\
 これをもう少しいい感じにしたものが、`deploy.sh`である。ご確認いただきたい。\
 
 というわけでこの記事を書き終わった自分は、`./deploy.sh`だけで更新を済ませてしまう。かんたんかんたん♫\
