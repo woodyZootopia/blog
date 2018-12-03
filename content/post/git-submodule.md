@@ -1,5 +1,5 @@
 ---
-title: "git submoduleはなんのために使うのか"
+title: "git submoduleってなんのために使うの？"
 date: 2018-12-03T11:23:50-05:00
 description: "git submoduleってなんで便利なのか、例とともに解説します。"
 # banner:"/img/some.png"
@@ -15,6 +15,8 @@ tags:
   - "shell"
 # menu: main # Optional, add page to a menu. Options: main, side, footer
 ---
+git submoduleって
+
 # そもそも一体何？
 
 git submoduleとは、「**gitディレクトリに親子/参照関係をもたせることができるもの**」である。\
@@ -26,7 +28,7 @@ git submoduleとは、「**gitディレクトリに親子/参照関係をもた�
 
 また、「このブログ自体」のソースコードが例として参考になると思う。\
 https://github.com/woodyZootopia/blog \
-上のリンクを開いてもらうと、publicディレクトリとthemes/hugo-icarus-themeディレクトリのあとに@がついているが、これらがsubmoduleとなっている。
+上のリンクを開いてもらうと、`public`ディレクトリと`themes/hugo-icarus-theme`ディレクトリのあとに@がついているが、これらがsubmoduleとなっている。
 
 ## 1. 他のリポジトリの中身を参照する場合
 
@@ -45,8 +47,7 @@ https://github.com/woodyZootopia/blog \
 
 ということだ。
 
-試しに、上のblogリポジトリをcloneしてみてほしい。2つのsubmoduleディレクトリもcloneされる。\
-また、それぞれのディレクトリのあとに付いていた@とは、コミットIDのことである。
+試しに、上のblogリポジトリをcloneしてみてほしい。2つのsubmoduleディレクトリもcloneされる。それぞれのディレクトリのあとに付いていた@とは、コミットIDのことである。
 
 また、それぞれのディレクトリの中に入ると、.gitディレクトリも独自のものが使われていることがわかるだろう。\
 たとえばgit logなどをやってみても親ディレクトリではなく、参照先のものが出てくるはずだ。
@@ -54,7 +55,7 @@ https://github.com/woodyZootopia/blog \
 自分のブログでは、icarusというテーマを使っているのだが、そのリポジトリを参照するために
 
 ```shell
-cd themes
+cd themes # submoduleを加えたい場所へ移動
 git submodule add git@github.com:digitalcraftsman/hugo-icarus-theme.git
 ```
 
@@ -66,9 +67,9 @@ git submodule add git@github.com:digitalcraftsman/hugo-icarus-theme.git
 自分のリポジトリではpublicディレクトリがいい例だろう。
 
 自分のブログは[Hugo](https://gohugo.io)という静的サイト生成ソフトで作られている。\
-また、[github.io](https://pages.github.com)でホスティングされている。なので、自分のgithub usernameのリポジトリ( https://github.com/woodyZootopia/woodyZootopia.github.io )を作り、そこにpushすると自動でブログが公開されるという仕組みになっている。
+また、[github.io](https://pages.github.com)でホスティングされている。これは、自分のgithub usernameのリポジトリ( https://github.com/woodyZootopia/woodyZootopia.github.io )を作り、そこにpushすると自動でブログが公開されるという仕組みになっている。
 
-しかし、Hugoは完成したサイトを自分の直下のpublicディレクトリに投げる。そこで、**publicディレクトリがusernameリポジトリに直結している**ようにしたい。\
+しかし、Hugoは完成したサイトを自分の直下のpublicディレクトリに投げる。そこで、publicディレクトリが**実はusernameリポジトリである**ようにしたい。\
 **これはまさに、submoduleの出番である。**
 
 具体的な手順としては、
@@ -78,7 +79,7 @@ rm -rf public
 git submodule add <address to your repository> public
 ```
 
-となる。最初にpublicを削除するのは、すでにpublicディレクトリが存在していた場合git submoduleは書き換えてくれないためである。
+となる。最初に`public`を削除するのは、すでに`public`ディレクトリが存在していた場合、git submoduleはこれを書き換えてくれないためである。
 
 これで設定は完了したので、あとは
 ```shell
@@ -92,7 +93,7 @@ git push origin master
 cd ..
 ```
 
-みたいな感じのシェルスクリプトでも書いておけば、**これを実行するだけでブログが更新される。**\
+みたいな感じのシェルスクリプトでも書いておけば、**これを実行するだけで**ブログが更新される。\
 これをもう少しいい感じにしたものが、`deploy.sh`である。ご確認いただきたい。\
 
 というわけでこの記事を書き終わった自分は、`./deploy.sh`だけで更新を済ませてしまう。かんたんかんたん♫\
