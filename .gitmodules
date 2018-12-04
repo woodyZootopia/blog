@@ -2,6 +2,6 @@
 	path = public
 	url = git@github.com:woodyZootopia/woodyZootopia.github.io.git
 	branch = master
-[submodule "themes/hugo-icarus-theme"]
+[submodule "my-icarus-them"]
 	path = themes/hugo-icarus-theme
-	url = git@github.com:digitalcraftsman/hugo-icarus-theme.git
+	url = git@github.com:woodyZootopia/hugo-icarus-theme.git

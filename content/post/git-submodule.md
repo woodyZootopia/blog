@@ -43,7 +43,8 @@ https://github.com/woodyZootopia/blog \
 気の利いたふうに、とはどういうことか。
 
 - リポジトリをcloneすると、**そのsubmoduleも再帰的にcloneしてくれる。**\
-- そのさい、**バージョン（コミットID）も指定されたものをcloneしてくれる。**バージョンミスが起こらない。\
+- そのさい、**バージョン（コミットID）も指定されたものをcloneしてくれる。**バージョンミスの防止。\
+- バージョン指定を簡単に変更できる。
 
 ということだ。
 
@@ -61,9 +62,11 @@ git submodule add git@github.com:digitalcraftsman/hugo-icarus-theme.git
 
 とした。
 
+バージョン指定の変更・アップデートについてはここでは割愛する。
+
 ## 2. 公開用リポジトリを内部に作る場合
 
-正直、上の例が大多数を占めると思うのだが、一応紹介しておく。\
+~~正直、上の例が大多数を占めると思うのだが、一応紹介しておく。~~\
 自分のリポジトリではpublicディレクトリがいい例だろう。
 
 自分のブログは[Hugo](https://gohugo.io)という静的サイト生成ソフトで作られている。\
@@ -99,4 +102,6 @@ cd ..
 というわけでこの記事を書き終わった自分は、`./deploy.sh`だけで更新を済ませてしまう。かんたんかんたん♫\
 みなさんもgit submoduleを活用して快適なgitライフを。
 
-参考:https://gohugo.io/hosting-and-deployment/hosting-on-github/
+参考：\
+https://gohugo.io/hosting-and-deployment/hosting-on-github/ \
+https://git-scm.com/book/en/v2/Git-Tools-Submodules
