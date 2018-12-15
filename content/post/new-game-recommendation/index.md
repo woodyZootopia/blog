@@ -10,9 +10,10 @@ description: "レコメンデーションシステムに興味が湧いたので
 categories:
   - "技術"
 tags:
+  - "scikit-learn"
 # menu: main # Optional, add page to a menu. Options: main, side, footer
 ---
 
-参考
+参考\
 http://smrmkt.hatenablog.jp/entry/2014/08/23/211555#f-edee9aa7
 https://qiita.com/koshian2/items/401f50d0717983696fef
