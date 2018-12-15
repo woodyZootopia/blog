@@ -19,7 +19,7 @@ Neovimは後述するリモートプラグインという仕組みを持って�
 
 # NeoVimのインストール
 
-NeoVimはHomebrewを使えば簡単にインストールできる。「Homebrewって何？」という人は次の一行をターミナルで実行してから進んでほしい。Homebrewについて詳しくは[こちら](https://brew.sh)
+Macの場合NeoVimはHomebrewを使えば簡単にインストールできる。「Homebrewって何？」という人は次の一行をターミナルで実行してから進んでほしい。Homebrewについて詳しくは[こちら](https://brew.sh)
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
@@ -30,8 +30,9 @@ NeoVimはHomebrewを使えば簡単にインストールできる。「Homebrew�
 brew install neovim
 ```
 
-NeoVimの設定ファイルは`.vimrc`ではなく`~/.config/nvim/init.vim`に書く。\
 NeoVimは`nvim`で起動できる。
+
+Mac以外も調べればすぐ出てくると思うので省略する。以降は共通のはずである。
 
 # 闇の力のインストール
 
@@ -57,7 +58,7 @@ conda install neovim
 リモートプラグインがNeovimと通信するためにneovimパッケージがimportされる必要がある。
 
 ## init.vim
-
+NeoVimの設定ファイルは`.vimrc`ではなく`~/.config/nvim/init.vim`に書く。\
 ここ以降の内容は[自分の設定をgithubにあげている](https://github.com/woodyZootopia/nvim)ので参考にしてもいいかもしれない。
 
 まずは次の内容をinit.vimにコピペする。
@@ -97,19 +98,19 @@ if has('vim_starting') && dein#check_install()
 endif
 ```
 これで、deinというVim用のパッケージマネージャがインストールされる。これを使って残りのプラグインもインストールするわけである。\
-最後の方で、`call dein#install(['vimproc.vim'])`とあるように最初にvimprocをインストールして、そのあとで残りのプラグインをインストールしていく。vimprocはdeinに必要なプラグインで、並列処理を可能にしてくれるらしい。
+最後の方で、`call dein#install(['vimproc.vim'])`とあるように最初にvimprocをインストールして、そのあとで残りのプラグインをインストールしていく。vimprocはdeinで並列処理をするのに必要なプラグインで、バックグラウンド処理を可能としてくれるので、重い処理をしてもVimが固まらなくなる。
 
 さて、では肝心の残りのプラグインだが、ここではなく別の場所に書く。ここにはキーマッピングなども書くため、プラグインをすべて書いていては幅をとって読みづらくなってしまう。\
 
 キーマッピングの例としては、たとえばinit.vimに`inoremap fd <ESC>`と追記し、vimを再起動すると、エスケープキーの代わりに`fd`をすばやく押すことでノーマルモードに戻ることができる。[^2]
-いずれにせよエスケープは遠すぎるのでこのキーマッピングはとても役に立つだろう。
+エスケープは遠すぎるのでこのタイプのキーマッピングをつけている人は多いだろう。。
 
 [^2]:他には`jj`派や`Ctrl-j`派がいるらしい。`Ctrl-j`にするには`<C-j>`とすればよい。
 
 閑話休題。\
 先程コピペしてもらったものの真ん中あたりに`" locate toml directory beforehand`とあるあたりで、プラグインをどこに書くかを指定している。\
 ここでは、必ず必要になるものを`~/.config/nvim/toml/dein.toml`,ファイル形式・状況に応じて起動したいものを`~/.config/nvim/toml/dein_lazy.toml`に書くようにしている。\
-このtomlファイルには、インストール時にのみ実行する命令も書いておくことができる。以下で、`hook何某`とあるのがそれである。
+このtomlファイルには、読み込み時にのみ実行する命令も書いておくことができる。以下で、`hook何某`とあるのがそれである。
 
 ## dein.toml
 
@@ -117,6 +118,7 @@ endif
 
 * dein,vimprocは常に必要なので書く。
 * deniteはファイル探索プラグインであり、常に必要となるので書く。
+
 というわけで、
 
 ```
@@ -147,14 +149,13 @@ repo = 'Shougo/neomru.vim'
 repo = 'Shougo/neoyank.vim'
 ```
 
-vimprocはアップデートのあとビルドする必要があるため`hook_post_update`が書いてあり、denite.nvimのほうは起動して必要になるたびにキーマッピングをつけておきたいため`hook_add`が書いてある。\
 ちなみに`<silent>`をつけているため画面下のログが出ない。そんなに変わらないが、気になる人は外して試してみてほしい。\
 
 その下に３つの補助プラグインがあるが、それぞれdeniteの追加機能である。
 
-* `<space>fr`で最近使ったファイルから検索できる。
-* `<space>fb`で開いているバッファから検索できる。
-* `<space>fy`でヤンク（コピー）履歴から検索できる。
+* `<space>fr`で最近使ったファイルを検索できる。
+* `<space>fb`で開いているバッファを検索できる。
+* `<space>fy`でヤンク（コピー）履歴検索できる。
 * `<space>ff`で現在のディレクトリの下にあるファイルを検索できる。
 * `<space>fu`で現在のファイルのアウトラインを検索。
 
@@ -217,7 +218,7 @@ depends = ['neosnippet-snippets']
 repo= 'Shougo/neosnippet-snippets'
 ```
 
-deopleteの保管機能を存分に使うため、次のプラグインもインストールしてある。
+deopleteの補完候補を拡張するため、次のプラグインもインストールしてある。
 
 * neco-syntax
  * シンタックスファイルを使って補完してくれるプラグイン
@@ -231,7 +232,7 @@ deopleteの保管機能を存分に使うため、次のプラグインもイン
 Tabキーで補完候補の中を移動することができる。行き過ぎて戻るときは`Ctrl-p`。
 neosnippetを使うときは、次の入力場所に移動するときには`Ctrl-k`を押すとよい。実際に使ってみればすぐわかると思うが、以下に動画も置いておく。
 
-![](sample movie.mov)
+![動画](sample movie.mov)
 
 ## 外部ファイルによる補完
 
@@ -257,7 +258,6 @@ numpyやTensorFlowなどなどがimportされているファイルでは補完�
 
 以上です。
 
-> 闇の世界にようこそ。
-> -- <cite>ShougoMatsu</cite>
+> 闇の世界にようこそ。<cite>--ShougoMatsu</cite>
 
 [^3]:これらは大きなライブラリなので最大で１０秒程度補完が効くまで掛かる可能性がある。ガマン。
