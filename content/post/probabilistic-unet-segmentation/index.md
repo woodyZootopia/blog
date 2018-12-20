@@ -9,6 +9,7 @@ banner: "banners/probabilistic-unet-segmentation.png"
 # mathjax: true # Optional, enable MathJax for specific post
 categories:
   - "技術"
+  - "論文"
 tags:
   - "CNN"
   - "generative model"

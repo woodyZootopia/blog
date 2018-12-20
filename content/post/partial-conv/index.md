@@ -9,7 +9,6 @@ banner: "banners/top.png"
 # mathjax: true # Optional, enable MathJax for specific post
 categories:
   - "技術"
-  - "備忘録"
   - "論文"
 tags:
   - "cnn"

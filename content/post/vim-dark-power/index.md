@@ -9,6 +9,7 @@ description: "あるいはいかにして私は心配するのをやめて闇の
 # mathjax: true # Optional, enable MathJax for specific post
 categories:
   - "技術"
+  - "備忘録"
 tags:
   - "vim"
 # menu: main # Optional, add page to a menu. Options: main, side, footer

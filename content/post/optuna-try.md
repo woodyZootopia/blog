@@ -9,7 +9,6 @@ description: "Optunaのハイパーパラメータ探索の様子をMatplotlib�
 # mathjax: true # Optional, enable MathJax for specific post
 categories:
   - "技術"
-  - "備忘録"
 tags:
   - "Optuna"
 # menu: main # Optional, add page to a menu. Options: main, side, footer

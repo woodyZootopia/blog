@@ -10,7 +10,6 @@ description: "Qiitaからの移植記事です。どっちもMarkdownなので�
 # mathjax: true # Optional, enable MathJax for specific post
 categories:
   - "技術"
-  - "備忘録"
 tags:
   - "python"
   - "pytorch"

@@ -9,7 +9,6 @@ description: "ウェブスクレイピングの基礎の参考にもなります
 # mathjax: true # Optional, enable MathJax for specific post
 categories:
   - "技術"
-  - "備忘録"
 tags:
   - "python"
   - "web scraping"

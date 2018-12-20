@@ -9,8 +9,10 @@ date: {{ .Date }}
 # mathjax: true # Optional, enable MathJax for specific post
 categories:
   - "技術"
-  - "備忘録"
   - "ポエム"
+  - "翻訳記事"
+  - "論文"
+  - "備忘録"
 tags:
   - "Latex"
   - "shell"
