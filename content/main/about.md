@@ -5,16 +5,21 @@ menu: "main"
 ---
 
 ### 使用言語
-Pythonをよく使う。特に、scikit-learn, TensorFlow, Keras, PyTorchといったライブラリを用いた機械学習が得意。PandasやMongoDBといったデータ処理用のライブラリも使ったりする。\
-C++はあまり好きではない。低レベルに触る時にはCで書く。\
-LaTeXもちょっとできる。クラスファイルを自作できるくらい。\
-*日本語をたくさん、英語をちょっと話す。*
+* Pythonをよく使う。特に、scikit-learn, TensorFlow, Keras, PyTorchといったライブラリを用いた機械学習が得意。\
+PandasやMongoDBといったデータ処理用のライブラリも使ったりする。\
+[Shougo](https://github.com/Shougo)さんのVimプラグインが心底お気に入りなので最近[Defx.nvim](https://github.com/Shougo/defx.nvim)のcommitterになった。
+
+* C,C++を書ける。あまり書かないが。\
+
+* LaTeXがちょっとできる。クラスファイルを自作できるくらい。\
+
+* HTML,CSS,JavaScriptの文法がわかる。1からウェブページを作るのは骨が折れるが、すでにあるサイトを軽く修正したりすることができる。
 
 ### 作ったもの
-[太鼓の達人自動作譜AI](../../blog/taiko-jp)（[英語記事](https://medium.com/datadriveninvestor/automatic-drummer-with-deep-learning-3e92723b5a79)）\
-[京大空き教室リスト](../../blog/akikyoshitsu)（手元にはあるが、大学のデータなので一応非公開。京大生の人は記事を参考にすると簡単にできるので試してください）\
-[英文履歴書 (Resume)](/latex/Resume.pdf)：
-LaTeX製。[ソースファイルはこちらの記事で](../../blog/tex-resume-class)
+* [太鼓の達人自動作譜AI](https://woodyzootopia.github.io/2018/07/01/cnnで太鼓の達人の譜面を自動生成するプログラムを書いた/)（[英語記事](https://medium.com/datadriveninvestor/automatic-drummer-with-deep-learning-3e92723b5a79)）\
+* [京大空き教室リスト](https://woodyzootopia.github.io/2018/12/01/大学の空き教室を自動で算出してくれるプログラムを書いた/)（手元にはあるが、大学のデータなので一応非公開。京大生の人は記事を参考にすると簡単にできるので試してください）\
+* [英文履歴書 (Resume)](/latex/Resume.pdf)：
+LaTeX製。[ソースファイルはこちらの記事で](https://woodyzootopia.github.io/2018/12/01/latexで誰でも簡単に英文履歴書が作れるクラスを作った/)
 
 ### 略歴
 地元の公立中、広島大学附属高等学校卒\

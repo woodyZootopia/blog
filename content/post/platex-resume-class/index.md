@@ -2,7 +2,7 @@
 title: "LateXで誰でも簡単に英文履歴書が作れるクラスを作った"
 date: 2018-12-01T21:17:53-05:00
 description: "クラスファイルはダウンロード可・再利用自由なのでお使いください。"
-banner: "img/スクリーンショット 2018-12-01 23.12.21.png"
+banner: "banners/platex-resume-class.png"
 disable_comments: false # Optional, disable Disqus comments if true
 # authorbox: true # Optional, enable authorbox for specific post
 # mathjax: true # Optional, enable MathJax for specific post
@@ -15,9 +15,11 @@ tags:
 ---
 
 # 完成品
-[こんな感じ](/latex/Resume.pdf)で、ソースファイルは[これ](/latex/source-resume.tar.gz)
+![こんな感じ](Resume.pdf)で、ソースファイルは[これ](source-resume.tar.gz)\
+なお、pLaTeXのみ対応。それ以外の場合修正が必要かも。
 
-落としたソースファイルを適当に改造しながら使ってくれたらいいんだけど、せっかくなのでクラスファイルについて少し解説。
+# 解説
+落としたソースファイルを適当に改造しながら使ってくれたらいいのだけど、せっかくなのでクラスファイルについて少し解説をば。
 
 クラスファイルはちょっと命令の名前が違ったりするけど、ほかは大体いつもの.texファイルと一緒なので扱いやすい。\
 読めば何となく分かると思うので、なんとなくじゃわかりそうにないところを解説する。
