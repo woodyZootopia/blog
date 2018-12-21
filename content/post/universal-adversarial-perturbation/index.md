@@ -14,21 +14,18 @@ tags:
   - "CNN"
   - "adversarial example"
 # menu: main # Optional, add page to a menu. Options: main, side, footer
-disable_profile: true
 ---
 
 
-## arXiv:1610.08401v3
-
-1. 論文の概要
+# 論文の概要
 
   * DNNに対して、画像によらず・大きさも小さいノイズ(perturbation)を加えることでClassificationを騙すという手法の提案。また、様々なNNの構造に対しても同様に有効であることがわかり、これはすなわち様々なClassifierの高次元における分別境界にある種の相関があることを示しており、ある単一のノイズ画像が様々なclassifierを騙せてしまう可能性を示唆する。
 
-2. 問題設定と解決した点（先行研究と比べてどこが凄い？）
+# 問題設定と解決した点（先行研究と比べてどこが凄い？）
 
   * 画像とNNの性質を知っているときに、わずかに画像にノイズを加えて騙す手法は知られていた。この論文では画像・NNの構造にindependentなperturbationを提案。
 
-3. 技術や手法のキモ
+# 技術や手法のキモ
 
   * そのようなpertubationを見つけるために、勾配降下法チックなiterationをする。
   * もし$x+v$で騙せていないなら、一番近い境界に新たな$\Delta v$を設定。
@@ -37,7 +34,7 @@ disable_profile: true
 
   * ![Adversarial perturbationを足した結果。人間の目にはほとんど違いがわからないがCNNにとっては大問題](ScreenShot 12.png)
 
-4. 主張の有効性検証
+# 主張の有効性検証
 
   * VGG,GoogLeNet,ResNet-152のような有名なネットの多くで訓練に使っていないvalidation dataにおいても８０％前後以上の「だませた」率を達成。
   * あるネットで訓練したperturbationで他のネットを騙そうとしてみたところ、もちろん上ほどの性能は出なかったが、とくにVGG-19に対して訓練したものは他のものに対しても53%以上騙せている。本論文のperturbationはある程度モデルに対してもuniversal/independentであることが示唆される。
@@ -61,19 +58,19 @@ disable_profile: true
   [^2]:使われている画像はImageNetのものなので、画像サイズは少なくとも2000次元よりは大きいと思われる。
 
 
-5. 議論すべき点
+# 議論すべき点
 
   * グラフのハブになってるラベルは、大きい領域とは限らないのでは？例えば、タコの足のようにいろんな場所に伸びてる領域とかもありえそう。それか、今回のuniversal perturbationってすなわち画像をぜんぶ平行移動させるわけだから、むしろ平たい領域と考えるのが妥当なのでは。いずれにせよ仮説だしなにも検証してないのでただの妄想だが。
   * 勾配降下法チックなやり方かと思ったら、各iterationで、一番近い境界の方向に拘束条件の中で**進めるだけ進める**ようなアルゴリズムになっていた。過学習の可能性あるのでは？でもバリデーションデータではうまくいってるから問題はないのか？
 
-6. 次に読むべき論文は？
+# 次に読むべき論文は？
 
   * 実を言うとUniversal Perturbation Attack Against Image Retrieval (arXiv:1812.00552v1)を読んでいたところこの論文が参考文献に上がっていたので先に読んだ。後でこれを読みたい。
 
-7. 参考文献
+# 参考文献
   * [11]Deepfool: a simple and accurate method to fool deep neural networks: 更新アルゴリズムを効率的にするためにこれで提案された近似法が使われた。
 
-8. 補足（Appendix）
+# 補足（Appendix）
   * Adversarial Exampleについて事前に理解しておくと読みやすいと思う。
 
 以上です
