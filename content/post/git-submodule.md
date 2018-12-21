@@ -5,6 +5,7 @@ description: "git submoduleってなんで便利なのか、例とともに解�
 # banner:"/img/some.png"
 # lead: "Example lead - highlighted near the title"
 # disable_comments: true # Optional, disable Disqus comments if true
+disable_profile: true # no one wants to see my profile while reading articles
 # authorbox: true # Optional, enable authorbox for specific post
 # mathjax: true # Optional, enable MathJax for specific post
 categories:
@@ -31,7 +32,7 @@ git submoduleとは、「**gitディレクトリに親子/参照関係をもた�
 https://github.com/woodyZootopia/blog \
 上のリンクを開いてもらうと、`public`ディレクトリと`themes/hugo-icarus-theme`ディレクトリのあとに@がついているが、これらがsubmoduleとなっている。
 
-## 1. 他のリポジトリの中身を参照する場合
+## 他のリポジトリの中身を参照する場合
 
 例えば、あなたが作ろうとしているリポジトリで、すでに存在するリポジトリを利用したくなったとする。 さて、どのように管理するのが良いだろうか。
 
@@ -65,7 +66,11 @@ git submodule add git@github.com:digitalcraftsman/hugo-icarus-theme.git
 
 バージョン指定の変更・アップデートについてはここでは割愛する。
 
-## 2. 公開用リポジトリを内部に作る場合
+### 2018-12-20追記
+このテーマは2年間以上更新されておらず、自分の求める機能で実装されていないものがたくさんあった。\\
+そのため、現在はこのリポジトリをフォークし、独自の実装をしているため、[そちら](https://github.com/woodyZootopia/hugo-icarus-theme)を参照するようになっている。
+
+## 公開用リポジトリを内部に作る場合
 
 ~~正直、上の例が大多数を占めると思うのだが、一応紹介しておく。~~\
 自分のリポジトリではpublicディレクトリがいい例だろう。
@@ -73,8 +78,8 @@ git submodule add git@github.com:digitalcraftsman/hugo-icarus-theme.git
 自分のブログは[Hugo](https://gohugo.io)という静的サイト生成ソフトで作られている。\
 また、[github.io](https://pages.github.com)でホスティングされている。これは、自分のgithub usernameのリポジトリ( https://github.com/woodyZootopia/woodyZootopia.github.io )を作り、そこにpushすると自動でブログが公開されるという仕組みになっている。
 
-しかし、Hugoは完成したサイトを自分の直下のpublicディレクトリに投げる。そこで、publicディレクトリが**実はusernameリポジトリである**ようにしたい。\
-**これはまさに、submoduleの出番である。**
+しかし、Hugoは完成したサイトを自分の直下のpublicディレクトリに投げる。\
+そこで、publicディレクトリが**実はusernameリポジトリである**ようにしたい。**これはまさに、submoduleの出番である。**
 
 具体的な手順としては、
 
@@ -97,7 +102,7 @@ git push origin master
 cd ..
 ```
 
-みたいな感じのシェルスクリプトでも書いておけば、**これを実行するだけで**ブログが更新される。\
+みたいな感じのシェルスクリプトでも書いておけば、これを実行するだけでブログが更新される。\
 これをもう少しいい感じにしたものが、`deploy.sh`である。ご確認いただきたい。\
 
 というわけでこの記事を書き終わった自分は、`./deploy.sh`だけで更新を済ませてしまう。かんたんかんたん♫\

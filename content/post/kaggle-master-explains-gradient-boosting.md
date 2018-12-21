@@ -3,7 +3,8 @@ title: "Kaggle Masterが勾配ブースティングを解説するよ"
 date: 2018-10-29T10:49:58-05:00
 description: "他人が書いた記事なので言わせてもらいますが、めちゃくちゃわかりやすいのでおすすめです"
 banner : "/img/35067a36-e765-906f-de49-7d8e93e071c5.png"
-# disable\_comments: false # Optional, disable Disqus comments if true
+# disable_comments: false # Optional, disable Disqus comments if true
+disable_profile: true # no one wants to see my profile while reading articles
 # authorbox: true # Optional, enable authorbox for specific post
 toc: false # Optional, enable Table of Contents for specific post
 categories:

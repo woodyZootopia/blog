@@ -5,6 +5,7 @@ description: "Qiitaからの移植記事です。どっちもMarkdownなので�
 # thumbnail: "img/placeholder.jpg" # Optional, thumbnail
 # lead: "Example lead - highlighted near the title"
 # disable_comments: false # Optional, disable Disqus comments if true
+disable_profile: true # no one wants to see my profile while reading articles
 # authorbox: true # Optional, enable authorbox for specific post
 # toc: false # Optional, enable Table of Contents for specific post
 # mathjax: true # Optional, enable MathJax for specific post

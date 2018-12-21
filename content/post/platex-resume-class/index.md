@@ -4,6 +4,7 @@ date: 2018-12-01T21:17:53-05:00
 description: "クラスファイルはダウンロード可・再利用自由なのでお使いください。"
 banner: "banners/platex-resume-class.png"
 disable_comments: false # Optional, disable Disqus comments if true
+disable_profile: true # no one wants to see my profile while reading articles
 # authorbox: true # Optional, enable authorbox for specific post
 # mathjax: true # Optional, enable MathJax for specific post
 categories:

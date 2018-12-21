@@ -4,6 +4,7 @@ date: 2018-12-01T10:49:58-05:00
 description: "または私はいかにして中間ファイルについて心配するのをやめてコマンドラインでのlatexを愛するようになったか"
 # thumbnail: "img/placeholder.jpg" # Optional, thumbnail
 # disable_comments: false # Optional, disable Disqus comments if true
+disable_profile: true # no one wants to see my profile while reading articles
 # authorbox: true # Optional, enable authorbox for specific post
 toc: false # Optional, enable Table of Contents for specific post
 # mathjax: true # Optional, enable MathJax for specific post

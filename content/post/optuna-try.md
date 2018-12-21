@@ -5,6 +5,7 @@ description: "Optunaのハイパーパラメータ探索の様子をMatplotlib�
 # banner:"/img/some.png"
 # lead: "Example lead - highlighted near the title"
 # disable_comments: true # Optional, disable Disqus comments if true
+disable_profile: true # no one wants to see my profile while reading articles
 # authorbox: true # Optional, enable authorbox for specific post
 # mathjax: true # Optional, enable MathJax for specific post
 categories:
@@ -12,14 +13,17 @@ categories:
 tags:
   - "Optuna"
 # menu: main # Optional, add page to a menu. Options: main, side, footer
+disable_profile: true
 ---
+
+# まえがき
 
 PFNが数日前に[Optuna](https://research.preferred.jp/2018/12/optuna-release/)というハイパーパラメータ探索ライブラリを公開した。\
 早速大人気で、いくつも"試してみた"記事が上がっており、いつもすごいスピードで記事をアップしていることで個人的に尊敬しているkoshianさんも[記事をアップしている](https://qiita.com/koshian2/items/1c0f781d244a6046b83e)。
 
 この記事を補完する形で、Optunaのハイパーパラメータの探索の様子を見てみたい。
 
-## 色付きハイパーパラメータプロット
+# 色付きハイパーパラメータプロット
 
 *以下コードは、こしあんさんの記事の続きです。こしあんさんの記事または[こちら](/python/optuna-koshian-reference.py)のコードを読んでから入ってください。*\
 
@@ -95,7 +99,7 @@ for i in range(100):
 
 こうなる。
 
-## 考察
+# 考察
 
 自分の環境では100回探索を回した結果が `{'svr_c': 16.532580995628685, 'epsilon': 1.4363161046754174}` だったので、たしかにただの線形探索ではなくいい感じの場所を重点的にチェックしているのが確認できる。\
 
