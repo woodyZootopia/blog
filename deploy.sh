@@ -1,5 +1,5 @@
 #!/bin/bash
-cp ./static/img/logo.png ./themes/hugo-icarus-theme/static/css/images/logo.png #overwrite with my logo
+cp ./static/img/logo2.jpg ./themes/hugo-icarus-theme/static/css/images/logo.jpg #overwrite with my logo
 if [ $# -eq 1 -a "$1" = "-f" ]
     then rm -rf public/*
 fi
