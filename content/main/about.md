@@ -1,4 +1,3 @@
----
 title: "About Me"
 date: 2018-12-01T18:23:12-05:00
 menu: "main"
@@ -29,6 +28,7 @@ PandasやMongoDBといったデータ処理用のライブラリも使ったり�
   * [Hugo](https://gohugo.io/)でビルドされており、[github.io](https://pages.github.com/)でホスティングされている。\
   * [Icarus](https://github.com/digitalcraftsman/hugo-icarus-theme)というブログ用テーマを使っているが、これは数年前から更新が途絶えており、自分の欲しい機能がなかったため[フォークして改造し](https://github.com/woodyZootopia/hugo-icarus-theme)ながら使っている。\
      * 特に、左に出ているプロフィールを消しても本文がその分のスペースを広く使わないのが致命的だったので直した。ディスプレイの大きいデバイスで記事でを開くと本文が広くなっているのが確認できると思う。
+  * MITライセンスで公開しているので使いたい人がいたらどうぞ。
 
 ### 略歴
 地元の公立中、広島大学附属高等学校卒\

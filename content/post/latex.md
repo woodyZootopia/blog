@@ -1,5 +1,5 @@
 ---
-title: "Latexでpdfファイル『だけ』を手に入れるためのオレオレ快適設定"
+title: "コマンドラインのLatexでpdfファイルだけを手に入れる快適設定"
 date: 2018-12-01T10:49:58-05:00
 description: "または私はいかにして中間ファイルについて心配するのをやめてコマンドラインでのlatexを愛するようになったか"
 # thumbnail: "img/placeholder.jpg" # Optional, thumbnail
