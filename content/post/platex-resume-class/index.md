@@ -1,5 +1,5 @@
 ---
-title: "LateXで誰でも簡単に英文履歴書が作れるクラスを作った"
+title: "LateXで英文履歴書を作る"
 date: 2018-12-01T21:17:53-05:00
 description: "クラスファイルはダウンロード可・再利用自由なのでお使いください。"
 banner: "banners/platex-resume-class.png"

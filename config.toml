@@ -14,16 +14,16 @@ theme = "hugo-icarus-theme"
 
 
 [permalinks]
-    post = "/:year/:month/:day/:slug"
+    post = "/:year/:month/:slug"
 
 
 [params]
     # Tell me who you are
     author = "Woody"
-    bio = "A hard game lover at University of Waterloo"
+    bio = "A hard game lover"
     location = "Waterloo, Ontario"
     site_description = "カナダ留学中の大学生が徒然なるままに書き綴ります。備忘録・技術記事・日常の記録など"
-    copyright  = "Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) except for citation."
+    copyright  = "Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) for my own creation"
     avatar = "/img/midna2.jpg"
     # Enter your email address to display your Gravatar icon in the profile. If not set the theme
     # will fallback to the avatar.
