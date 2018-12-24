@@ -11,13 +11,16 @@ footnotereturnlinkcontents = "↩"
 theme = "hugo-icarus-theme"
 # Comment the themesDir option if you use this theme in production
 #themesDir = "../.."
-
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsUseClasses = true
 
 [permalinks]
     post = "/:year/:month/:slug"
 
 
 [params]
+
     # Tell me who you are
     author = "Woody"
     bio = "A hard game lover"
@@ -39,7 +42,7 @@ theme = "hugo-icarus-theme"
 
     # Add custom assets with their paths relative to the static folder
 	custom_css = []
-	custom_js  = []
+	custom_js  = ['javascript/code_prettify.js']
 
 # Create custom menu entries by defining a label and a link for
 # them. Since you can also link posts, you've the option the

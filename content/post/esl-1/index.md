@@ -1,6 +1,6 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
+title: "Esl 1練習問題"
+date: 2018-12-23T20:37:08-05:00
 # description: "Example article description"
 # banner:"/img/some.png"
 # lead: "Example lead - highlighted near the title"
@@ -20,3 +20,4 @@ tags:
   - "shell"
 # menu: main # Optional, add page to a menu. Options: main, side, footer
 ---
+
