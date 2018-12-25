@@ -42,7 +42,7 @@ pygmentsUseClasses = true
 
     # Add custom assets with their paths relative to the static folder
 	custom_css = []
-	custom_js  = ['javascript/code_prettify.js']
+	# custom_js  = ['javascript/mathjax-markdown-solution.js']
 
 # Create custom menu entries by defining a label and a link for
 # them. Since you can also link posts, you've the option the

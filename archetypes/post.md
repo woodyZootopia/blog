@@ -15,6 +15,7 @@ categories:
   - "翻訳記事"
   - "論文"
   - "備忘録"
+  - "数学"
 tags:
   - "Latex"
   - "shell"

@@ -86,7 +86,7 @@ latexmkandfetchpdfは、latexmkを実行したあとfetchlatexpdfを実行しま
 
 ## 2018-12-20追記
 自分がfishを使い始めたのでfish版も作りました。ついでに引数の個数のチェックもつけた豪華版です。
-```
+```fish
 # 以下を、~/.config/fish/config.fishに追記
 function fetchlatexpdf
   if test (count $argv) -ne 1

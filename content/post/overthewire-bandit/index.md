@@ -88,7 +88,9 @@ Macの人は(OverTheWireサーバじゃなくて)手元でこれを実行する�
 [^4]:brewとかで別のコマンドを入れて、そちらを優先するようにPATHを設定したらその限りではないですが
 
 ## Level 6 to 7
-`find / -user bandit7 -group bandit6 -size 33c 2> /dev/null`
+```
+find / -user bandit7 -group bandit6 -size 33c 2> /dev/null
+```
 
 問題文の条件的には`find / -user bandit7 -group bandit6 -size 33c`だけでいいんですけど、`Permission denied`警告がたくさん出て鬱陶しいです。
 
@@ -102,7 +104,9 @@ Macの人は(OverTheWireサーバじゃなくて)手元でこれを実行する�
 `cat data.txt | grep millionth`でも良し。
 
 ## Level 8 to 9
-`sort data.txt | uniq -u`
+```
+sort data.txt | uniq -u
+```
 
 `uniq`は名前から受ける印象とは異なり**隣り合った行が一緒なら削る**という仕様なので、先にソートしてやる必要があります。
 
@@ -165,7 +169,9 @@ Level 13に書いてあったようにこのLevelのパスワードは`/etc/band
 `ssh bandit18@bandit.labs.overthewire.org -p 2220 "cat .bashrc"`で。
 
 ## Level 19 to 20
-`./bandit20-do cat /etc/bandit_pass/bandit20`\
+```
+./bandit20-do cat /etc/bandit_pass/bandit20
+```
 
 ちなみに、`ls -l`で
 ```
