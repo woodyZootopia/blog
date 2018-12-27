@@ -22,14 +22,16 @@ tags:
 見て（聴いて？）もらうと早いと思います。これは今回作ったモデルで生成した譜面を太鼓さん次郎2で演奏したものです。
 
 米津玄師さんの「ピースサイン」：
-<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="ja" dir="ltr">「音楽から全自動で太鼓の達人の譜面を作るAI」を作りました<br><br>またいつか解説記事書きます <a href="https://t.co/IW6qrd9knS">pic.twitter.com/IW6qrd9knS</a></p>&mdash; うっでぃ (@woodyOutOfABase) <a href="https://twitter.com/woodyOutOfABase/status/1018708633511575553?ref_src=twsrc%5Etfw">July 16, 2018</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="ja" dir="ltr">「音楽から全自動で太鼓の達人の譜面を作るAI」を作りました<br><br>またいつか解説記事書きます <a href="https://t.co/IW6qrd9knS">pic.twitter.com/IW6qrd9knS</a></p>&mdash; うっでぃ (@woodyOutOfABase) <a href="https://twitter.com/woodyOutOfABase/status/1018708633511575553?ref_src=twsrc%5Etfw">July 16, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 UndertaleよりToby Foxさんの"Your Best Nightmare"
-
-<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="und" dir="ltr"><a href="https://twitter.com/no_TL?ref_src=twsrc%5Etfw">@no_TL</a> <a href="https://t.co/UW5ntQg0KC">pic.twitter.com/UW5ntQg0KC</a></p>&mdash; うっでぃ (@woodyOutOfABase) <a href="https://twitter.com/woodyOutOfABase/status/1020254442908610561?ref_src=twsrc%5Etfw">July 20, 2018</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="und" dir="ltr"><a href="https://twitter.com/no_TL?ref_src=twsrc%5Etfw">@no_TL</a> <a href="https://t.co/UW5ntQg0KC">pic.twitter.com/UW5ntQg0KC</a></p>&mdash; うっでぃ (@woodyOutOfABase) <a href="https://twitter.com/woodyOutOfABase/status/1020254442908610561?ref_src=twsrc%5Etfw">July 20, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 kinonoさんの"piano song":
-<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="und" dir="ltr"><a href="https://twitter.com/no_TL?ref_src=twsrc%5Etfw">@no_TL</a> <a href="https://t.co/TDcN9IiJHM">pic.twitter.com/TDcN9IiJHM</a></p>&mdash; うっでぃ (@woodyOutOfABase) <a href="https://twitter.com/woodyOutOfABase/status/1020254846648139776?ref_src=twsrc%5Etfw">July 20, 2018</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="und" dir="ltr"><a href="https://twitter.com/no_TL?ref_src=twsrc%5Etfw">@no_TL</a> <a href="https://t.co/TDcN9IiJHM">pic.twitter.com/TDcN9IiJHM</a></p>&mdash; うっでぃ (@woodyOutOfABase) <a href="https://twitter.com/woodyOutOfABase/status/1020254846648139776?ref_src=twsrc%5Etfw">July 20, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 https://www.youtube.com/watch?v=RS7AV-J0VMg
 

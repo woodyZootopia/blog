@@ -1,5 +1,5 @@
 ---
-title: "ESL（カステラ本）二章を読んだ"
+title: "ESL（カステラ本）三章を読んだ"
 date: 2018-12-24T21:38:07-05:00
 description: "Pythonコードを交えた備忘録。"
 # banner:"/img/some.png"
@@ -44,9 +44,9 @@ $$
 とする。
 
 なお、行列のみ太字になっているかと思えば教科書ではそうでない箇所もある。よくわからない。データだとベクトルでも太字になるということかも。
-# コード
-本文中の前立腺がんの検診データをSklearnを用いて学習するコードを付しておく[^not exist]。
-[^not exist]: Sklearnによる実装がなかったものはなし。
+
+また、本文中の前立腺がんの検診データをSklearnを用いて学習するコードを付しておく[^not exist]。
+[^not exist]: Sklearnによる実装がなかったものはなし。おもにSubset Selectionが相当するが、これには本文中に擬似コードがついているのでわかると思う。
 特徴量9次元、データ数97のこぢんまりとしたデータセットだ。
 
 下準備:
@@ -69,8 +69,8 @@ X_train,X_val,Y_train,Y_val=train_test_split(X_train,Y_train,test_size=0.1)
 * $\beta$を制約する
 * データ$X$を制約する
 
-である。\
-3.3,3.4は前者を、3.5は後者を考察している。2章の目玉はだいたいこれ。
+である。2章の目玉はだいたいこれ。\
+3.3,3.4は前者を、3.5は後者を考察している。
 
 # $\beta$の制約
 ## Subset Selection
@@ -80,9 +80,10 @@ $\beta$からうまく一部を選ぶ、言い換えれば残りの$\beta$を0�
 ### Forward-Stepwise Selection, Backward-Stepwise Selection
 $\beta_0$のみの状態から最もLossを減少させるような$\beta$を選び、それを加えて回帰。この際以前に加えた$\beta$も修正する。Backward-Stepwise Selectionは、逆にすべて加えている状態から削っていく。
 ### Forward-Stagewise Selection
-Forward-Stepwise Selectionと大体一緒だが、新たな$\beta$を加えても以前の$\beta$を修正しない。これを修正した方法であるIncremental Forward Stagewise Regression(3.8.1)は高次元において強力。
+Forward-Stepwise Selectionと大体一緒だが、新たな$\beta$を加えても以前の$\beta$を修正しないという制約付き。これを修正した方法であるIncremental Forward Stagewise Regression(3.8.1)は高次元において強力。
 #### Incremental Forward Stagewise Regression
 全ての$\beta$が0のところから初めて、「もし動かしたならば、最もLossを減少させる$\beta$」を少しだけいじることを繰り返す。
+![使う$\beta$を増やしていったときのRSSの現象具合。Forward-Stagewiseはなかなか減少していないのがわかる。](ScreenShot.png)
 ## Shrinkage
 
 $$
@@ -131,7 +132,6 @@ $$
 \hat { \beta } ^ { \text { ridge } } = \left( \mathbf { X } ^ { T } \mathbf { X } + \lambda \mathbf { I } \right) ^ { - 1 } \mathbf { X } ^ { T }  y 
 $$
 
-#### コード
 ```python
 from sklearn.linear_model import Ridge
 clf=Ridge(alpha=0.5) #alpha corresponds to lambda
@@ -146,7 +146,6 @@ $$
 $$
 を最小化する。
 
-#### コード
 ```python
 from sklearn.linear_model import Lasso
 clf=Lasso(alpha=1) #alpha corresponds to lambda
@@ -158,7 +157,7 @@ print('validation error:', np.mean((clf.predict(X_val)-np.array(Y_val))**2))
 ### 一般化
 Ridge回帰、Lassoは損失関数に
 $$
-\sum _ { j = 1 } ^ { p } \beta _ { j } ^ q
+\sum _ { j = 1 } ^ { p } \left| \beta _ { j } \right| ^ q
 $$
 を加えていると考えることができよう。Ridge回帰は$q=2$,Lassoは$q=1$だ。\
 qを1や2以外にして一般化を考えたくなるが、
@@ -174,7 +173,6 @@ $$
 $$
 のように重み付き和で *間を取る* ことが多い。これを**Elastic Net**という。
 
-#### コード
 ```python
 from sklearn.linear_model import ElasticNet
 clf=ElasticNet(alpha=1.0, l1_ratio=0.5)
@@ -189,7 +187,6 @@ print('validation error:', np.mean((clf.predict(X_val)-np.array(Y_val))**2))
 # Xの制約
 ## Principal Components Regression
 $M$個の主成分$\mathbf{Z}\_m$($M<p$)で線形回帰する。特に、これら$z$はそれぞれ直行しているので、それぞれについて単回帰してやって求めた$\beta$を足せばよい。SVDについては先ほども挙げたが[以前書いた記事](https://woodyzootopia.github.io/2018/12/%E5%83%95%E3%81%8C%E6%AC%A1%E3%81%AB%E9%81%8A%E3%81%B6%E3%81%B9%E3%81%8D%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%92%E3%83%87%E3%83%BC%E3%82%BF%E3%81%8B%E3%82%89%E6%8E%A2%E3%81%9D%E3%81%86-%E7%B6%9A/)が参考になるかもしれない。
-### コード
 ```python
 from sklearn.decomposition import TruncatedSVD
 from sklearn.linear_model import LinearRegression
@@ -201,11 +198,11 @@ clf.fit(Z_train,Y_train)
 print('training   error:', np.mean((clf.predict(Z_train)-np.array(Y_train))**2))
 print('validation error:', np.mean((clf.predict(Z_val)-np.array(Y_val))**2))
 ```
-単回帰によって求められる係数$\hat{\theta}$が重回帰のそれと一致していることは
+単回帰によって求められる係数$\hat{\theta}$は
 $$
 \hat { \theta } _ { m } = \frac {\left\langle  z  _ { m } ,  y  \right\rangle}  {\left\langle  z  _ { m } ,  z  _ { m } \right\rangle}
 $$
-でかけ、次のコードで確かめられる:
+でかけ、これが重回帰のそれと一致していることは次のコードで確かめられる:
 ```python
 theta = [np.dot(Y_train,Z_train[:,m]) / np.dot(Z_train[:,m],Z_train[:,m]) for m in range (clf.coef_.shape[0])]
 theta = [round(item,9) for item in theta]
