@@ -159,15 +159,16 @@ Ridge回帰、Lassoは損失関数に
 $$
 \sum _ { j = 1 } ^ { p } \left| \beta _ { j } \right| ^ q
 $$
-を加えていると考えることができよう。Ridge回帰は$q=2$,Lassoは$q=1$だ。\
+という**正則化項**を加えていると考えることができよう。Ridge回帰は$q=2$,Lassoは$q=1$だ。\
 qを1や2以外にして一般化を考えたくなるが、
 
-1. $q=1$であるLassoは微分値が$\beta$に非依存であり、$\beta$をゼロにしようという力が働くので嬉しい。
-  * 当然、$q$を1より大きくするとこの効果が失われてしまう。
-2. $q<1$では非凸なので解きづらい
+1. $q=1$であるLassoは正則化項の微分値が$\beta$に非依存であり、$\beta$をゼロにしようという力が働くので嬉しい。
+  * なぜ嬉しいかというと、少ない変数で説明がされるようになるため。「これとそれと、あれとあれがちょっとずつ影響を及ぼしています」より「これとこれでほとんど決まっています(ｷﾘｯ」と説明されたほうがわかりやすく、そこから仮説などを引き出すことが容易。
+  * 当然、$q$を1より大きくするとこの効果は失われてしまう。
+2. $q<1$は非凸という性質を持つので解きづらい。
 
 という問題が有るため、実際には難しい。\
-例えば *Ridge回帰とLassoの間を取ろう* と思ったら
+なので、例えばRidge回帰とLassoの *間を取ろう* と思ったら
 $$
 \lambda \sum _ { j = 1 } ^ { p } \left( \alpha \beta _ { j } ^ { 2 } + ( 1 - \alpha ) \left| \beta _ { j } \right| \right)
 $$
@@ -182,11 +183,11 @@ print('validation error:', np.mean((clf.predict(X_val)-np.array(Y_val))**2))
 ```
 
 ### Least Angle Regression
-説明が面倒なので省略。
+省略。
 
 # Xの制約
 ## Principal Components Regression
-$M$個の主成分$\mathbf{Z}\_m$($M<p$)で線形回帰する。特に、これら$z$はそれぞれ直行しているので、それぞれについて単回帰してやって求めた$\beta$を足せばよい。SVDについては先ほども挙げたが[以前書いた記事](https://woodyzootopia.github.io/2018/12/%E5%83%95%E3%81%8C%E6%AC%A1%E3%81%AB%E9%81%8A%E3%81%B6%E3%81%B9%E3%81%8D%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%92%E3%83%87%E3%83%BC%E3%82%BF%E3%81%8B%E3%82%89%E6%8E%A2%E3%81%9D%E3%81%86-%E7%B6%9A/)が参考になるかもしれない。
+$M$個の主成分$\mathbf{Z}\_m$($M<p$)で線形回帰する。特に、これら$z$はそれぞれ直行しているので、$y$とそれぞれの$z$について単回帰してやって求めた$\beta$は、全体で線形回帰したときの係数に一致する。SVDについては先ほども挙げたが[以前書いた記事](https://woodyzootopia.github.io/2018/12/%E5%83%95%E3%81%8C%E6%AC%A1%E3%81%AB%E9%81%8A%E3%81%B6%E3%81%B9%E3%81%8D%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%92%E3%83%87%E3%83%BC%E3%82%BF%E3%81%8B%E3%82%89%E6%8E%A2%E3%81%9D%E3%81%86-%E7%B6%9A/)が参考になるかもしれない。
 ```python
 from sklearn.decomposition import TruncatedSVD
 from sklearn.linear_model import LinearRegression
@@ -202,7 +203,7 @@ print('validation error:', np.mean((clf.predict(Z_val)-np.array(Y_val))**2))
 $$
 \hat { \theta } _ { m } = \frac {\left\langle  z  _ { m } ,  y  \right\rangle}  {\left\langle  z  _ { m } ,  z  _ { m } \right\rangle}
 $$
-でかけ、これが重回帰のそれと一致していることは次のコードで確かめられる:
+でかけるので、これが重回帰のそれと一致していることは次のコードで確かめられる:
 ```python
 theta = [np.dot(Y_train,Z_train[:,m]) / np.dot(Z_train[:,m],Z_train[:,m]) for m in range (clf.coef_.shape[0])]
 theta = [round(item,9) for item in theta]
@@ -214,6 +215,6 @@ print(theta)
 [0.00943872, -0.00549022, -0.0190839, 0.01476765, -0.03680412]
 ```
 ## Partial Least Squares
-これも説明が面倒なので省略。
+省略。
 
 終わり
