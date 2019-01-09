@@ -17,7 +17,7 @@ tags:
 
 # TL;DR
 
-Atom用のカラースキーム[flatwhite](https://atom.io/themes/flatwhite-syntax)を[Vim版に移植したもの](https://github.com/kamwitsta/flatwhite-vim)があったが、言語対応が貧弱だったのでフォークしていじった。\
+Atom用のカラースキーム[flatwhite](https://atom.io/themes/flatwhite-syntax)を[Vim版に移植したもの](https://github.com/kamwitsta/flatwhite-vim)があったが、言語対応が貧弱（というかまったく未対応）だったのでフォークしていじった。\
 現状、**Markdown, C, C++, Python, HTML, CSS**に対応。\
 NeoVimでしか試してないですが、多分Vimでも動きます。
 
@@ -67,10 +67,11 @@ colorscheme flatwhite
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 を見てこの**flatwhite**というカラースキームに一目惚れした。シンタックスに応じて背景が変わるので範囲が見やすい上、文字自体の色は変わらない[^genmitsu]ので可読性も高い。ライトテーマであることも高得点[^whylight]。\
-だが、自分は生粋のVimmerなので、**Vim以外のテキストエディタを使うと死んでしまう**。まだ死にたくないので、Vim版を作ることにした。
+だが、自分は生粋のVimmerなので、**Vim以外のテキストエディタを使うと死んでしまう**[^uso]。まだ死にたくないので、Vim版を作ることにした。
 
 [^genmitsu]:厳密には背景の色に合わせて微妙に変わっているがパッと見ではわからない。
 [^whylight]:自分は[Webサイトでわからないことを検索しながらプログラミングする](https://www.google.com/search?client=firefox-b-ab&biw=1280&bih=703&tbm=isch&sa=1&ei=5sg1XOSgEafHjwTR95DYAw&q=Copying+and+Pasting+from+Stack+Overflow+&oq=Copying+and+Pasting+from+Stack+Overflow+&gs_l=img.3..0l3j0i30j0i5i30j0i24l5.31330.31330..31725...0.0..0.65.65.1......1....1j2..gws-wiz-img.ssywnjIJ-fY)ので、多くのウェブサイトの背景色である白に近い方が目に負担がなくて嬉しい。
+[^uso]:Atom版での挙動を確認するためにAtomをインストールしたがそれはそれ。
 
 # 何をしたか
 
@@ -78,7 +79,7 @@ colorscheme flatwhite
 
 * 言語ごとのシンタックスには残念ながらドキュメントがないようだ。[neovim/neovim/tree/master/runtime/syntax(標準の言語シンタックス)](https://github.com/neovim/neovim/tree/master/runtime/syntax) を見て、正規表現からどのシンタックスが自分の塗りたい場所を担当しているのか頑張って調べよう。正規表現はVimの`/`コマンドに直接入力できるので、サンプルコード内をそれで検索すると見つけやすいかも。
 * `s:base1`が標準の黒色、数字が増えるたびに薄くなっていき`s:base7`が背景色。
-* 新たにシンタックスを加える場合、言語間で競合してしまう可能性があることと、既定のシンタックスによる上書きを防ぐため[^uwagaki]、`autocmd`により後出し読込みしている。
+* 新たにシンタックスを加える場合、言語間で競合してしまう可能性があることと、既定のシンタックスによる上書きを防ぐため[^uwagaki]、`autocmd`によりあとで読込みしている。
 
 [^uwagaki]:少なくとも自分の環境においては、[標準の言語シンタックス](https://github.com/neovim/neovim/tree/master/runtime/syntax)が`dein`で読み込まれるカラースキームファイルより後に読み込まれるので、これをしないと競合してしまいうまく働かない。
 
@@ -108,4 +109,7 @@ struct Data {...}
 
 * LaTeXその他の言語に対応していない。とくにLaTeXは本家に合わせるのが面倒そう。
 
-これからも自分の必要に応じて開発していきますが、我こそは、というかたはPRお願いしますm(_ _)m
+これからも自分の必要に応じて開発していきますが、我こそは、というかたはPRお願いしますm(_ _)m\
+質問などあればコメント欄にどうぞ。
+
+（以上）

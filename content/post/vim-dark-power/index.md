@@ -22,13 +22,13 @@ Neovimは後述するリモートプラグインという仕組みを持って�
 # NeoVimのインストール
 
 Macの場合NeoVimはHomebrewを使えば簡単にインストールできる。「Homebrewって何？」という人は次の一行をターミナルで実行してから進んでほしい。Homebrewについて詳しくは[こちら](https://brew.sh)
-```
+```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 これでHomebrewというパッケージマネージャがインストールされる。これをつかってNeoVimをインストールする。
 
-```
+```bash
 brew install neovim
 ```
 
@@ -50,7 +50,7 @@ Mac以外も調べればすぐ出てくると思うので省略する。以降�
 
 ## Pythonの設定
 
-```
+```bash
 # 使っているパッケージマネージャに合わせて次のうちどちらか
 # なお、Pythonは3.6以降を推奨、3以降が必須
 pip3 install neovim
@@ -65,7 +65,7 @@ NeoVimの設定ファイルは`.vimrc`ではなく`~/.config/nvim/init.vim`に�
 
 まずは次の内容をinit.vimにコピペする。
 
-```
+```vim
 "plugin settings
 let s:cache_home = expand('~/.config/nvim')
 let s:dein_dir = s:cache_home . '/dein'
@@ -123,7 +123,7 @@ endif
 
 というわけで、
 
-```
+```toml
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -169,7 +169,7 @@ repo = 'Shougo/neoyank.vim'
 deopleteの方は、インサートモードに入ってから起動するので十分なので、[^1]こちらに書く。
 [^1]:大きなファイルを開いたときなどに、インサートモードに入ってからちょっとの間補完が機能しないという問題はあるが、そこまで大した問題ではない。
 
-```
+```toml
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_source = '''
@@ -240,7 +240,7 @@ neosnippetを使うときは、次の入力場所に移動するときには`Ctr
 
 deopleteはライブラリ補完を標準ではサポートしておらず、追加プラグインを入れる仕組みになっている。どのような言語が対応しているかは[completion sources](https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources)にある。ここではPythonの追加プラグイン[deoplete-jedi](https://github.com/zchee/deoplete-jedi)を入れてみる。
 
-```
+```toml
 [[plugins]]
 repo = 'davidhalter/jedi'
 on_ft = 'python'
