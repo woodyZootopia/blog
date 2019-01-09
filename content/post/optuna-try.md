@@ -67,7 +67,7 @@ plt.yscale('log')
 plt.scatter(df.params.svr_c,df.params.epsilon)
 ```
 でこしあんさんの記事と同じ図をpythonだけで得る。
-![uncolored plot](/img/optuna-parameter-plot.png)
+![uncolored plot](/img/optuna-parameter-plot.jpg)
 
 ここ~~で終わると流石にパクリ記事の誹りを免れないの~~で、matplotlibならではの工夫をしてみたい。\
 matplotlibはプロットするときに色を指定することが可能である。くわしくは[こちらの記事](https://qiita.com/hokekiyoo/items/cea310b2c36a01b970a6)が参考になったので参照されたい。\
@@ -80,7 +80,7 @@ import matplotlib.cm as cm
 for i in range(100):
       plt.scatter(i,1,color=cm.winter(i/100.0))
 ```
-![gradation](/img/gradation-test-plot.png)
+![gradation](/img/gradation-test-plot.jpg)
 
 のように青から黄緑へと変化する。
 
@@ -91,11 +91,11 @@ plt.yscale('log')
 for i in range(100):
       plt.scatter(df.params.svr_c[i],df.params.epsilon[i],color=cm.winter(i/100.0))
 ```
-![colored plot](/img/gradation-parameter-plot.png)
+![colored plot](/img/gradation-parameter-plot.jpg)
 
 また、少し時間はかかるが1000回回すと
 
-![1000 times plot](/img/gradation-plot-1000.png)
+![1000 times plot](/img/gradation-plot-1000.jpg)
 
 こうなる。
 

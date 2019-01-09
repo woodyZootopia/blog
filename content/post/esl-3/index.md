@@ -83,7 +83,7 @@ $\beta_0$のみの状態から最もLossを減少させるような$\beta$を選
 Forward-Stepwise Selectionと大体一緒だが、新たな$\beta$を加えても以前の$\beta$を修正しないという制約付き。これを修正した方法であるIncremental Forward Stagewise Regression(3.8.1)は高次元において強力。
 #### Incremental Forward Stagewise Regression
 全ての$\beta$が0のところから初めて、「もし動かしたならば、最もLossを減少させる$\beta$」を少しだけいじることを繰り返す。
-![使う$\beta$を増やしていったときのRSSの現象具合。Forward-Stagewiseはなかなか減少していないのがわかる。](ScreenShot.png)
+![使う$\beta$を増やしていったときのRSSの現象具合。Forward-Stagewiseはなかなか減少していないのがわかる。](ScreenShot.jpg)
 ## Shrinkage
 
 $$

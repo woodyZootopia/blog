@@ -56,11 +56,11 @@ https://www.youtube.com/watch?v=RS7AV-J0VMg
 ## 前処理（ここは音声処理一般に応用できます）
 まず、音楽データを用意します。
 
-![Figure_1.png](https://qiita-image-store.s3.amazonaws.com/0/102429/5b04bb74-5401-b204-c8a1-e9a7e830e257.png)
+![Figure_1.png](https://qiita-image-store.s3.amazonaws.com/0/102429/5b04bb74-5401-b204-c8a1-e9a7e830e257.jpg)
 
 それを細かい時間（0.01-0.04秒程度、正確には512-2048サンプル）取り出します。下図は512サンプルです。
 
-![Figure_1-2.png](https://qiita-image-store.s3.amazonaws.com/0/102429/0e40a448-d5e8-7c39-eba4-fadad9a9d3fa.png)
+![Figure_1-2.png](https://qiita-image-store.s3.amazonaws.com/0/102429/0e40a448-d5e8-7c39-eba4-fadad9a9d3fa.jpg)
 
 それをフーリエ変換にかけて周波数別の強度を算出します。
 
@@ -74,15 +74,15 @@ https://www.youtube.com/watch?v=RS7AV-J0VMg
 
 さて、この一連の作業を0.01秒ずつ（これも正確には512サンプル）ずらしながら曲全体に対して行います。横軸を時間、縦軸を周波数とすると次のような図が出てきます。
 
-![Figure_1.png](https://qiita-image-store.s3.amazonaws.com/0/102429/b82a0565-dcd5-7d30-eb35-c409724b47d3.png)
+![Figure_1.png](https://qiita-image-store.s3.amazonaws.com/0/102429/b82a0565-dcd5-7d30-eb35-c409724b47d3.jpg)
 
 これをメルスペクトログラムと言います。右端の部分が真っ青になっていますが、これは曲が終わって音が鳴っていないことに対応しています。さて、これでは時間が長すぎて何がなんやらわからないので、もう少し細かくみてみましょう。
 
-![Figure_1-1.png](https://qiita-image-store.s3.amazonaws.com/0/102429/ebd2d668-5ada-5832-d0b3-571304296034.png)
+![Figure_1-1.png](https://qiita-image-store.s3.amazonaws.com/0/102429/ebd2d668-5ada-5832-d0b3-571304296034.jpg)
 
 さらに拡大してみます。
 
-![Figure_1-2.png](https://qiita-image-store.s3.amazonaws.com/0/102429/361c0236-d31f-e186-68a0-03c06562771a.png)
+![Figure_1-2.png](https://qiita-image-store.s3.amazonaws.com/0/102429/361c0236-d31f-e186-68a0-03c06562771a.jpg)
 
 ある程度の時間に渡って強度が高くなり色が赤くなっているのが見て取れますね。この赤くなっているところが音が鳴っているところです。赤くなっているところが時間が立つにつれ上下に変化していたら、それは音の高さが変わっているということです。
 これを「画像」とみなしてCNNで処理してやることでOnset Detectionをしてもらおうっていうのが今回の試みです。
