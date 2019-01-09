@@ -9,7 +9,7 @@ menu: "main"
 PandasやMongoDBといったデータ処理用のライブラリも使ったりする。\
 [Shougo](https://github.com/Shougo)さんのVimプラグインが心底お気に入りなので最近[Defx.nvim](https://github.com/Shougo/defx.nvim)のcontributerを始めた。
 
-* C,C++を書ける。低レベルに触るときなどに書く。\
+* C,C++も好き。低レベルに触るときなどに書く。\
 
 * LaTeXに触ったことがある。クラスファイルを自作できるくらい。\
 
@@ -17,15 +17,16 @@ PandasやMongoDBといったデータ処理用のライブラリも使ったり�
 
 ### 作ったもの
 * [太鼓の達人自動作譜AI](/2018/07/cnnで太鼓の達人の譜面を自動生成するプログラムを書いた/)（[英語の解説記事もあり](https://medium.com/datadriveninvestor/automatic-drummer-with-deep-learning-3e92723b5a79)）
- * DFTで画像化した音楽データをCNNで学習した
+ * DFTで画像化した音楽データをCNNで学習した。\
+ * 音楽データはネットに転がっている譜面付きのもので、実時間に変換して教師データとしてある。
  * キャッチーなテーマだったこともありツイッターでちょっと伸びた\
 <blockquote class="twitter-tweet" data-lang="en"><p lang="ja" dir="ltr">「音楽から全自動で太鼓の達人の譜面を作るAI」を作りました<br><br>またいつか解説記事書きます <a href="https://t.co/IW6qrd9knS">pic.twitter.com/IW6qrd9knS</a></p>&mdash; うっでぃ (@woodyOutOfABase) <a href="https://twitter.com/woodyOutOfABase/status/1018708633511575553?ref_src=twsrc%5Etfw">July 16, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 * [京大空き教室リスト](/2018/12/大学の空き教室を自動で算出してくれるプログラムを書いた/)
  * 京大のウェブサイトを軽くスクレイピングして作った。一般教養科目の授業に使われる「4共」とよばれる建物の空きコマをリストにした。\
- * 手元にはあるが、大学のデータなので一応非公開。京大生の人は記事を参考にすると簡単にできるだろう。
+ * 手元にはあるが、大学のデータなので一応非公開。京大生の人は記事を参考にすると簡単にできるのでお試しあれ。
 * [英文履歴書 (Resume)](/2018/12/latex%E3%81%A7%E8%8B%B1%E6%96%87%E5%B1%A5%E6%AD%B4%E6%9B%B8%E3%82%92%E4%BD%9C%E3%82%8B/Resume.pdf)
-  * LaTeXで作った。
+  * LaTeXで作った。フォーマットなどはクラスファイルに分けて書いてあるので流用・拡張が容易。
   * [ソースファイル・解説はこちらの記事で](/2018/12/latex%E3%81%A7%E8%8B%B1%E6%96%87%E5%B1%A5%E6%AD%B4%E6%9B%B8%E3%82%92%E4%BD%9C%E3%82%8B/)\
 * このウェブサイト
     * [Hugo](https://gohugo.io/)でビルドされており、[github.io](https://pages.github.com/)でホスティングされている。\
