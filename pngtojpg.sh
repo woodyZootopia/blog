@@ -4,15 +4,9 @@
 find content -name '*.png' | while read f
 do
     relfileplace=${f%.*}
-    filename=${relfileplace##*/}
-    absfileplace=`pwd`/${f%.*}
-    absdirplace=${absfileplace%/*}
-    reldirplace=${absdirplace#*blog/}
-    newdirplace=./rawimages/$reldirplace
-
-    mkdir -p "$newdirplace"
-    # echo $newdirplace$filename
-    mv "${absfileplace}.png" "$newdirplace${filename}.png"
+    reldirplace=${relfileplace%/*}
+    mkdir -p ./rawimages/$reldirplace
+    cp "./${relfileplace}.png" "./rawimages/${relfileplace}.png"
 done
 
 # convert to jpg and write them to each directory
@@ -21,7 +15,6 @@ do
     filewithoutext=${f%.*}
     relfileplace=${filewithoutext#*/}
 
-    sips -s format jpeg "./rawimages/${relfileplace}.png" -s formatOptions normal --out "${relfileplace}.jpg"
-    # echo ./rawimages/"$relfileplace".png
-    # echo ${relfileplace}.jpg
+    sips -s format jpeg "./rawimages/${relfileplace}.png" -s formatOptions low --out "./${relfileplace}.jpg"
 done
+
