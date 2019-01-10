@@ -14,8 +14,12 @@ PandasやMongoDBといったデータ処理用のライブラリも使ったり�
 
 * HTML,CSS,JavaScriptの文法がわかる。1からウェブページを作るのは骨が折れるが、すでにあるサイトを軽く修正したりすることができる。
 
+* Gitでバージョンをいじりながら開発できる。下にある[作ったもの](#作ったもの)は全てGitでバージョン管理している。
+
+* 簡単なシェルスクリプトを書ける。このホームページのデプロイ・バックアップ・画像の軽量化・ローカルテストサーバー設定等はシェルスクリプトで自動化されている。
+
 * Vim Scriptの文法がわかる。
-[Shougo](https://github.com/Shougo)さんのVimプラグインが心底お気に入りなので最近[Defx.nvim](https://github.com/Shougo/defx.nvim)のcontributerを始めた。
+[Shougo](https://github.com/Shougo)さんのVimプラグインが心底お気に入りなので最近[Defx.nvim](https://github.com/Shougo/defx.nvim)のcontributerになった。
 
 ### 作ったもの
 * [太鼓の達人自動作譜AI](/2018/07/cnnで太鼓の達人の譜面を自動生成するプログラムを書いた/)（[英語の解説記事もあり](https://medium.com/datadriveninvestor/automatic-drummer-with-deep-learning-3e92723b5a79)）
@@ -43,10 +47,10 @@ PandasやMongoDBといったデータ処理用のライブラリも使ったり�
         * `F{a+b*b} F(2,3)` → $11$
     * 関数内で関数を呼び出すこともできるので、再帰的呼び出しも可能:
         * `F{?(a);F(a*2+3)} F(1)` → $1,5,13,29,61,125,\dots$\
-* カラーテーマ[flatwhite](https://atom.io/themes/flatwhite-syntax)の[Vim移植版,flatwhite-vim](https://github.com/woodyZootopia/flatwhite-vim)
+* カラーテーマ[flatwhite](https://atom.io/themes/flatwhite-syntax)の[Vim移植版・flatwhite-vim](https://github.com/woodyZootopia/flatwhite-vim)
     * **文字色ではなく背景の色を変える**という斬新なカラースキーム。もともとはAtom用に作られたもの。
-    * すでにあったVim移植版は各言語への対応が貧弱だったので、フォークして改造中。
-        * 現状、C,C++,HTML,CSS,Markdown,Pythonといった自分のよく使う言語にはほとんど対応済み。
+    * 現行のVim移植版は各言語への対応が貧弱だったので、フォークして改造中。
+        * 現状、C,C++,HTML,CSS,Markdown,Pythonといった自分のよく使う言語にはほとんど対応済みで、本家とほぼ同じ色描画がなされる。
         * 他の言語にはまだまだ対応していないので、気に入られた方で腕に覚えのある人はプルリクしてください。
     * 解説記事？は[こちら](/2019/01/flatwhite%E3%82%92vim%E3%81%AB%E7%A7%BB%E6%A4%8D%E3%81%97%E3%81%9F%E5%AE%8C%E6%88%90%E3%81%97%E3%81%9F%E3%81%A8%E3%81%AF%E8%A8%80%E3%81%A3%E3%81%A6%E3%81%AA%E3%81%84/)
 
