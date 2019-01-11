@@ -4,7 +4,7 @@ date: 2018-12-01T18:23:12-05:00
 menu: "main"
 ---
 
-### 使用言語
+# 使用言語
 * Pythonをよく使う。特に、scikit-learn, TensorFlow, Keras, PyTorchといったライブラリを用いた機械学習が得意。\
 PandasやMongoDBといったデータ処理用のライブラリも使ったりする。\
 
@@ -21,7 +21,7 @@ PandasやMongoDBといったデータ処理用のライブラリも使ったり�
 * Vim Scriptの文法がわかる。
 [Shougo](https://github.com/Shougo)さんのVimプラグインが心底お気に入りなので最近[Defx.nvim](https://github.com/Shougo/defx.nvim)のcontributerになった。
 
-### 作ったもの
+# 作ったもの
 * [太鼓の達人自動作譜AI](/2018/07/cnnで太鼓の達人の譜面を自動生成するプログラムを書いた/)（[英語の解説記事もあり](https://medium.com/datadriveninvestor/automatic-drummer-with-deep-learning-3e92723b5a79)）
  * DFTで画像化した音楽データをCNNで学習した。\
  * 音楽データはネットに転がっている譜面付きのもので、実時間に変換して教師データとしてある。
@@ -55,19 +55,23 @@ PandasやMongoDBといったデータ処理用のライブラリも使ったり�
     * 解説記事？は[こちら](/2019/01/flatwhite%E3%82%92vim%E3%81%AB%E7%A7%BB%E6%A4%8D%E3%81%97%E3%81%9F%E5%AE%8C%E6%88%90%E3%81%97%E3%81%9F%E3%81%A8%E3%81%AF%E8%A8%80%E3%81%A3%E3%81%A6%E3%81%AA%E3%81%84/)
 
 
-### 略歴
-地元の公立中、広島大学附属高等学校卒\
-2017/4より京都大学工学部電気電子工学科所属\
-2018/9よりUniversity of Waterlooに京都大学からの交換留学により派遣(2019/4まで８ヶ月間)\
-
-京都大学ではESS（英語ディベート）および人工知能研究会(KaiRA)に所属。\
-なので英語をちょっと話せる（TOEFL iBTで106とか。話せるといえば話せるレベル）\
-
-工学が好きで、その中でも特に情報・電子・コンピュータに幅広く興味がある。\
-最近は統計、機械学習、画像処理、音声信号処理、CV、コンピュータネットワーク、低レイヤ実装などなど無節操に手を出している。\
-
-2018/8まで8ヶ月間、画像認識を専門とするベンチャーであるRistでAIプログラマ\
-2018/11よりUWaterlooの自動運転車プロジェクト[WATonomous](https://watonomous.ca)でFPGAエンジニア\
-2018/12より[KIMIA Lab](http://kimia.uwaterloo.ca) Undergraduate Research Assistant
+# 略歴
+* 地元の公立中、広島大学附属高等学校卒
+    * 高校はSSHだったのでいろいろ研究をさせてもらえた。
+        * ルービックキューブに関する論文を書いて京大で発表したり
+        * タイ(TJSSF 2015)で水の浄化に関してポスター発表をしたり
+    * JOI2015/2016本選に出てた。
+* 2017/4より京都大学工学部電気電子工学科
+    * 京都大学ではESS（英語ディベート）および人工知能研究会(KaiRA)に所属。
+        * なので英語をちょっと話せる（TOEFL iBTで106とか）
+    * 2018/8まで8ヶ月間、画像認識を専門とするベンチャーである[Rist](https://www.rist.co.jp/)でAIプログラマ
+        * 詳しくは（たぶん企業秘密なので）書けないが、機械のログから異常のあった時刻を抜き出したり、CNNをつかって異物認識をするプログラムを書いたりしてた。
+        * Ristはその実績を買われたらしく[京セラに買収された](https://prtimes.jp/main/html/rd/p/000000098.000009956.html)のでWebサイトは消えてるかもしれない。
+        * 気のいい人たちばかりで、とてもいい会社でした。
+* 2018/9よりUniversity of Waterlooに京都大学からの交換留学により派遣(2019/4まで、８ヶ月間)
+    * 2018/11よりUWaterlooの自動運転車プロジェクト[WATonomous](https://watonomous.ca)でFPGA Core Engineer
+    * 2018/12より[KIMIA Lab](http://kimia.uwaterloo.ca) Undergraduate Research Assistant
+* 工学が好きで、その中でも特に情報・電子・コンピュータに幅広く興味がある。
+    * 最近でいうと統計、機械学習、画像処理、音声信号処理、CV、コンピュータネットワーク、低レイヤ実装などなど気の向くまま無節操に手を出している。
 
 マシュマロやってます:https://marshmallow-qa.com/woodyoutofabase

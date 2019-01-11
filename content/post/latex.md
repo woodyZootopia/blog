@@ -122,7 +122,7 @@ end
 # 使い方
 ## latexmkandfetchpdf
 すごく長い名前になっていますが、エイリアスしているので、
-```latexmk.sh
+```shell
 latexmk yourthesis.tex
 ```
 をして更新監視モードに入り、Ctrl+cで終了すると、カレントディレクトリにpdfを移しておいてくれます。便利ですね。
