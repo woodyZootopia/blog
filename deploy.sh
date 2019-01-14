@@ -10,3 +10,4 @@ msg="rebuilding site `date`"
 git commit -m "$msg"
 git push origin master
 cd ..
+./backup.sh
