@@ -88,7 +88,7 @@ Macの人は(OverTheWireサーバじゃなくて)手元でこれを実行する�
 [^4]:brewとかで別のコマンドを入れて、そちらを優先するようにPATHを設定したらその限りではないですが
 
 ## Level 6 to 7
-```
+```bash
 find / -user bandit7 -group bandit6 -size 33c 2> /dev/null
 ```
 
@@ -104,7 +104,7 @@ find / -user bandit7 -group bandit6 -size 33c 2> /dev/null
 `cat data.txt | grep millionth`でも良し。
 
 ## Level 8 to 9
-```
+```bash
 sort data.txt | uniq -u
 ```
 
@@ -169,15 +169,15 @@ Level 13に書いてあったようにこのLevelのパスワードは`/etc/band
 `ssh bandit18@bandit.labs.overthewire.org -p 2220 "cat .bashrc"`で。
 
 ## Level 19 to 20
-```
+```bash
 ./bandit20-do cat /etc/bandit_pass/bandit20
 ```
 
 ちなみに、`ls -l`で
-```
+```bash
 -rwsr-x--- 1 bandit20 bandit19 7296 Oct 16 14:00 bandit20-do
 ```
-という結果を得ますが、ご覧の通り4文字目が`x`じゃなくて`s`になってます。`bandit19`グループにも実行権限が有るのですが、これを実行すると所有ユーザ`bandit20`で実行した扱いになります。\
+という結果を得ますが、ご覧の通り4文字目が`x`じゃなくて`s`になってます。これは、`bandit19`グループにも実行権限が有るのですが、これを実行すると所有ユーザ`bandit20`で実行した扱いになるという意味です。\
 （おそらく）`bandit20-do`は、引数のコマンドをただ実行するだけのコマンドなので、結果として`bandit20`として`cat`を実行できます。
 
 ## Level 20 to 21
@@ -230,7 +230,7 @@ cat /tmp/tmp.QJxYrsRJgT
 
 ### 解法2
 デフォルトの書き出し先は他の人と競合するかもしれないので、自分でシェルスクリプトを書いてもいいですね。その場合、`/var/spool/bandit24/sk24/cp24sk.sh`を参考に
-```
+```bash
 echo 'cat /etc/bandit_pass/bandit24 > /tmp/woody_file.txt' > /tmp/woody_script.sh
 chmod 777 /tmp/woody_script.sh
 touch /tmp/woody_file.txt
@@ -248,11 +248,13 @@ cat /tmp/woody_file.txt
 
 ### 解法1
 `nc localhost 30002`でアクセスできるので、先にファイルに10000回分の入力を叩き込んでおいて入力しましょう。\
-**ファイルに追記するには`>>`を使いましょう**。（`>`は毎回消去・上書きを行います）\
+**ファイルに追記するには`>>`を使いましょう**。（`>`が毎回消去新規作成するのに対し、`>>`は、そのファイルが存在していなかった場合のみ作り、存在していたら追記します）\
 標準入力の代わりにファイルを入力させるには`<`を使いましょう。
 
-```
-rm /tmp/woody.txt
+for文の使い方がわからない人はそのへんの記事で調べてください。勘のいい人は↓をいきなり読んでも察せるかもしれません。
+
+```bash
+rm /tmp/woody.txt #誰かが書き込んでいるかもしれないので一旦削除する
 for i in `seq 0 10000`; do printf "<Level 24 password> %04d\n" $i >> /tmp/woody.txt; done
 cat /tmp/woody.txt
 nc localhost 30002 < /tmp/woody.txt > /tmp/answer.txt
@@ -261,16 +263,16 @@ cat /tmp/answer.txt
 
 ### 解法2
 なお、パイプ(|)という「手前のコマンドの標準出力をあとのコマンドの標準入力とする」というものを使えば1行で書けます。スッキリですね。
-```
+```bash
 for i in `seq 0 10000`; do printf "<Level 24 password> %04d\n" $i; done | nc localhost 30002
 ```
 
 ## Level 25 to 26
 sshkey自体はホームに配置されています。しかし[Level 14](#level-13-to-level-14)と同じようにアクセスしようとすると、即座に弾かれます。\
-どのユーザでもいいのでもう一度ログインし、`bandit26`のログインシェルを確認しましょう。\
-`cat /etc/passwd`の結果の、`bandit26`の行の最後にログインシェルが確認できます。
+このレベル以外のどのユーザでもいいのでもう一度ログインし、`bandit26`のログインシェルを確認すると、\
+`cat /etc/passwd`の結果の、`bandit26`の行の最後にいつもとは違うログインシェルが確認できます。
 これは
-```
+```bash
 #!/bin/sh
 
 export TERM=linux
@@ -281,8 +283,8 @@ exit 0
 を実行するというものなので、最後の行の`exit 0`が実行されるまえになんとかしないといいけません。\
 
 この問題、割と悩んだ末に答えを検索したんですが、なんと**ウィンドウの縦幅を狭くする**という解法がポピュラーでした。\
-`more`コマンドは、`less`みたいに表示したあとでファイルの最後まで行くと終了するという`less`と`cat`の中間みたいなやつなのですが[^history]、ウィンドウが狭いと**ファイルの終端にたどり着かないので下にスクロールしない限り終了しません。\
-**この状態で**`v`**を押すとvimが起動するので、**`:set shell=bin/bash`というvimコマンドを入力すればいいです。
+`more`コマンドは、`less`みたいに表示したあとでファイルの最後まで行くと終了するという`less`と`cat`の中間みたいなやつなのですが[^history]、ウィンドウが狭いと**ファイルの終端にたどり着かないので下にスクロールしない限り終了しません。**\
+この状態で**`v`**を押すとvimが起動するので、`:set shell=bin/bash`というvimコマンドを入力すればいいです。
 [^history]:歴史的には`more`が先にあって、その機能強化版として`less`が生まれたらしいです。[参考](https://news.mynavi.jp/itsearch/article/hardware/2077)
 
 いくつか探してみたんですけどどこもこの解法なので**これが想定解法**という可能性までありますね。たまげたなあ……
@@ -331,7 +333,7 @@ Date:   Tue Oct 16 14:00:39 2018 +0200
 
 `fix info leak`……あっ……\
 というわけで、このcommitでパスワードが書かれていたのに気づいて焦って消したと思われますが、その一つ前のコミットに戻ってやればいいですね。
-```
+```shell
 git checkout HEAD^
 cat README.md
 ```
