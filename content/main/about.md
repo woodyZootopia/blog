@@ -5,7 +5,7 @@ menu: "main"
 ---
 
 # 作ったもの
-* [太鼓の達人自動作譜AI](/2018/07/cnnで太鼓の達人の譜面を自動生成するプログラムを書いた/)（[英語の解説記事もあり](https://medium.com/datadriveninvestor/automatic-drummer-with-deep-learning-3e92723b5a79)）
+* [太鼓の達人自動作譜AI](/2018/07/cnnで太鼓の達人の譜面を自動生成するプログラムを書いた/)（[英語の解説記事もあるよ](https://medium.com/datadriveninvestor/automatic-drummer-with-deep-learning-3e92723b5a79)）
     * DFTで画像化した音楽データをCNNで学習した。\
     * 音楽データはネットに転がっている譜面付きのもので、実時間に変換して教師データとしてある。
     * キャッチーなテーマだったこともありツイッターでちょっと伸びた\
