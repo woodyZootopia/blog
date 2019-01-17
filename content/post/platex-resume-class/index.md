@@ -16,7 +16,7 @@ tags:
 ---
 
 # 完成品
-![resume file](resume.pdf)で、ソースファイルは[これ](https://github.com/woodyZootopia/resume)。たまに更新しているので、ここの見た目と少し違うかも。\
+ソースファイルを[ここ](https://github.com/woodyZootopia/resume)にあげてある。PDFは[これ](https://github.com/woodyZootopia/resume/raw/master/resume.pdf)\
 なお、pLaTeXのみ対応。それ以外の場合修正が必要かも。platexのおすすめ設定は[こっちの記事](2018/12/コマンドラインのlatexでpdfファイルだけを手に入れる快適設定/)に書いてるので読んでみてくださいな。
 
 # 解説
