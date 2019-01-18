@@ -2,7 +2,7 @@ baseurl = "https://woodyzootopia.github.io"
 languageCode = "ja-JP"
 title = "うっでぃの雑記帳"
 # Enable comments by entering your Disqus shortname
-disqusShortname = "woody-2"
+disqusShortname = ""
 # Enable Google Analytics by entering your tracking code
 googleAnalytics = "UA-114969766-2"
 # Define the number of posts per page
