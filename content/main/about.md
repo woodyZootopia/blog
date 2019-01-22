@@ -75,7 +75,7 @@ PandasやMongoDBといったデータ処理用のライブラリも使ったり�
 * 2018/9よりUniversity of Waterlooに京都大学からの交換留学により派遣(2019/4まで、８ヶ月間)
     * 留学に際して[フクシマグローバル人材支援財団](https://www.fukushima-global.or.jp/index.html)から奨学金を頂いている。自分は１期生らしい。
         * 関西圏を中心とした特定大学の人のみなど条件が厳しいが、そのことにより倍率がそこまで高くならないことが予想されること、面接会場も大阪であり多くの人にとって金銭的負担が少ないことから、応募できる権利のある人にはおすすめな奨学金である。
-    * 2018/11よりUWaterlooの自動運転車プロジェクト[WATonomous](https://watonomous.ca)でFPGA Core Engineer
+    * 2018/11よりUWaterlooの自動運転車プロジェクト[WATonomous](https://watonomous.ca)でObject Detection Engineer
     * 2018/12より[KIMIA Lab](http://kimia.uwaterloo.ca) Undergraduate Research Assistant
 * 工学が好きで、その中でも特に情報・電子・コンピュータに幅広く興味がある。
     * 最近でいうと統計、機械学習、画像処理、音声信号処理、CV、コンピュータネットワーク、低レイヤ実装などなど気の向くまま無節操に手を出している。
