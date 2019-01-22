@@ -6,7 +6,7 @@ do
     relfileplace=${f%.*}
     reldirplace=${relfileplace%/*}
     mkdir -p ./rawimages/$reldirplace
-    cp "./${relfileplace}.png" "./rawimages/${relfileplace}.png"
+    mv "./${relfileplace}.png" "./rawimages/${relfileplace}.png"
 done
 
 # convert to jpg and write them to each directory

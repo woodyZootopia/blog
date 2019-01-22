@@ -91,16 +91,11 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
-if dein#check_install(['vimproc.vim'])
-  call dein#install(['vimproc.vim'])
-endif
-
 if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
 ```
 これで、deinというVim用のパッケージマネージャがインストールされる。これを使って残りのプラグインもインストールするわけである。\
-最後の方で、`call dein#install(['vimproc.vim'])`とあるように最初にvimprocをインストールして、そのあとで残りのプラグインをインストールしていく。vimprocはdeinで並列処理をするのに必要なプラグインで、バックグラウンド処理を可能としてくれるので、重い処理をしてもVimが固まらなくなる。
 
 さて、では肝心の残りのプラグインだが、ここではなく別の場所に書く。ここにはキーマッピングなども書くため、プラグインをすべて書いていては幅をとって読みづらくなってしまう。\
 
@@ -118,7 +113,7 @@ endif
 
 まず、`dein.toml`の方に書く内容だが、
 
-* dein,vimprocは常に必要なので書く。
+* deinは常に必要なので書く。
 * deniteはファイル探索プラグインであり、常に必要となるので書く。
 
 というわけで、
@@ -126,13 +121,6 @@ endif
 ```toml
 [[plugins]]
 repo = 'Shougo/dein.vim'
-
-[[plugins]]
-repo = 'Shougo/vimproc.vim'
-hook_post_update = '''
-  let cmd = 'make'
-  let g:dein#plugin.build = cmd
-'''
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
