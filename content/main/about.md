@@ -32,10 +32,11 @@ menu: "main"
 * カラーテーマ[flatwhite](https://atom.io/themes/flatwhite-syntax)の[Vim移植版・flatwhite-vim](https://github.com/woodyZootopia/flatwhite-vim)
     * **文字色ではなく背景の色を変える**という斬新なカラースキーム。もともとはAtom用に作られたもの。
     * 現行のVim移植版は各言語への対応が貧弱だったので、フォークして改造中。
-        * 現状、C,C++,HTML,CSS,Markdown,Pythonといった自分のよく使う言語にはほとんど対応済みで、本家とほぼ同じ色描画がなされる。
-        * 他の言語にはまだまだ対応していないので、気に入られた方で腕に覚えのある人はプルリクしてください。
+    * 現状、C,C++,HTML,CSS,Markdown,Pythonといった自分のよく使う言語にはほとんど対応済みで、本家とほぼ同じ色描画がなされる。
+        * 自分が普段使いできるレベルに綺麗・実用的なので是非試してみてほしい。
+        * 他の言語にはまだまだ対応していないので、気に入られた方でvimに詳しい人はPRしてくださると助かります。
     * 解説記事？は[こちら](/2019/01/flatwhite%E3%82%92vim%E3%81%AB%E7%A7%BB%E6%A4%8D%E3%81%97%E3%81%9F%E5%AE%8C%E6%88%90%E3%81%97%E3%81%9F%E3%81%A8%E3%81%AF%E8%A8%80%E3%81%A3%E3%81%A6%E3%81%AA%E3%81%84/)
-* 自作Cコンパイラ[wdcc](https://github.com/woodyZootopia/woodycc)（つくりかけ）
+* 自作Cコンパイラ[wdcc](https://github.com/woodyZootopia/woodycc)（つくりかけだけど[記事を書いた](/2019/01/c%E9%A2%A8%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%A9%E3%82%92%E8%87%AA%E4%BD%9C%E3%81%97%E3%81%9F/)よ！）
     * 鮟鱇さん([@ushitora_anqou](https://twitter.com/ushitora_anqou))を始めとするセキュキャン2018でCコンパイラを書いてた人々が羨ましくなったので作り始めた。
     * Ruiさんの[解説記事](https://www.sigbus.info/compilerbook/)と鮟鱇さんの[有用な資料をまとめた記事](https://anqou.net/poc/2019/01/03/post-2650/)に大いに助けられている。
     * あと困ったことをTwitterに投げてるとよく返信をくれるhsjoihsさん([@hsjoihs](https://twitter.com/hsjoihs))すごくいい人。皆さん有難うございます。
