@@ -1,7 +1,7 @@
 ---
 title: "C（風）コンパイラを自作した"
 date: 2019-01-21T00:34:51-05:00
-description: "低レベルをガリガリ実装した。たーのしー！"
+description: "ガリガリ実装した。たーのしー！"
 # banner:"/img/some.png"
 # lead: "Example lead - highlighted near the title"
 # disable_comments: true # Optional, disable Disqus comments if true
@@ -44,7 +44,7 @@ main(){return powerroftwo(5,1);} // this returns 32
 とくに、Rui Ueyamaさんの[低レイヤを知りたい人のためのCコンパイラ作成入門](https://www.sigbus.info/compilerbook/)は神。これを教科書にしつつ、他のサイトを参考資料に使うと良いと思う。\
 上の資料に載っていないものだと、University of Virginiaの出している[x86 Assembly Guide](http://www.cs.virginia.edu/~evans/cs216/guides/x86.html)あたりが命令セットの初心者におすすめ。
 
-# どうやってるの？
+# どうやって作るの？
 例によって[友人のスライド](https://speakerdeck.com/anqou/seccamp2018deseruhuhosutockonpairawotukututa)のほうが正直高度で面白いが、気にしたら負け。
 
 1. 入力文字列をトークンに分解する
