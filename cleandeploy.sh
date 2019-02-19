@@ -1,6 +1,6 @@
 #!/bin/bash
 rm -r public/*
-cp ./static/img/logo.png ./themes/hugo-icarus-theme/static/css/images/logo.png #overwrite with my logo
+cp ./static/img/logo.jpg ./themes/hugo-icarus-theme/static/css/images/logo.jpg #overwrite with my logo
 hugo
 cd public
 git add .

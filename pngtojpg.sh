@@ -15,6 +15,7 @@ do
     filewithoutext=${f%.*}
     relfileplace=${filewithoutext#*/}
 
-    sips -s format jpeg "./rawimages/${relfileplace}.png" -s formatOptions low --out "./${relfileplace}.jpg"
+    convert "./rawimages/${relfileplace}.png" "./${relfileplace}.jpg"
+    # sips -s format jpeg "./rawimages/${relfileplace}.png" -s formatOptions low --out "./${relfileplace}.jpg"
 done
 

@@ -23,11 +23,11 @@ VimとLSPの組み合わせがとっても良かったのでメモ。
 
 そのやり取りに使われている言語が**LSP(Language Server Protocol)**。\
 
-これを共通化しておけば、各言語・各エディタにその言語を処理できる仕組みを用意するだけで、便利機能がカンタンに使えるようになるというわけ。[^zu]\
+これを共通化しておけば、各言語・各エディタにその言語を処理できる仕組みを用意するだけで、便利機能がカンタンに使えるようになるというわけ。[^ref]\
 
 Vimの場合、言語サーバの立ち上げ・言語サーバとのやり取りをやってくれる`autozimu/LanguageClient-neovim`と[^native_support]、それをつかって補完候補を`deoplete`に表示してくれる`Shougo/deoplete-lsp`を使えばよい。
 
-[^zu]:[ここの説明](https://qiita.com/atsushieno/items/ce31df9bd88e98eec5c4)は、特に前半の図とかが分かりやすかった。
+[^ref]:[ここの説明](https://qiita.com/atsushieno/items/ce31df9bd88e98eec5c4)は、特に前半の図とかが分かりやすかった。
 [^native_support]:[neovim本体にLSPをつける予定もある](https://neovim.io/roadmap/)ようだが、現在のバージョン0.3に対し0.5からなのでまだしばらくはかかりそうである。
 
 # インストールどうすればええのん?
@@ -46,9 +46,6 @@ repo='Shougo/deoplete-lsp'
 次に、Vim設定ファイルに以下を追記:
 
 ```vim
-call lsp#server#add('python', 'pyls')
-call lsp#server#add('cpp', 'clangd')
-
 let g:LanguageClient_serverCommands = {}
 
 " 言語ごとに設定する
@@ -80,10 +77,11 @@ Vim設定ファイルに以下を追記する:
 ```vim
 augroup LanguageClient_config
     autocmd!
+    autocmd User LanguageClientStarted setlocal signcolumn=yes
     autocmd User LanguageClientStopped setlocal signcolumn=auto
 augroup END
 ```
-プログラムのミス（文法ミスだけでなく、関数の引数のチェックなど割と高度なことも）を自動で指摘してくれる。
+プログラムのミス（文法ミスだけでなく、関数の引数など割と高度なことも）を自動で指摘してくれる。
 
 
 ## キーバインド
@@ -91,7 +89,7 @@ Vim設定ファイルに以下を追記する:
 ```vim
 function LC_maps()
     if has_key(g:LanguageClient_serverCommands, &filetype)
-        " any keybindings you want, for example...
+        " any keybindings you want, such as ...
         nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<CR>
         nnoremap <silent> <Leader>lh :call LanguageClient_textDocument_hover()<CR>
         nnoremap <silent> <Leader>ld :call LanguageClient_textDocument_definition()<CR>
@@ -105,7 +103,7 @@ autocmd FileType * call LC_maps()
 
 このようにするとLSP対応のファイルの場合のみキーバインドが行われる。\
 
-特に、`K`はこのようにしないと既存のマップを塗り替えてしまう。
+特に、`K`はこのようにしないと既存のマップを塗り替えてしまう。こうすることで、Vim Scriptなどを開いているときは通常通りVim標準Docを、LSP対応のファイルを開いているときはそのファイルに対応した説明ファイルを開くということができる。
 
 ## 同じ変数をハイライト
 Vim設定ファイルに以下を追記する:
