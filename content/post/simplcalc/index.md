@@ -272,7 +272,7 @@ else if (isupper(*p)) {
         for(i=0;*p!='}';p++,i++){
             funcbuf[funcid][i]=*p;
         }
-        funcbuf[funcid][i+1]='\0'; // 同じ関数が複数回定義されたときのために終端文字で埋めておく
+        funcbuf[funcid][i+1]='\0'; // 同名の関数が複数回定義されたときのために終端文字で埋めておく
         p++;
         skipspace();
     }
