@@ -32,6 +32,8 @@ Vimの場合、言語サーバの立ち上げ・言語サーバとのやり取�
 
 # インストールどうすればええのん？
 
+NeoVimが推奨される。
+
 まず、dein[^prereq]を使ってプラグインをインストール:
 [^prereq]: deinのインストールなどは[こちら]({{< relref "/post/vim-dark-power/index.md" >}})
 ```toml
@@ -43,7 +45,7 @@ build = 'bash install.sh'
 repo='Shougo/deoplete-lsp'
 ```
 
-次に、Vim設定ファイルに以下を追記:
+次に、Vim設定ファイル(init.vim)に以下を追記:
 
 ```vim
 let g:LanguageClient_serverCommands = {}
@@ -120,5 +122,8 @@ set updatetime=50
 ```
 
 このようにするとカーソル上の変数・関数・メソッドなどと同じものを自動でハイライトしてくれる。これまた便利。
+
+自分の最新の設定を以下に書いてあるので参考にしてほしい。
+https://raw.githubusercontent.com/woodyZootopia/nvim/master/plugins/languageclient.vim
 
 以上
