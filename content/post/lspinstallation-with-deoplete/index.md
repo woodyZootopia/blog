@@ -32,7 +32,7 @@ Vimの場合、言語サーバの立ち上げ・言語サーバとのやり取�
 
 # インストールどうすればええのん？
 
-NeoVimが推奨される。
+例によってNeoVimのみで動作確認済み。
 
 まず、dein[^prereq]を使ってプラグインをインストール:
 [^prereq]: deinのインストールなどは[こちら]({{< relref "/post/vim-dark-power/index.md" >}})
@@ -67,7 +67,7 @@ let g:LanguageClient_autoStart = 1
 
 インストールしたらシェルで`which clangd`や`which pyls`と実行してみて、パスが通っていることを確認しておこう。[^path_problem]
 
-[^path_problem]:Ubuntuでaptをつかってインストールしたところ、clangdの実行ファイルはバージョン名つきのもの(自分だと`clangd-7.0`)になっていた。そのような場合は、`ln`か`update-alternatives`を使ってパスを通すか、Vim設定ファイルの中の`if executable('clangd')`のところを適宜変更するなどして対応するといいだろう。
+[^path_problem]:Ubuntuでaptをつかってインストールしたところ、clangdの実行ファイルはバージョン名つきのもの(自分だと`clangd-7.0`)になっていた。そのような場合は、`ln`か`update-alternatives`を使ってパスを通すか、Vim設定ファイルの中の`if executable('clangd')`のところを適宜変更するなどして対応するといいだろう。また、MacOSで`brew install llvm`を使ってインストールした場合、パスを通さないと使えない。`export PATH="/usr/local/opt/llvm/bin:$PATH"`と実行すればいい。詳しく知りたい人は`brew info llvm`で。
 
 
 これでdeopleteの検索候補に`clangd`や`pyls`の結果が出てくるようになる。
