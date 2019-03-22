@@ -32,7 +32,7 @@ Vimの場合、言語サーバの立ち上げ・言語サーバとのやり取�
 
 # インストールどうすればええのん？
 
-例によってNeoVimのみで動作確認済み。
+例によってNeoVimのみ動作確認済み。
 
 まず、dein[^prereq]を使ってプラグインをインストール:
 [^prereq]: deinのインストールなどは[こちら]({{< relref "/post/vim-dark-power/index.md" >}})
@@ -58,7 +58,8 @@ if executable('pyls')
     let g:LanguageClient_serverCommands['python'] = ['pyls']
 endif
 
-let g:LanguageClient_autoStart = 1
+" 自分の環境では不具合が生じたのでオフにしておく
+let g:LanguageClient_useVirtualText = 0
 ```
 
 ここでは、C/C++とPythonの言語サーバである`clangd`と`pyls`を設定している。これらが実行できないといけないので、これらもインストールしておく。\
@@ -69,10 +70,18 @@ let g:LanguageClient_autoStart = 1
 
 これで補完の検索候補に`clangd`や`pyls`の結果が出てくるようになる。
 
+自分の最新の設定は[こちら](https://raw.githubusercontent.com/woodyZootopia/nvim/master/plugins/languageclient.vim)に上げているので参考にしてほしい。
+
+これら以外の言語サーバの開発状況については、提唱元の[Microsoftによる一覧表](https://microsoft.github.io/language-server-protocol/implementors/servers/)をご覧頂きたい。
+
 # さらなる機能
 
 ## セマンティックチェック
-Vim設定ファイルに以下を追記する:
+プログラムのミス（文法ミスだけでなく、関数の引数など割と高度なことも）を自動で指摘してくれる。\
+
+**変数名や文法のちょっとしたミスでコンパイルエラーになるのを防いでくれる。超便利。**個人的にはこれをやるためだけでもLSPを導入する価値があると思う。
+
+Vim設定ファイルに以下を追記するのをおすすめする:
 ```vim
 augroup LanguageClient_config
     autocmd!
@@ -80,10 +89,7 @@ augroup LanguageClient_config
     autocmd User LanguageClientStopped setlocal signcolumn=auto
 augroup END
 ```
-プログラムのミス（文法ミスだけでなく、関数の引数など割と高度なことも）を自動で指摘してくれる。\
-
-**変数名や文法のちょっとしたミスでコンパイルエラーになるのを防いでくれる。超便利。**個人的にはこれをやるためだけでもLSPを導入する価値があると思う。
-
+これは、文法ミスなどがあったときに出てくる記号の場所を常に開けておくようにする設定である。
 
 ## キーバインド
 Vim設定ファイルに以下を追記する:
@@ -104,7 +110,7 @@ autocmd FileType * call LC_maps()
 
 このようにするとLSP対応のファイルの場合のみキーバインドが行われる。\
 
-特に、`K`はこのようにしないと既存のマップを塗り替えてしまう。こうすることで、Vim Scriptなどを開いているときは通常通りVim標準Docを、LSP対応のファイルを開いているときはそのファイルに対応した説明ファイルを開くということができる。
+特に、`K`は既存のマップを塗り替えてしまう。こうすることで、Vim Scriptなどを開いているときは通常通りVim標準Docを、LSP対応のファイルを開いているときはそのファイルに対応した説明ファイルを開くということができる。
 
 ## 同じ変数をハイライト
 Vim設定ファイルに以下を追記する:
@@ -120,7 +126,7 @@ set updatetime=50
 
 このようにするとカーソル上の変数・関数・メソッドなどと同じものを自動でハイライトしてくれる。これまた便利。
 
-自分の最新の設定を以下に書いてあるので参考にしてほしい。
+上にも書いたが、自分の最新の設定を以下に書いてあるので参考にしてほしい。
 https://raw.githubusercontent.com/woodyZootopia/nvim/master/plugins/languageclient.vim
 
 以上
