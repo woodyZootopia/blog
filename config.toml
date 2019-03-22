@@ -24,7 +24,7 @@ pygmentsUseClasses = true
 
     # Tell me who you are
     author = "Woody"
-    bio = "A hard game lover"
+    bio = "Memento mori"
     location = "Waterloo, Ontario"
     site_description = "カナダ留学中の大学生が徒然なるままに書き綴ります。備忘録・技術記事・日常の記録など"
     copyright  = "Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) for my own creation"
