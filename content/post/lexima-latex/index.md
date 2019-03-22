@@ -25,7 +25,8 @@ Vimには`(`と入力すると`()`と自動で保管してくれたりする、[
 repo = 'cohama/lexima.vim'
 ```
 
-そして、Latexにおける`$$`や`\(\)`の補完をしたいので、`hook_add`を使って次のように書く。
+そして、Latexにおける`$$`や`\(\)`の補完をしたいので、`hook_add`を使って次のように書く[^update]。
+[^update]:最新のものは[ここ](https://raw.githubusercontent.com/woodyZootopia/nvim/master/plugins/lexima.vim)にアップされているはずである。合わせてご覧いただきたい。
 
 ```dein.toml
 [[plugins]]

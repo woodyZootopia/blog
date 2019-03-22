@@ -1,5 +1,5 @@
 ---
-title: "LSPがとっても便利なのでDeopleteと併用する"
+title: "LSPがとっても便利なのでNeovimで使う"
 date: 2019-02-17T15:42:23-05:00
 description: "備忘録"
 # banner:"/img/some.png"
@@ -25,7 +25,7 @@ VimとLSPの組み合わせがとっても良かったのでメモ。
 
 これを共通化しておけば、各言語・各エディタにその言語を処理できる仕組みを用意するだけで、便利機能がカンタンに使えるようになるというわけ。[^ref]\
 
-Vimの場合、言語サーバの立ち上げ・言語サーバとのやり取りをやってくれる`autozimu/LanguageClient-neovim`と[^native_support]、それをつかって補完候補を`deoplete`に表示してくれる`Shougo/deoplete-lsp`を使えばよい。
+Vimの場合、言語サーバの立ち上げ・言語サーバとのやり取りをやってくれる`autozimu/LanguageClient-neovim`[^native_support]をインストールすればよい。
 
 [^ref]:[ここの説明](https://qiita.com/atsushieno/items/ce31df9bd88e98eec5c4)は、特に前半の図とかが分かりやすかった。
 [^native_support]:[neovim本体にLSPをつける予定もある](https://neovim.io/roadmap/)ようだが、現在のバージョン0.3に対し0.5からなのでまだしばらくはかかりそうである。
@@ -41,8 +41,6 @@ Vimの場合、言語サーバの立ち上げ・言語サーバとのやり取�
 repo = 'autozimu/LanguageClient-neovim'
 rev = 'next'
 build = 'bash install.sh'
-[[plugins]]
-repo='Shougo/deoplete-lsp'
 ```
 
 次に、Vim設定ファイル(init.vim)に以下を追記:
@@ -69,8 +67,7 @@ let g:LanguageClient_autoStart = 1
 
 [^path_problem]:Ubuntuでaptをつかってインストールしたところ、clangdの実行ファイルはバージョン名つきのもの(自分だと`clangd-7.0`)になっていた。そのような場合は、`ln`か`update-alternatives`を使ってパスを通すか、Vim設定ファイルの中の`if executable('clangd')`のところを適宜変更するなどして対応するといいだろう。また、MacOSで`brew install llvm`を使ってインストールした場合、パスを通さないと使えない。`export PATH="/usr/local/opt/llvm/bin:$PATH"`と実行すればいい。詳しく知りたい人は`brew info llvm`で。
 
-
-これでdeopleteの検索候補に`clangd`や`pyls`の結果が出てくるようになる。
+これで補完の検索候補に`clangd`や`pyls`の結果が出てくるようになる。
 
 # さらなる機能
 

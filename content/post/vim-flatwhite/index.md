@@ -66,8 +66,8 @@ colorscheme flatwhite
 <blockquote class="twitter-tweet" data-conversation="none" data-cards="hidden" data-partner="tweetdeck"><p lang="ja" dir="ltr">おすすめTheme:<br>Flatwhite-syntax<br><br>ライト系テーマで一番好きなやつ。文字の色を変えるんじゃなくてbackgroundを変えてくれる。目に優しいしお洒落だし文書作成に本当に合う。<a href="https://t.co/3qSIec0Ut7">https://t.co/3qSIec0Ut7</a></p>&mdash; へいほー (@5ebec) <a href="https://twitter.com/5ebec/status/1065886980653731840?ref_src=twsrc%5Etfw">November 23, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-を見てこの**flatwhite**というカラースキームに一目惚れした。シンタックスに応じて背景が変わるので範囲が見やすい上、文字自体の色は変わらない[^mojicolor]ので可読性も高い。ライトテーマであることも高得点[^whylight]。\
-だが、自分は生粋のVimmerなので、**Vim以外のテキストエディタを使うと死んでしまう**[^uso]。まだ死にたくないので、Vim版を作ることにした。
+を見てこの**flatwhite**というカラースキームに一目惚れした。シンタックスに応じて背景が変わり文字自体の色は変わらない[^mojicolor]ので可読性は高く、また彩度が低いので目にも優しい。。ライトテーマであることも高得点[^whylight]。\
+だが、自分は生粋のVimmerなので、**Vim以外のテキストエディタを使うと死んでしまう**[^uso]。なのでVim版を作ることにした。
 
 [^mojicolor]:厳密には背景の色に合わせて微妙に変わっているようだがパッと見ではわからない
 [^whylight]:自分は[Webサイトでわからないことを検索しながらプログラミングする](https://www.google.com/search?client=firefox-b-ab&biw=1280&bih=703&tbm=isch&sa=1&ei=5sg1XOSgEafHjwTR95DYAw&q=Copying+and+Pasting+from+Stack+Overflow+&oq=Copying+and+Pasting+from+Stack+Overflow+&gs_l=img.3..0l3j0i30j0i5i30j0i24l5.31330.31330..31725...0.0..0.65.65.1......1....1j2..gws-wiz-img.ssywnjIJ-fY)ので、多くのウェブサイトの背景色である白に近い方が目に負担がなくて嬉しい。
@@ -75,14 +75,14 @@ colorscheme flatwhite
 
 # 何をしたか
 
-と言っても、書いたコードを全部説明していくとキリがないので詰まったところだけさらっと説明する。開発を手伝ってくれるという気概のある人は参考にしてほしい。
+そんなに難しいコードではないが、書いたコードを全部説明していくとキリがないので詰まったところだけさらっと説明する。開発を手伝ってくれるという気概のある人は参考にしてほしい。
 
 * 言語ごとのシンタックスには残念ながらドキュメントがないようだ。[neovim/neovim/tree/master/runtime/syntax(標準の言語シンタックス)](https://github.com/neovim/neovim/tree/master/runtime/syntax) を見て、正規表現からどのシンタックスが自分の塗りたい場所を担当しているのか頑張って調べよう。正規表現はVimの`/`で直接検索できるので、サンプルコード内をそれで検索すると見つけやすいかも。
 * `s:base1`が標準の黒色、数字が増えるたびに薄くなっていき`s:base7`が背景色。
 
 # どう変わったか
 
-一番良くなったのはMarkdownでしょう。
+一番良くなったのはMarkdownだろう。
 
 | before | after |
 | --- | --- |
@@ -93,7 +93,7 @@ colorscheme flatwhite
 * プログラムコードがオレンジに塗られるようになっている
 * リンクが青で塗られるようになっている
 
-などなど、より本家っぽくなってます 😉
+などなど、より本家っぽくなっている 😉
 
 # 何がまだできてないか
 
@@ -107,4 +107,4 @@ struct Data {...}
 
 これからも自分の必要に応じて開発していきますが、我こそは、というかたはPRお願いします。
 
-（以上）
+以上

@@ -4,7 +4,7 @@ date: 2018-12-01T18:23:12-05:00
 menu: "main"
 ---
 
-# 作ったもの
+# 作ったもの（面白い順）
 * [太鼓の達人自動作譜AI]({{< relref "../post/taiko-jp/index.md" >}})（[英語の解説記事もあるよ](https://medium.com/datadriveninvestor/automatic-drummer-with-deep-learning-3e92723b5a79)）
     * DFTで画像化した音楽データをCNNで学習した。\
     * 音楽データはネットに転がっている譜面付きのもので、実時間に変換して教師データとしてある。
