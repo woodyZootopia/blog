@@ -15,7 +15,18 @@ do
     filewithoutext=${f%.*}
     relfileplace=${filewithoutext#*/}
 
-    convert "./rawimages/${relfileplace}.png" "./${relfileplace}.jpg"
-    # sips -s format jpeg "./rawimages/${relfileplace}.png" -s formatOptions low --out "./${relfileplace}.jpg"
+    if [ "$1" != "-f" ] || [ ! -f  "./${relfileplace}.jpg" ] ;then
+        break
+    fi
+
+    if command convert 2> /dev/null > /dev/null; then
+        convert "./rawimages/${relfileplace}.png" "./${relfileplace}.jpg"
+
+    elif command sips 2> /dev/null > /dev/null; then
+        sips -s format jpeg "./rawimages/${relfileplace}.png" -s formatOptions low --out "./${relfileplace}.jpg"
+    else
+        echo "known conversion command not found"
+        exit 1
+    fi
 done
 
