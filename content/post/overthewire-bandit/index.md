@@ -127,10 +127,11 @@ sort data.txt | uniq -u
 最初に`xxd -r data.txt out.txt`で戻します。\
 
 いつもどおり`file out.txt`でファイルの種類を確認し\
-
 `gzip -d hoge.gz`か`bzip2 -d hoge`か`tar -xvf hoge`[^tar ref]で解凍できます。\
 `gzip`の方は拡張子が`gz`じゃないとうまくいかないみたいなので適宜`mv hoge hoge.gz`とかで改名しました。\
+
 [^tar ref]:[参考](https://qiita.com/supersaiakujin/items/c6b54e9add21d375161f#optionの意味)
+
 
 この3つを死ぬほど繰り返すと`data8`が手に入るので終了です。
 
@@ -187,11 +188,11 @@ Level 13に書いてあったようにこのLevelのパスワードは`/etc/band
 `-l`はlisten modeの意味で、3000番のポートを「聴いていますよ」モードにします。「聴いていますよ」とはいっても、こちらから送信することも可能です。これで`suconnect`からの接続が可能になります。[^1]\
 `&`はバックグラウンド処理するという意味です。\
 
-[^1]:netcatによるサーバ・クライアント接続について[とてもわかり易かったサイト](https://www.digitalocean.com/community/tutorials/how-to-use-netcat-to-establish-and-test-tcp-and-udp-connections-on-a-vps#how-to-communicate-through-netcat)
-
 で、同じく`./suconnect 3000 &`でもう一方もつなぎ、
 `jobs`で処理の一覧を確認して`fg <process number>`で`nc`のジョブに移動。\
 bandit20のパスワードをペーストしてやれば、つながっている`suconnect`から正解が帰ってくるので終了です。
+
+[^1]:netcatによるサーバ・クライアント接続について[とてもわかり易かったサイト](https://www.digitalocean.com/community/tutorials/how-to-use-netcat-to-establish-and-test-tcp-and-udp-connections-on-a-vps#how-to-communicate-through-netcat)
 
 ## Level 21 to 22
 `cron.d`内を確認すると毎分実行されてる`bandit22`に所有権のあるシェルスクリプトがパスワードを書き出しているので、書き出し先のパスを読んでそれをコピペして終了。
@@ -202,23 +203,25 @@ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 
 ## Level 22 to 23
 `$(<shell command>)`でシェルコマンドの返す結果がそこに代入されます。例えば`$(echo i)`は`i`です。\
-
 それに注意すれば代入とかは他と大体一緒ですし問題のシェルスクリプトも読めるのではないでしょうか。\
+
 問題文に書いてあるとおり、`$(whoami)`とか`echo I am user $(whoami) | md5sum`とか`echo I am user $(whoami) | md5sum | cut -d ' ' -f 1`とかをいちいち試しに実行してみれば挙動がよく分かると思います。\
+
 毎分自分の名前をmd5sumで変換した先のファイルにパスワードが書き出されているので、\
 ```bash
 cat /tmp/$(echo I am user bandit23 | md5sum | cut -d ' ' -f 1)
 ```
 で終了です。\
 
-```
+問題文を忠実にコピペして
+```bash
 cat /tmp/$(echo I am user $(whoami) | md5sum | cut -d ' ' -f 1)
 ```
 としたくなりますが、**あなたが**それを実行すると`$(whoami)`は`bandit22`になり、間違った値が帰ってくるので注意。
 
 ## Level 23 to 24
 ### 解法1
-```
+```bash
 cp /var/spool/bandit24/sk24/cp24sk.sh /var/spool/bandit24/print_password.sh
 # change permission to allow the script to write
 chmod 777 /tmp/tmp.QJxYrsRJgT
@@ -248,10 +251,10 @@ cat /tmp/woody_file.txt
 
 ### 解法1
 `nc localhost 30002`でアクセスできるので、先にファイルに10000回分の入力を叩き込んでおいて入力しましょう。\
-**ファイルに追記するには`>>`を使いましょう**。（`>`が毎回消去新規作成するのに対し、`>>`は、そのファイルが存在していなかった場合のみ作り、存在していたら追記します）\
+**ファイルに追記するには`>>`を使いましょう**。（`>`が毎回消去＆新規作成するのに対し、`>>`は、そのファイルが存在していなかった場合のみ作り、存在していたら追記します）\
 標準入力の代わりにファイルを入力させるには`<`を使いましょう。
 
-for文の使い方がわからない人はそのへんの記事で調べてください。勘のいい人は↓をいきなり読んでも察せるかもしれません。
+for文の使い方はここでは解説しないのでわからない人はそのへんの記事で調べてください。勘のいい人は↓をいきなり読んでも察せるかもしれません。
 
 ```bash
 rm /tmp/woody.txt #誰かが書き込んでいるかもしれないので一旦削除する
@@ -262,13 +265,13 @@ cat /tmp/answer.txt
 ```
 
 ### 解法2
-なお、パイプ(|)という「手前のコマンドの標準出力をあとのコマンドの標準入力とする」というものを使えば1行で書けます。スッキリですね。
+なお、パイプ(|)という「手前のコマンドの標準出力をあとのコマンドの標準入力とする」というものを使えば1行で書けることにあとで気づきました。スッキリですね。
 ```bash
 for i in `seq 0 10000`; do printf "<Level 24 password> %04d\n" $i; done | nc localhost 30002
 ```
 
 ## Level 25 to 26
-sshkey自体はホームに配置されています。しかし[Level 14](#level-13-to-level-14)と同じようにアクセスしようとすると、即座に弾かれます。\
+sshkey自体はホームに配置されています。しかし[Level 14](#level-13-to-14)と同じようにアクセスしようとすると、即座に弾かれます。\
 このレベル以外のどのユーザでもいいのでもう一度ログインし、`bandit26`のログインシェルを確認すると、\
 `cat /etc/passwd`の結果の、`bandit26`の行の最後にいつもとは違うログインシェルが確認できます。
 これは
@@ -280,21 +283,22 @@ export TERM=linux
 more ~/text.txt
 exit 0
 ```
-を実行するというものなので、最後の行の`exit 0`が実行されるまえになんとかしないといいけません。\
+を実行するというもので、最後の行の`exit 0`が実行されるとシェルが終了して追い出されてしまいますのでその前になんとかしないといいけません。\
 
 この問題、割と悩んだ末に答えを検索したんですが、なんと**ウィンドウの縦幅を狭くする**という解法がポピュラーでした。\
-`more`コマンドは、`less`みたいに表示したあとでファイルの最後まで行くと終了するという`less`と`cat`の中間みたいなやつなのですが[^history]、ウィンドウが狭いと**ファイルの終端にたどり着かないので下にスクロールしない限り終了しません。**\
-この状態で**`v`**を押すとvimが起動するので、`:set shell=bin/bash`というvimコマンドを入力すればいいです。
-[^history]:歴史的には`more`が先にあって、その機能強化版として`less`が生まれたらしいです。[参考](https://news.mynavi.jp/itsearch/article/hardware/2077)
+`more`コマンドは、`less`みたいに表示するがファイルの最後まで行くと自動終了するという`less`と`cat`の中間みたいなやつなのですが[^history]、ウィンドウが狭いと**ファイルの終端にたどり着かないので下にスクロールしない限り終了しません。**\
+この状態で**`v`**を押すとvimが起動するので、`:set shell=bin/bash`というvimコマンドを入力することでvim内のシェルを`bash`に変更できます。
 
 いくつか探してみたんですけどどこもこの解法なので**これが想定解法**という可能性までありますね。たまげたなあ……
 
-vimを終了すると続きが始まって`exit 0`まっしぐらなので、vimを終了することはできませんが、実は**この状態からでもシェルは扱える**のでbandit26にログインしたことに等しいです。vim上で`:!echo hello,world`みたいに**!をつけて実行するとシェルコマンドが実行できるのです**。
+vimを終了すると続きが始まって`exit 0`まっしぐらなので、vimを終了することはできませんが、実は**この状態からでもシェルは扱える**のでbandit26にログインしたことに等しいです。vim上で`:!echo hello,world`みたいに**!をつけるとシェルコマンドが実行できるのです**。
+
+[^history]:歴史的には`more`が先にあって、その機能強化版として`less`が生まれたらしいです。[参考](https://news.mynavi.jp/itsearch/article/hardware/2077)
 
 ## Level 26 to 27
 
 というわけで、一つ上からvimに入ったまま続けます。
-`:!ls -l`で確認すると`bandit27-do`といういかにもなファイルがあるので、[Level 19](#level-19-to-level-20)を思い出して実行してやれば終了です。
+`:!ls -l`で確認すると`bandit27-do`といういかにもなファイルがあるので、[Level 19](#level-19-to-20)を思い出して実行してやれば終了です。
 
 ```shell
 # vim上で
@@ -303,7 +307,12 @@ vimを終了すると続きが始まって`exit 0`まっしぐらなので、vim
 
 ## Level 27 to 28
 `git clone ssh://bandit27-git@localhost/home/bandit27-git/repo`でbandit27のパスワードを入力します。\
-なお、ホームディレクトリは書き込みロックが掛かっているのでいつもどおり`/tmp`で……思ったらすでに`repo`が存在してしまっているので、名前がかぶってしまいます。なので適当に自分のディレクトリを作って、そのなかで上のコマンドを実行しましょう。`mkdir /tmp/woodyrepo`とかです。
+なお、ホームディレクトリは書き込みロックが掛かっているのでいつもどおり`/tmp`で……思ったらすでに`repo`が存在してしまっているので、名前がかぶってしまいます。なので適当に自分のディレクトリを作って、その中で上のコマンドを実行しましょう。
+```bash
+mkdir /tmp/woodyrepo
+cd /tmp/woodyrepo
+```
+とかです。
 
 あとは、`cat repo/README`で終了です。
 
@@ -332,7 +341,7 @@ Date:   Tue Oct 16 14:00:39 2018 +0200
 ```
 
 `fix info leak`……あっ……\
-というわけで、このcommitでパスワードが書かれていたのに気づいて焦って消したと思われますが、その一つ前のコミットに戻ってやればいいですね。
+というわけで、このコミットでパスワードが書かれていたのに気づいて焦って消したと思われますが、その一つ前のコミットに戻ってやればいいですね。
 ```shell
 git checkout HEAD^
 cat README.md
@@ -378,11 +387,11 @@ cat README.md
 git checkout 33ce2e95d9c5d6fb0a40e5ee9a2926903646b4e3
 cat README.md
 ```
-で終了。
+で終了。~~こいつらgitの使い方下手すぎでは？~~
 
 ## Level 30 to 31
 tagに答えがあります。`git tag`をすると`secret`なるタグが出てくるので、`git show secret`でクリア。[^3]\
-[^3]:これと[Level 25](#level-25-to-level-26)は検索しました。初見殺しですね。なおこれの答えは[ここ](https://www.nagekar.com/2018/08/overthewire-bandit-27-33.html)を見ました
+[^3]:これと[Level 25](#level-25-to-26)は検索しました。初見殺しですね。なおこれの答えは[ここ](https://www.nagekar.com/2018/08/overthewire-bandit-27-33.html)を見ました
 
 ## Level 31 to 32
 `README.md`にかいてあることを実行するだけです。
@@ -392,6 +401,7 @@ git add -f key.txt
 git commit -m "woody's commit"
 git push
 ```
+`git add`に`-f`オプションを付けていますが、これは`.gitignore`という「不要なので認識しないファイル」に`key.txt`が含まれていて普通にやると追加されないから……だった気がします。
 
 ## Level 32 to 33
 `WELCOME TO THE UPPERCASE SHELL`のとおり、このレベルでは入力したアルファベットが全部大文字に変えられてしまいます。\
