@@ -34,18 +34,21 @@ Vimの場合、言語サーバの立ち上げ・言語サーバとのやり取�
 
 例によってNeoVimのみ動作確認済み。
 
-まず、dein[^prereq]を使ってプラグインをインストール:
+まず、dein[^prereq]を使って必要なプラグインをインストール:
+
 [^prereq]: deinのインストールなどは[こちら]({{< relref "/post/vim-dark-power/index.md" >}})
-```toml
+
+```dein.toml
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 rev = 'next'
 build = 'bash install.sh'
 ```
+とかく。
 
-次に、Vim設定ファイル(init.vim)に以下を追記:
+次に、
 
-```vim
+```init.vim
 let g:LanguageClient_serverCommands = {}
 
 " 言語ごとに設定する
@@ -58,7 +61,7 @@ if executable('pyls')
     let g:LanguageClient_serverCommands['python'] = ['pyls']
 endif
 
-" 自分の環境では不具合が生じたのでオフにしておく
+" 自分の環境では重たくなったのでオフにしておく
 let g:LanguageClient_useVirtualText = 0
 ```
 
@@ -72,7 +75,7 @@ let g:LanguageClient_useVirtualText = 0
 
 自分の最新の設定は[こちら](https://raw.githubusercontent.com/woodyZootopia/nvim/master/plugins/languageclient.vim)に上げているので参考にしてほしい。
 
-これら以外の言語サーバの開発状況については、提唱元の[Microsoftによる一覧表](https://microsoft.github.io/language-server-protocol/implementors/servers/)をご覧頂きたい。
+これら以外の言語サーバの開発状況については、提唱元の[Microsoftによる一覧表](https://microsoft.github.io/language-server-protocol/implementors/servers/)をご覧頂きたい。同じように言語サーバを事前にインストールし、パスを通してここに書けば使うことができる。
 
 # さらなる機能
 
@@ -81,8 +84,9 @@ let g:LanguageClient_useVirtualText = 0
 
 **変数名や文法のちょっとしたミスでコンパイルエラーになるのを防いでくれる。超便利。**個人的にはこれをやるためだけでもLSPを導入する価値があると思う。
 
-Vim設定ファイルに以下を追記するのをおすすめする:
-```vim
+以下を追記するのをおすすめする:
+
+```init.vim
 augroup LanguageClient_config
     autocmd!
     autocmd User LanguageClientStarted setlocal signcolumn=yes
@@ -92,8 +96,8 @@ augroup END
 これは、文法ミスなどがあったときに出てくる記号の場所を常に開けておくようにする設定である。
 
 ## キーバインド
-Vim設定ファイルに以下を追記する:
-```vim
+以下を追記する:
+```init.vim
 function LC_maps()
     if has_key(g:LanguageClient_serverCommands, &filetype)
         " any keybindings you want, such as ...
@@ -113,14 +117,14 @@ autocmd FileType * call LC_maps()
 特に、`K`は既存のマップを塗り替えてしまう。こうすることで、Vim Scriptなどを開いているときは通常通りVim標準Docを、LSP対応のファイルを開いているときはそのファイルに対応した説明ファイルを開くということができる。
 
 ## 同じ変数をハイライト
-Vim設定ファイルに以下を追記する:
-```vim
+以下を追記する:
+```init.vim
 augroup LCHighlight
     autocmd!
     autocmd CursorHold,CursorHoldI *.py,*.c,*.cpp call LanguageClient#textDocument_documentHighlight()
 augroup END
 
-" カーソル停止から更新までの時間をミリ秒で記入。デフォルトは4秒
+" カーソル停止から更新までの時間をミリ秒で記入。デフォルトは4秒=4000
 set updatetime=50
 ```
 

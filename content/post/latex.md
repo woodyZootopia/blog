@@ -22,7 +22,7 @@ latexの設定をいろいろいじったらいい感じになったので備忘
 
 # Latexmkがおすすめ
 とりあえず、コンパイルにはlatexmkが最強なので使いましょう。自動でpdfまでコンパイルしてくれるスグレモノです。
-```shellscript
+```latexmake.sh
 latexmk yourthesis.tex
 ```
 
@@ -86,7 +86,7 @@ latexmkandfetchpdfは、latexmkを実行したあとfetchlatexpdfを実行しま
 
 ## 2018-12-20追記
 自分がfishを使い始めたのでfish版も作りました。ついでに引数の個数のチェックもつけた豪華版です。
-```fish
+```config.fish
 # 以下を、~/.config/fish/config.fishに追記
 function fetchlatexpdf
   if test (count $argv) -ne 1
@@ -122,7 +122,7 @@ end
 # 使い方
 ## latexmkandfetchpdf
 すごく長い名前になっていますが、エイリアスしているので、
-```shell
+```latexmake.sh
 latexmk yourthesis.tex
 ```
 をして更新監視モードに入り、Ctrl+cで終了すると、カレントディレクトリにpdfを移しておいてくれます。便利ですね。

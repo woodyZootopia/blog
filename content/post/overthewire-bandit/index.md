@@ -34,7 +34,7 @@ OverTheWireというウェブサイトがありまして、**セキュリティ�
 ### 解法2
 なお、いちいちユーザー名を変えながらsshするのがかったるいという人は関数を書けばいいです:
 
-```fish
+```config.fish
 #fish向け。~/.config/fish/config.fishに以下を追記
 function banditssh
   ssh bandit$argv@bandit.labs.overthewire.org -p 2220

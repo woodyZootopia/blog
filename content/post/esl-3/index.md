@@ -50,7 +50,7 @@ $$
 特徴量9次元、データ数97のこぢんまりとしたデータセットだ。
 
 下準備:
-```python
+```dataset.py
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split

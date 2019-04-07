@@ -32,7 +32,7 @@ tags:
 僕が得意なのでPythonで書きます。\
 定番のbeautifulsoup4とseleniumを使います。beautifulsoup4はhtmlをパースしてくれ、seleniumはウェブブラウザを自動で走らせてくれるのでとても便利です。\
 あと、tqdmは自動でプログレスバーを出してくれるので、実行時間の長いプログラムを走らせるときはキチンと動いていることが確認できて便利です。
-```Python
+```import.py
 from pathlib import Path
 import json
 import sys
@@ -53,7 +53,7 @@ https://github.com/woodyZootopia/KUEmptyClassroom
 ここ以降は各大学のウェブページごとに仕様が違うと思うので、各自いい感じにしてください。
 
 ログイン状態を保持したままいろいろしたいので、クラスにするのがいいでしょう。
-```python
+```KUWebDriverclass.py
 class KUWebDriver():
 
     def __init__(self):
@@ -84,7 +84,7 @@ class KUWebDriver():
 なお、きちんと使用後はquitするようにしないと使い終わったウェブブラウザが残って邪魔です。
 
 あと、id_and_pass.jsonはこんな感じで：
-```json
+```id_and_pass.json
 {
   "KU_ecs_ID":"my_id",
   "KU_ecs_PASSWORD":"my_password"
@@ -95,7 +95,7 @@ class KUWebDriver():
 
 ## スクレイピングする
 先程のクラスに次の関数も追加します。
-```python
+```fetchAllLASyllabusData.py
     def fetchAllLASyllabusData(self, wait_sec=1):
         for k in tqdm(range(305)):
             self.driver.get("https://www.k.kyoto-u.ac.jp/student/la/syllabus/detail?condition.courseType=&condition.seriesName=&condition.familyFieldName=&condition.lectureStatusNo=1&condition.langNum=&condition.semester=&condition.targetStudent=0&condition.courseTitle=&condition.courseTitleEn=&condition.teacherName=&condition.teacherNameEn=&condition.itemInPage=10&condition.syutyu=false&condition.lectureCode=&page="+str(k))
@@ -110,7 +110,7 @@ Webサーバは沢山の人がアクセスしてるし、誰かが一秒に一�
 [ん？誰か来たようだ……](https://ja.wikipedia.org/wiki/岡崎市立中央図書館事件)
 
 今回のクラスの場合、こういう感じで実行できます↓
-```python
+```main.py
 driver = KUWebDriver()
 driver.fetchAllLASyllabusData()
 driver.quitDriver()
@@ -119,7 +119,7 @@ driver.quitDriver()
 ## パースする
 というわけでウェブサイトの中身が手に入ったので、変換していきましょう。
 といっても、これこそ各ウェブサイトごとに全く異なります。参考になるかわかりませんが一応該当部分のコード片を貼っておくので、各自いい感じにしてください。
-```python
+```parse.py
 non_space_finder = re.compile("\S")
 for html_doc in sorted(Path(path).glob("*.html")):
     with open(html_doc, 'r') as html_file:

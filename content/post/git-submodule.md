@@ -57,7 +57,7 @@ https://github.com/woodyZootopia/blog \
 
 自分のブログでは、icarusというテーマを使っているのだが、そのリポジトリを参照するために
 
-```shell
+```submodule.sh
 cd themes # submoduleを加えたい場所へ移動
 git submodule add git@github.com:digitalcraftsman/hugo-icarus-theme.git
 ```
@@ -83,7 +83,7 @@ git submodule add git@github.com:digitalcraftsman/hugo-icarus-theme.git
 
 具体的な手順としては、
 
-```shell
+```bash
 rm -rf public
 git submodule add <address to your repository> public
 ```
@@ -91,7 +91,7 @@ git submodule add <address to your repository> public
 となる。最初に`public`を削除するのは、すでに`public`ディレクトリが存在していた場合、git submoduleはこれを書き換えてくれないためである。
 
 これで設定は完了したので、あとは
-```shell
+```bash
 hugo # サイトを生成してpublicディレクトリに投げる
 cd public
 git add . # 更新されているのは

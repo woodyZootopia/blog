@@ -15,8 +15,8 @@ do
     filewithoutext=${f%.*}
     relfileplace=${filewithoutext#*/}
 
-    if [ "$1" != "-f" ] || [ ! -f  "./${relfileplace}.jpg" ] ;then
-        break
+    if [ "$1" != "-f" ] && [ -f  "./${relfileplace}.jpg" ] ;then
+        continue
     fi
 
     if command convert 2> /dev/null > /dev/null; then
