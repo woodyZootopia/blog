@@ -41,18 +41,16 @@ nnoremap <silent> <space>fr :<C-u>Denite file_mru -split="floating"<CR>
 
 Deopleteは`set completeopt+=preview`の状態だとプレビューウィンドウに補完候補の解説を表示する。画面がずれて非常に鬱陶しい。
 
-これは`Deoplete`本体では解決できず、別のプラグインを入れるようヘルプにも書かれている[^shougo-style]。preview windowの代わりにfloating windowで表示してくれるようになるプラグイン[ncm2/float-preview.nvim.git](https://github.com/ncm2/float-preview.nvim)を入れよう。
+これは`Deoplete`本体では解決できず、別のプラグインを入れるようヘルプにも書かれている[^shougo-style]。補完候補の解説をpreview windowの代わりにfloating windowで表示してくれるようになるプラグイン[ncm2/float-preview.nvim.git](https://github.com/ncm2/float-preview.nvim)を入れよう。
 
 具体的には、以下のように設定しよう:
 
-init.vim:
 ```init.vim
 set completeopt=menu
-" これを０にするか１にするかは好み
+" これを０にするか１にするかはお好み
 let g:float_preview#docked = 0
 ```
 
-dein.toml:
 ```dein.toml
 [[plugins]]
 repo = 'ncm2/float-preview.nvim.git'
