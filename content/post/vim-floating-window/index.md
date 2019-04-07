@@ -51,6 +51,7 @@ set completeopt=menu
 let g:float_preview#docked = 0
 ```
 
+
 ```dein.toml
 [[plugins]]
 repo = 'ncm2/float-preview.nvim.git'
