@@ -157,15 +157,13 @@ repo = 'Shougo/neoyank.vim'
 deopleteの方は、インサートモードに入ってから起動するので十分なので、[^1]こちらに書く。
 [^1]:大きなファイルを開いたときなどに、インサートモードに入ってからちょっとの間補完が機能しないという問題はあるが、そこまで大した問題ではない。
 
-```toml
+```dein_lazy.toml
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_source = '''
   let g:deoplete#enable_at_startup = 1
 
   inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
-
-  inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
 
   " Expand the completed snippet trigger by <CR>.
   imap <expr><CR>
@@ -185,11 +183,11 @@ hook_source = '''
   let g:deoplete#auto_complete_start_length = 1
   let g:deoplete#max_list = 100
 '''
-on_i = 1
+on_event = 'InsertEnter'
 
 [[plugins]]
 repo = 'Shougo/neco-syntax'
-on_i = 1
+on_event = 'InsertEnter'
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
@@ -201,7 +199,7 @@ hook_source = '''
     set conceallevel=0 concealcursor=niv
   endif
 '''
-on_i  = 1
+on_event = 'InsertEnter'
 depends = ['neosnippet-snippets']
 
 [[plugins]]
@@ -228,7 +226,7 @@ neosnippetを使うときは、次の入力場所に移動するときには`Ctr
 
 deopleteはライブラリ補完を標準ではサポートしておらず、追加プラグインを入れる仕組みになっている。どのような言語が対応しているかは[completion sources](https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources)にある。ここではPythonの追加プラグイン[deoplete-jedi](https://github.com/zchee/deoplete-jedi)を入れてみる。
 
-```toml
+```dein_lazy.toml
 [[plugins]]
 repo = 'davidhalter/jedi'
 on_ft = 'python'
@@ -245,6 +243,8 @@ on_ft = 'python'
 numpyやTensorFlowなどなどがimportされているファイルでは補完が効くようになり非常に便利である。[^3]\
 
 なお、どこかで詰まった場合はVimを開いて`:checkhealth`を実行するとどこがだめなのかチェックしてくれるので参考にしてほしい。
+
+[2019/04/07追記] Language Server Protocolという仕組みを使うと、補完以外にも変数名のリネームやバグの検知など様々な機能を使うことができます。詳しくは[こちら]({{< relref "../post/lspinstallation-with-deoplete/index.md" >}})
 
 以上です。
 

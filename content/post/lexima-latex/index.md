@@ -32,12 +32,14 @@ repo = 'cohama/lexima.vim'
 [[plugins]]
 repo = 'cohama/lexima.vim'
 hook_add = '''
-call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': ['latex','tex']})
-call lexima#add_rule({'char': '$', 'at': '\%#\$', 'input_after': '$', 'filetype': ['latex','tex']})
-call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': ['latex','tex']})
+call lexima#add_rule({'char': '$',    'input_after': '$',       'filetype':    ['latex','tex','markdown']})
+call lexima#add_rule({'char': '<BS>', 'at':          '\$\%#\$', 'delete':      1,    'filetype':    ['latex','tex']})
 
-call lexima#add_rule({'char': '(', 'at': '\\\%#', 'input_after': '\)', 'filetype': ['latex','tex']})
-call lexima#add_rule({'char': '[', 'at': '\\\%#', 'input_after': '\]', 'filetype': ['latex','tex']})
+call lexima#add_rule({'char': '(',    'at':          '\\\%#',   'input_after': '\)', 'filetype':    ['latex','tex']})
+call lexima#add_rule({'char': '[',    'at':          '\\\%#',   'input_after': '\]', 'filetype':    ['latex','tex']})
+" unset `` enclosure
+call lexima#add_rule({'char': '`',    'filetype':    ['latex','tex']})
+
 '''
 ```
 
