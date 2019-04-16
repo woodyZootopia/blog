@@ -1,4 +1,4 @@
-o--
+---
 title: "ツィオルコフスキーの公式を導出する"
 date: 2019-04-16T01:36:19-04:00
 # description: "Example article description"
