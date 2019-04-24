@@ -29,13 +29,13 @@ repo = 'airblade/vim-gitgutter'
 repo = 'tpope/vim-fugitive'
 ```
 
-`vim-gitgutter`は変更があった行を表示してくれます。
+`vim-gitgutter`は変更があった行を左端に表示してくれます。
 ![Screenshot](./ScreenShot 1.jpg)
 実はこれ以外にも便利機能があるのでそれも紹介します。
 
 更新が反映されるまでの時間を短くしたいのでそれも設定しておきましょう。下の設定だと100msになります。
 ```init.vim
-set updatetime 100
+set updatetime=100
 ```
 
 `vim-fugitive`はGitコマンドをVim内でも使えるようにしてくれる便利なやつです。これも今から解説していきます。
@@ -80,7 +80,7 @@ let mapleader = "\<Space>"
 ### hunk間の移動
 残りはhunk間を移動したり選択したりするコマンドですね。
 
-`]c`, `[c`でそれぞれ次の/前のhunkに移動します。Quickfixライクです。
+`]c`, `[c`でそれぞれ次の/前のhunkに移動します。
 
 `ac`, `ic`でhunkを囲むテキストオブジェクトになります。`ac`の方は周りの空行も含みます。\
 例えば、`vic`でhunk内を選択したり、`cac`でhunkとその周囲の空行を削除して編集したりできます。
@@ -96,11 +96,13 @@ nnoremap <leader>ga :Gwrite<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gl :Git log<CR>
-nnoremap <leader>gh :tab sp<CR>:0Glog<CR> " abbrev for git history: create new quickfix tab for history
+nnoremap <leader>gh :tab sp<CR>:0Glog<CR> " abbrev for `git history`: create new quickfix tab for history
 nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gf :Gfetch<CR>
 nnoremap <leader>gd :Gvdiff<CR>
 nnoremap <leader>gr :Grebase -i<CR>
+nnoremap <leader>gg :Ggrep 
+nnoremap <leader>gm :Gmerge 
 ```
 
 （先程書いたように、自分の環境では`<Leader>`が`<Space>`に置き換えられているためこのような書き方になっています。各自自分の好きなようにいじってください）
@@ -112,13 +114,13 @@ nnoremap <leader>gr :Grebase -i<CR>
 `git status`が新しいタブにフルスクリーンで出てきます[^what is gs doing]。この中では専用のキーマッピングが使えるようになっています（詳しくは`:h fugitive-mappings`を見てください）。
 重要なものを解説すると、
 
-| マッピング        | 効果                                 |
-| ----------------- | --------------------------------     |
-| s                 | ステージ(add)する                    |
-| u                 | ステージしたものを取り除く(undo)     |
-| =                 | diffを表示・非表示にする             |
-| dv                | 変化の見やすい、いい感じのdiffをする |
-| X                 | 変更を取り消す                       |
+| マッピング        | 効果                                                                                 |
+| ----------------- | -----------------------------------------------------------------------------------  |
+| s                 | ステージ(add)する                                                                    |
+| u                 | ステージしたものを取り除く(undo)                                                     |
+| =                 | diffを表示・非表示にする                                                             |
+| dv                | 変化の見やすい、いい感じのdiffをHEADとの間で見る（すごく見やすいのでお試しあれ）     |
+| X                 | 変更を取り消す                                                                       |
 
 それが終わったらコミットしましょう。
 
@@ -129,17 +131,17 @@ nnoremap <leader>gr :Grebase -i<CR>
 | ce                | 直前のコミットを変更する形でコミットする<br>ただし、コミットメッセージを変更しない(`git commit --amend --no-edit`) |
 | cw                | 直前のコミットのコミットメッセージのみを変更する                                                                   |
 | cvc               | verboseモードでコミットする(`git commit -v`)                                                                       |
-| cf                | fixup!でコミットする(`git commit --fixup=`)。<br>これを実行して直後に`<Tab><Enter>`をおすとHEADにfixupする         |
+| cf                | fixup!でコミットする(`git commit --fixup=`)<br>これを実行して直後に`<Tab><Enter>`をおすとHEADにfixupする           |
 
 [^what is gs doing]:普通に`:Gstatus`すると今のタブで起動してしまい狭いので、それを回避する。別に気にしないという人はこうしなくても良いです
 
 ### `<leader>ga`
-このファイルに行った変更を`git add`します。
-
+このファイルを`git add`します。
 ### `<leader>gc`
 `git commit`します。
 ### `<leader>gb`
 `git blame`します。行ごとに最後にコミットされたのはいつなのか・誰なのか一覧できます。
+
 ### `<leader>gl`
 `git log`します。でもこれだと見づらいので、自分は
 ```~/.gitconfig
@@ -150,9 +152,15 @@ nnoremap <leader>gr :Grebase -i<CR>
 nnoremap <leader>gl :Git logall<CR>
 ```
 みたいな感じにして見やすくしてます。
+
 ### `<leader>gh`
 別タブで今開いているファイルの変更履歴をたどれます。超便利。\
-Quickfixを使うようになっているので、`]q`, `[q`で移動できます。マッピングは`git history`をイメージしました。
+Quickfixを使うようになっています。location listを使いたい場合は
+```init.vim
+nnoremap <leader>gh :tab sp<CR>:0Gllog<CR>
+```
+にしたら良いです。マッピングは`git history`をイメージしました（実際にはそんなコマンドはありません）。
+
 ### `<leader>gp`
 `git push`します。
 ### `<leader>gf`
@@ -162,5 +170,14 @@ Quickfixを使うようになっているので、`]q`, `[q`で移動できま�
 ### `<leader>gr`
 `git rebase -i`します。
 
+### `<leader>gg`
+`gitgrep`でgitリポジトリ全体から高速で検索をかけます。これも、location listを使いたい場合は
+```init.vim
+nnoremap <leader>gg :Glgrep 
+```
+としたらいいです。
+
+### `<leader>gm`
+`git merge`します。コンフリクトが発生したらそのまま修正作業に入れます。
 # 結果
 Vim + Git is 最強
