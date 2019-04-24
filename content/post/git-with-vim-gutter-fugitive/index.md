@@ -1,7 +1,7 @@
 ---
 title: "VimでGitも爆速編集"
 date: 2019-04-24T11:06:05-04:00
-# description: "Example article description"
+description: "gitgutterとfugitiveでVimをつよつよGitエディタにするの巻"
 # banner:"/img/some.png"
 # lead: "Example lead - highlighted near the title"
 # disable_comments: true # Optional, disable Disqus comments if true
@@ -29,7 +29,7 @@ repo = 'airblade/vim-gitgutter'
 repo = 'tpope/vim-fugitive'
 ```
 
-`vim-gitgutter`はGitの更新内容を行の左に表示してくれます。
+`vim-gitgutter`は変更があった行を表示してくれます。
 ![Screenshot](./ScreenShot 1.jpg)
 実はこれ以外にも便利機能があるのでそれも紹介します。
 
@@ -71,11 +71,11 @@ nmap （あなたのやりたいマッピング） <Plug>GitGutterStageHunk
 ```
 のように設定してもいいでしょう。
 
-（もしくは`<Leader>`キー自体を事前[^what is jizen]に変更するのもアリですね。例えば自分は下のようにして`<Leader>`キーをスペースキーにしている
+もしくは`<Leader>`キー自体を事前[^what is jizen]に変更するのもアリですね。例えば自分は下のようにして`<Leader>`キーをスペースキーにしている
 ```init.vim
 let mapleader = "\<Space>"
 ```
-ので、上3つは`<Space>hs`などで発動します。）
+ので、上3つは`<Space>hs`などで発動します。
 
 ### hunk間の移動
 残りはhunk間を移動したり選択したりするコマンドですね。
@@ -95,7 +95,7 @@ nnoremap <leader>gs :tab sp<CR>:Gstatus<CR>:only<CR>
 nnoremap <leader>ga :Gwrite<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>gl :Git lga<CR>
+nnoremap <leader>gl :Git log<CR>
 nnoremap <leader>gh :tab sp<CR>:0Glog<CR> " abbrev for git history: create new quickfix tab for history
 nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gf :Gfetch<CR>
@@ -109,7 +109,7 @@ nnoremap <leader>gr :Grebase -i<CR>
 
 
 ### `<leader>gs`
-`git status`が新しいタブにフルスクリーンで出てきます[^what is gs doing]。この中では特殊なマッピングが使えるようになっています（詳しくは`:h fugitive-mappings`を見てください）。
+`git status`が新しいタブにフルスクリーンで出てきます[^what is gs doing]。この中では専用のキーマッピングが使えるようになっています（詳しくは`:h fugitive-mappings`を見てください）。
 重要なものを解説すると、
 
 | マッピング        | 効果                                 |
@@ -122,14 +122,14 @@ nnoremap <leader>gr :Grebase -i<CR>
 
 それが終わったらコミットしましょう。
 
-| マッピング        | 効果                                                                                                         |
-| ----------------- | ------------------------------------------------------------------------------------------------------------ |
-| cc                | コミットする                                                                                                 |
-| ca                | 直前のコミットを変更する形でコミットする(`git commit --amend`)                                               |
-| ce                | 直前のコミットを変更する形でコミットする。<br>コミットメッセージを変更しない(`git commit --amend --no-edit`) |
-| cw                | 直前のコミットのコミットメッセージを変更する                                                                 |
-| cvc               | verboseモードでコミットする(`git commit -v`)                                                                 |
-| cf                | fixup!でコミットする(`git commit --fixup=`)。これを実行して直後に`<Tab><CR>`をおすとHEADにfixupする          |
+| マッピング        | 効果                                                                                                               |
+| ----------------- | ------------------------------------------------------------------------------------------------------------       |
+| cc                | コミットする                                                                                                       |
+| ca                | 直前のコミットを変更する形でコミットする(`git commit --amend`)                                                     |
+| ce                | 直前のコミットを変更する形でコミットする<br>ただし、コミットメッセージを変更しない(`git commit --amend --no-edit`) |
+| cw                | 直前のコミットのコミットメッセージのみを変更する                                                                   |
+| cvc               | verboseモードでコミットする(`git commit -v`)                                                                       |
+| cf                | fixup!でコミットする(`git commit --fixup=`)。<br>これを実行して直後に`<Tab><Enter>`をおすとHEADにfixupする         |
 
 [^what is gs doing]:普通に`:Gstatus`すると今のタブで起動してしまい狭いので、それを回避する。別に気にしないという人はこうしなくても良いです
 
@@ -141,7 +141,15 @@ nnoremap <leader>gr :Grebase -i<CR>
 ### `<leader>gb`
 `git blame`します。行ごとに最後にコミットされたのはいつなのか・誰なのか一覧できます。
 ### `<leader>gl`
-`git log`します。
+`git log`します。でもこれだと見づらいので、自分は
+```~/.gitconfig
+[alias]
+    logall = log --graph --pretty=format:'%Cred%h %Cgreen(%>(15,trunc)%cr, %ci) %C(bold blue)<%an>%Creset -%C(yellow)%d%Creset %s' --abbrev-commit --date=relative --all
+```
+```init.vim
+nnoremap <leader>gl :Git logall<CR>
+```
+みたいな感じにして見やすくしてます。
 ### `<leader>gh`
 別タブで今開いているファイルの変更履歴をたどれます。超便利。\
 Quickfixを使うようになっているので、`]q`, `[q`で移動できます。マッピングは`git history`をイメージしました。
@@ -150,9 +158,9 @@ Quickfixを使うようになっているので、`]q`, `[q`で移動できま�
 ### `<leader>gf`
 `git fetch`します。~~そろそろ飽きてきました~~
 ### `<leader>gd`
-変化の見やすい、いい感じのdiffをします。
+変化の見やすい、いい感じのdiffをします。[`<leader>gs`](./#leader-gs)の`dv`と同じです
 ### `<leader>gr`
-`git rebase`します。
+`git rebase -i`します。
 
-# 結論
+# 結果
 Vim + Git is 最強
