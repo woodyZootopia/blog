@@ -11,14 +11,9 @@ menu: "main"
     * キャッチーなテーマだったこともありツイッターでちょっと伸びた\
 <blockquote class="twitter-tweet" data-lang="en"><p lang="ja" dir="ltr">「音楽から全自動で太鼓の達人の譜面を作るAI」を作りました<br><br>またいつか解説記事書きます <a href="https://t.co/IW6qrd9knS">pic.twitter.com/IW6qrd9knS</a></p>&mdash; うっでぃ (@woodyOutOfABase) <a href="https://twitter.com/woodyOutOfABase/status/1018708633511575553?ref_src=twsrc%5Etfw">July 16, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-* カラーテーマ[flatwhite](https://atom.io/themes/flatwhite-syntax)の[Vim移植版・flatwhite-vim](https://github.com/woodyZootopia/flatwhite-vim)
-![screenshot of colortheme](/main/flatwhite-screenshot.jpg)
-    * **文字色ではなく背景の色を変える**という独特なカラーテーマ。もともとはAtom用に作られたもの。
-    * 既存のVim移植版は各言語への対応が貧弱だったので、フォークして改造中。
-    * 現状、`C`, `C++`, `HTML`, `CSS`, `Markdown`, `Python`といった自分のよく使う言語にはほとんど対応済みで、本家とほぼ同じ色描画がなされる。
-        * 自分が普段使いできるレベルで可読性が高く実用的なので是非試してみてほしい。
-        * 他の言語にはまだまだ対応していないので、気に入られた方でvimに詳しい人は改善点をPRしていただけると助かる。
-    * 解説記事？は[こちら]({{< relref "../post/vim-flatwhite/index.md" >}})
+
+* Vimプラグイン [gitsession.nvim](https://github.com/woodyZootopia/gitsession.nvim)
+    * vimのセッション情報をGitリポジトリと紐づけて保存してくれる。
 
 *   [Gradient Boostingの解説記事](https://www.gormanalysis.com/blog/gradient-boosting-explained/)を[翻訳した]({{< relref "../post/kaggle-master-explains-gradient-boosting/index.md" >}})
 
@@ -40,6 +35,15 @@ menu: "main"
     * [Icarus](https://github.com/digitalcraftsman/hugo-icarus-theme)というブログ用テーマを使っているが、これは数年前から更新が途絶えており、自分の欲しい機能がなかったため[フォークして改造し](https://github.com/woodyZootopia/hugo-icarus-theme)ながら使っている。\
         * 特に、左に出ているプロフィールを消しても本文がその分のスペースを広く使わないのが致命的だったので直した。ディスプレイの大きいデバイスでこのページ以外の記事を開くと本文が広くなっているのが確認できると思う。
         * [2018/12/27追記] 色彩デザインが目に優しくなくて気に入らなかったので魔改造した結果、オリジナルの面影はほとんどなくなりました。もしこれを使いたいという人がいたら、`config.toml`や`archetypes`などの設定も変えているので、自分の[親リポジトリ](https://github.com/woodyZootopia/blog)から直接cloneしたほうが速いかもしれません。
+
+* カラーテーマ[flatwhite](https://atom.io/themes/flatwhite-syntax)の[Vim移植版・flatwhite-vim](https://github.com/woodyZootopia/flatwhite-vim)
+![screenshot of colortheme](/main/flatwhite-screenshot.jpg)
+    * **文字色ではなく背景の色を変える**という独特なカラーテーマ。もともとはAtom用に作られたもの。
+    * 既存のVim移植版は各言語への対応が貧弱だったので、フォークして改造中。
+    * 現状、`C`, `C++`, `HTML`, `CSS`, `Markdown`, `Python`といった自分のよく使う言語にはほとんど対応済みで、本家とほぼ同じ色描画がなされる。
+        * 自分が普段使いできるレベルで可読性が高く実用的なので是非試してみてほしい。
+        * 他の言語にはまだまだ対応していないので、気に入られた方でvimに詳しい人は改善点をPRしていただけると助かる。
+    * 解説記事？は[こちら]({{< relref "../post/vim-flatwhite/index.md" >}})
 
 * [関数呼び出し機能付きインタプリタ]({{< relref "../post/simplcalc/index.md" >}})
     * Cで書いた。
