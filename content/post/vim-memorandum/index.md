@@ -458,7 +458,7 @@ nnoremap [W :<C-u>lfirst<CR> " 最初へ
 nnoremap ]W :<C-u>llast<CR>  " 最後へ
 ```
 
-`set makeprg`でコマンドを変更できる。`set makeprg=make\ `
+`set makeprg=...`でコマンドを変更できる。
 
 # ファイルを横断した検索
 ファイルを横断して検索するには、`:vimgrep`と`:grep`の方法がある。
