@@ -97,7 +97,7 @@ Exコマンドとは`:`から始まるコマンドのこと。`:`の後に`{numb
 
 Exコマンドは[普通のコマンド](#コマンドの範囲指定のやりかたまとめ)と同じようにVisualモードで選択した範囲に適用することもできる。Visualモードで選択後、そのまま`:`を押せばよい。
 
-その場合、自動的に`'<,'>:`が出てくるが、実は`'<``'>`がそれぞれ選択範囲の最初・最後の行を表すマークである。
+その場合、自動的に`:<,'>`が出てくるが、実は`'<``'>`がそれぞれ選択範囲の最初・最後の行を表すマークである。
 
 ## 行の検索
 
@@ -341,6 +341,8 @@ augroup END
 
 `{string}`には`&`を使える。これは`{pattern}`でマッチした文字
 
+*	例、`:%s/Kojima\( Hideo\)\=/^ Kantoku`で、`Kojima`または`Kojima Hideo`の後に`Kantoku`をつける
+
 `:&`:	前にやったsubstituteをもう一回やる。
 
 *	注、範囲は保存されない。↑だと現在行に対してのみ行われる。
@@ -360,7 +362,12 @@ augroup END
 
 *	例、 `:args ./*``:argdo %s/\<some_word\>/alt_word/ge | update`
 	*	`some_word`を`alt_word`に置き換え
-	*	`e`フラグで、あるファイルに置いて`some_word`が見つからなくてもエラーを出させない
+	" quickfix jump
+	nnoremap [q :cprevious<CR>   " 前へ
+	nnoremap ]q :cnext<CR>       " 次へ
+	nnoremap [Q :<C-u>cfirst<CR> " 最初へ
+	nnoremap ]Q :<C-u>clast<CR>  " 最後へ
+	*	`e`フラグで、あるファイルにおいて`some_word`が見つからなくてもエラーを出させない
 		*	`argdo`がエラーによって途中で止まるのを防ぐ
 	*	`update`で変更があったときにだけファイルを保存
 
@@ -371,3 +378,51 @@ augroup END
 Vimを起動するときに、ファイルが入るべき場所に`-`を指定してやることで標準入力をそのまま編集できる。
 
 例、`ls | vim -`:	`ls`の出力結果をファイルに保存することなくそのまま編集する
+
+# Makeコマンド
+Cなどのコンパイル言語は、ファイルを分割してリンカでつないでプログラミングすることも多く、そのとき一部のファイルしか更新していない場合に全てをコンパイルし直すのは無意味である。そのため、`make`というコマンドを使うことで、更新した部分のみコンパイルし直すことができる。`MakeFile`というファイルを使うことで、どのファイルがどのファイルに依存しているかを書くことができるが、その書き方についてはここでは詳しくは解説しない。
+
+重要なのは、Vimにも`:make`コマンドがあるということである。ただ`make`するだけではなく、テキストエディタであるVimと組み合わせることで強力なデバッグ機能を持つ。
+
+というのも、これを使うと、コンパイルエラーの出た行がVimの`Quickfix`というリストに登録される。`Quickfix`は`:cn``:cN`というコマンドで前後に行き来したり、`:copen`というコマンドでエラー一覧を表示したりできる。
+
+また、QuickfixはVim全体で共有されてしまう。そのため、複数のプロジェクトを同時に編集しているときなどに不便であると思った場合は、windowそれぞれが別のQuickfixリストを持つことができる`location-list`という機能がある。
+これには`:lmake`で登録され、`:ln``:lN`で行き来できる。
+
+おすすめ設定は以下:
+
+```init.vim
+" quickfix jump
+nnoremap [q :cprevious<CR>   " 前へ
+nnoremap ]q :cnext<CR>       " 次へ
+nnoremap [Q :<C-u>cfirst<CR> " 最初へ
+nnoremap ]Q :<C-u>clast<CR>  " 最後へ
+
+"window-local quickfix jump
+nnoremap [w :lprevious<CR>   " 前へ
+nnoremap ]w :lnext<CR>       " 次へ
+nnoremap [W :<C-u>lfirst<CR> " 最初へ
+nnoremap ]W :<C-u>llast<CR>  " 最後へ
+```
+
+# ファイルを横断した検索
+ファイルを横断して検索するには、`:vimgrep`と`:grep`の方法がある。
+
+`:vimgrep`は遅いが、Vim内部で動いているので、Vimの正規表現などが使える。
+
+`:grep`は外部のシェルコマンドを呼び出しており、その結果を表示している。こちらのほうが速いことが多いようだ。
+
+シェルコマンドの側はVimが受け付ける形式で検索結果を返す必要があるが、本家`grep`でなくても、有名どころはだいたいがその形式に対応しているので検索すればわかるだろう。
+自分は[ripgrep](https://github.com/BurntSushi/ripgrep)を使っているので、時間がかかることが多そうな再帰的検索にはこちらを使うようにしている。
+
+```init.vim
+" grep
+nnoremap <leader>vv :lvimgrep! //j %:p:h/*<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+
+" recursive search
+set grepprg=rg\ --vimgrep\ --no-heading " 外部grepコマンドとそのオプションを指定
+nnoremap <leader>vr :lgrep 
+" 上行は行末にスペースが有る
+```
+
+なお、これらの検索結果もQuickfixリストに格納される。自分の設定では`location-list`に格納するが。

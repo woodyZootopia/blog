@@ -11,4 +11,4 @@ fi
 git commit -m "$msg"
 git push origin master
 cd ..
-
+./backup.sh
