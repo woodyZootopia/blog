@@ -365,10 +365,10 @@ augroup END
 *	例、 `:args ./*``:argdo %s/\<some_word\>/alt_word/ge | update`
 	*	`some_word`を`alt_word`に置き換え
 	" quickfix jump
-	nnoremap [q :cprevious<CR>   " 前へ
-	nnoremap ]q :cnext<CR>       " 次へ
-	nnoremap [Q :<C-u>cfirst<CR> " 最初へ
-	nnoremap ]Q :<C-u>clast<CR>  " 最後へ
+	nnoremap [q :cprevious<CR>
+	nnoremap ]q :cnext<CR>
+	nnoremap [Q :<C-u>cfirst<CR>
+	nnoremap ]Q :<C-u>clast<CR>
 	*	`e`フラグで、あるファイルにおいて`some_word`が見つからなくてもエラーを出させない
 		*	`argdo`がエラーによって途中で止まるのを防ぐ
 	*	`update`で変更があったときにだけファイルを保存
@@ -446,16 +446,16 @@ Cなどのコンパイル言語は、ファイルを分割してリンカでつ�
 
 ```init.vim
 " quickfix jump
-nnoremap [q :cprevious<CR>   " 前へ
-nnoremap ]q :cnext<CR>       " 次へ
-nnoremap [Q :<C-u>cfirst<CR> " 最初へ
-nnoremap ]Q :<C-u>clast<CR>  " 最後へ
+nnoremap [q :cprevious<CR>   
+nnoremap ]q :cnext<CR>       
+nnoremap [Q :<C-u>cfirst<CR> 
+nnoremap ]Q :<C-u>clast<CR>  
 
 "window-local quickfix jump
-nnoremap [w :lprevious<CR>   " 前へ
-nnoremap ]w :lnext<CR>       " 次へ
-nnoremap [W :<C-u>lfirst<CR> " 最初へ
-nnoremap ]W :<C-u>llast<CR>  " 最後へ
+nnoremap [w :lprevious<CR>   
+nnoremap ]w :lnext<CR>       
+nnoremap [W :<C-u>lfirst<CR> 
+nnoremap ]W :<C-u>llast<CR>  
 ```
 
 `set makeprg=...`でコマンドを変更できる。
@@ -482,3 +482,7 @@ nnoremap <leader>vr :lgrep
 
 なお、これらの検索結果もQuickfixリストに格納される。上の設定では`location-list`に格納するようになっているが。
 
+# Undoツリー
+VimではUndoしてから変更した場合はツリー構造になって内部に保存されている。`u`や`<C-r>`ではそのツリー構造をたどり、`g-``g+`では単純に変更時間の前後でたどる。特定の時間の状況に戻りたい場合は、`:earlier 30m``:later 40s`などで戻れる。これらに単なる数字を指定すると変更回数と解釈されるので注意。
+
+`:undolist`でこれまでのundoの一覧を見られる。
