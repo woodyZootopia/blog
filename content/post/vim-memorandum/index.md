@@ -1,7 +1,7 @@
 ---
 title: "オレオレVimワザ備忘録"
 date: 2019-04-26T19:05:24-04:00
-description: "Vim docを読んだことをまとめました。Vimの中級者が上級者にステップアップするときに参考になるかと思います"
+description: "Vim docを読んで新鮮だったことをまとめました。Vimの中級者が上級者にステップアップするときに参考になるかと思います"
 # banner:"/img/some.png"
 # lead: "Example lead - highlighted near the title"
 # disable_comments: true # Optional, disable Disqus comments if true
@@ -27,6 +27,11 @@ tags:
 
 以下、`<C-x>`は「`Ctrl`キーをおしながら`x`」
 
+# 前にいた場所に移動
+
+`<C-o>`で前にいた場所に移動、`<Tab>`=`<C-i>`[^why equal]で逆に移動。
+
+[^why equal]:シェルにおいて`<Tab>`と`<C-i>`はおなじ。なのでこれらを別にマッピングすることはできない
 
 # Visualモードで逆側に跳ぶ
 `o`で逆側に跳ぶ。矩形選択モードのときは`O`で同じ行の反対側に跳ぶ（左右の移動）。
@@ -44,6 +49,8 @@ tags:
 # 大文字小文字の変更
 
 `gu``gU`で小文字・大文字に変更、`g~`で入れ替え。
+
+`g?`でシーザー暗号化。CTFくらいでしか使わなさそう。
 
 # コマンドの範囲指定のやりかたまとめ
 
@@ -97,7 +104,7 @@ Exコマンドとは`:`から始まるコマンドのこと。`:`の後に`{numb
 このマークは`{number}`の代わりに行数指定に使える。
 
 さて、Exコマンドは[普通のコマンド](#コマンドの範囲指定のやりかたまとめ)と同じようにVisualモードで選択した範囲に適用することもできる。Visualモードで選択後、そのまま`:`を押せばよい。
-その場合、自動的に`:<,'>`が出てくるが、実は`'<``'>`がそれぞれ選択範囲の最初・最後の行を表すマークなのである。
+その場合、自動的に`:'<,'>`が出てくるが、実は`'<``'>`がそれぞれ選択範囲の最初・最後の行を表すマークなのである。
 
 ## 行の検索
 
@@ -201,7 +208,47 @@ vim https://vim-jp.org
 
 `:iabbrev itn int`で`itn`が`int`に自動で変わる[^why abbrev]。
 
+`:imap itn int`でも同じような効果が起こる。だが、前者だと`itn<Space>`などと単語の終わりであることを明示する入力をして初めて`int<Space>`に書き換わるのに対し、こちらは`itn`と打った瞬間に書き換わる。
+
+`itn`のように打ち間違いでもない限り打つことのない単語を入力する際は後者を使ってもよいが、一般に前者が便利だろう。ただし、`map`は`ab`と違い複数回のマップが可能。『マップしたものからマップしたい』場合は`map`を使おう。
+
 誤タイプの癖を`.vimrc`に書いておこう。
+他にも、例えばC/C++によるプログラミングにおける略記に以下が使える。
+
+
+```ftplugin/c.vim
+" long long
+" これは下に示すようにpairから使われるのでabでなくmapにしている
+imap ll long long
+
+iab li long int
+iab lli long long
+
+" unsigned
+iab uint unsigned int
+iab ul unsigned long
+iab ull unsigned long long
+
+" misspelled
+iab itn int
+```
+
+```ftplugin/cpp.vim
+" 上の設定を読み込む
+source <sfile>:p:h/c_kyopro.vim
+
+" pair
+iab pint pair<int, int>
+iab plong pair<long, long>
+iab pii pair<int, int>
+iab pli pair<ll, int>
+iab pil pair<int, ll>
+iab pll pair<ll, ll>
+
+" abbr
+iab pq priority_queue
+iab mp make_pair
+```
 
 [^why abbrev]:(insert mode) abbreviationの略で、もともとは`iabbrev ad advertisement`のように省略形を登録するものだった
 
@@ -278,9 +325,9 @@ augroup END
 `:g/{pattern}/[cmd]`
 で`{pattern}`にマッチした行すべてに`[cmd]`を実行する。
 
-（`[cmd]`が指定されなかったら`:p`（表示するだけ）を実行する[^unix trivia]）
+`[cmd]`が指定されなかったら`:p`（表示するだけ）を実行する[^unix trivia]。
 
-[^unix trivia]:Unixにおける`grep`コマンドは`:g/re/p`から来ている。`re`はregular expressionの略。
+[^unix trivia]:Unixにおける`grep`コマンドは`:g/re/p`から来ている。`re`はregular expressionの略
 
 例えば、[テキストの自動整形](./#テキストを自動整形する)によって特定文字数に達したときに勝手に改行が挿入されてしまっているファイルに対し、
 
@@ -486,3 +533,4 @@ nnoremap <leader>vr :lgrep
 VimではUndoしてから変更した場合はツリー構造になって内部に保存されている。`u`や`<C-r>`ではそのツリー構造をたどり、`g-``g+`では単純に変更時間の前後でたどる。特定の時間の状況に戻りたい場合は、`:earlier 30m``:later 40s`などで戻れる。これらに単なる数字を指定すると変更回数と解釈されるので注意。
 
 `:undolist`でこれまでのundoの一覧を見られる。
+
