@@ -169,6 +169,11 @@ nnoremap <leader>gh :tab sp<CR>:0Gllog<CR>
 `git fetch`します。~~そろそろ飽きてきました~~
 ### `<leader>gd`
 変化の見やすい、いい感じのdiffをします。[`<leader>gs`](./#leader-gs)の`dv`と同じです
+
+特に、ここでもhunkのような`[c``]c`による移動が可能。
+
+更にmerge conflict状態では３つのウィンドウが出てきて、`:diffget`,`diffput`=`dp`などでどちらかからコピーすることが簡単にできる。詳しくは[こちら](http://vimcasts.org/episodes/fugitive-vim-resolving-merge-conflicts-with-vimdiff/)を参照。
+
 ### `<leader>gr`
 `git rebase -i`します。
 
