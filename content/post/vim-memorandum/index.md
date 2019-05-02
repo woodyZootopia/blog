@@ -229,7 +229,7 @@ iab uint unsigned int
 iab ul unsigned long
 iab ull unsigned long long
 
-" misspelled
+" mistyped
 iab itn int
 ```
 

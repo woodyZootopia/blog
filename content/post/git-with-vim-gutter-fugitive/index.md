@@ -71,11 +71,11 @@ nmap （あなたのやりたいマッピング） <Plug>GitGutterStageHunk
 ```
 のように設定してもいいでしょう。
 
-もしくは`<Leader>`キー自体を事前[^what is jizen]に変更するのもアリですね。例えば自分は下のようにして`<Leader>`キーをスペースキーにしている
+もしくは`<Leader>`キー自体を事前[^what is jizen]に変更するのもアリですね。例えば自分は下のようにして`<Leader>`キーをスペースキーにしている……
 ```init.vim
 let mapleader = "\<Space>"
 ```
-ので、上3つは`<Space>hs`などで発動します。
+……ので、上3つは`<Space>hs`などで発動します。
 
 ### hunk間の移動
 残りはhunk間を移動したり選択したりするコマンドですね。
@@ -121,7 +121,7 @@ nnoremap <leader>gm :Gmerge
 | u                 | ステージしたものを取り除く(undo)                                     |
 | =                 | diffをその場に開く・閉じる                                           |
 | dv                | 変化の見やすい、いい感じのdiffを出す（すごく見やすいのでお試しあれ） |
-| <Enter>           | 編集する                                                             |
+| `<Enter>`         | 編集する                                                             |
 | X                 | 変更を取り消す                                                       |
 
 それが終わったらコミットしましょう。
@@ -157,11 +157,11 @@ nnoremap <leader>gl :Git logall<CR>
 
 ### `<leader>gh`
 別タブで今開いているファイルの変更履歴をたどれます。超便利。\
-Quickfixを使うようになっています。location listを使いたい場合は
+Quickfixを使うようになっています。location listを使いたい場合は`0Gllog`コマンドに替える……
 ```init.vim
 nnoremap <leader>gh :tab sp<CR>:0Gllog<CR>
 ```
-にしたら良いです。マッピングは`git history`をイメージしました（実際にはそんなコマンドはありません）。
+……と良いです。マッピングは`git history`をイメージしました（実際にはそんなコマンドはありません）。
 
 ### `<leader>gp`
 `git push`します。
@@ -172,7 +172,7 @@ nnoremap <leader>gh :tab sp<CR>:0Gllog<CR>
 
 特に、ここでもhunkのような`[c``]c`による移動が可能。
 
-更にmerge conflict状態では３つのウィンドウが出てきて、`:diffget`,`diffput`=`dp`などでどちらかからコピーすることが簡単にできる。詳しくは[こちら](http://vimcasts.org/episodes/fugitive-vim-resolving-merge-conflicts-with-vimdiff/)を参照。
+更にmerge conflict状態では３つのウィンドウが出てきて、`:diffget`,`:diffput`=`dp`などでどちらかからコピーすることが簡単にできる。詳しくは[こちら](http://vimcasts.org/episodes/fugitive-vim-resolving-merge-conflicts-with-vimdiff/)を参照。
 
 ### `<leader>gr`
 `git rebase -i`します。
@@ -185,6 +185,6 @@ nnoremap <leader>gg :Glgrep
 としたらいいです。
 
 ### `<leader>gm`
-`git merge`します。コンフリクトが発生したらそのまま修正作業に入れます。
+`git merge`します。コンフリクトが発生したらそのまま修正作業に入れます。この時便利な[diff](#leader-gd)も使ってみましょう。
 # 結果
 Vim + Git is 最強
