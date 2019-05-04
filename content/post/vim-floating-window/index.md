@@ -46,11 +46,9 @@ Deopleteは`set completeopt+=preview`の状態だとプレビューウィンド�
 具体的には、以下のように設定しよう:
 
 ```init.vim
-set completeopt=menu
 " これを０にするか１にするかはお好み
 let g:float_preview#docked = 0
 ```
-
 
 ```dein.toml
 [[plugins]]
