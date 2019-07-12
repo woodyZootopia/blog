@@ -1,7 +1,7 @@
 ---
 title: "ツィオルコフスキーの公式を導出する"
 date: 2019-04-16T01:36:19-04:00
-# description: "Example article description"
+description: "ロケット工学の重要な公式を高校物理で導出します。"
 # banner:"/img/some.png"
 # lead: "Example lead - highlighted near the title"
 # disable_comments: true # Optional, disable Disqus comments if true

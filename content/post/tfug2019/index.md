@@ -8,7 +8,7 @@ date: 2019-06-07T19:22:17+09:00
 disable_profile: true # no one wants to see my profile while reading articles
 # authorbox: true # Optional, enable authorbox for specific post
 # mathjax: true # Optional, enable MathJax for specific post
-draft: true
+# draft: true
 categories:
   - "技術"
   - "ポエム"
