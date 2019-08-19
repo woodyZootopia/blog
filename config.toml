@@ -25,8 +25,8 @@ pygmentsUseClasses = true
     # Tell me who you are
     author = "Woody"
     bio = "Memento mori"
-    location = "Waterloo, Ontario"
-    site_description = "カナダ留学中の大学生が徒然なるままに書き綴ります。備忘録・技術記事・日常の記録など"
+    location = "Tokyo"
+    site_description = "東京に住んでる京都の大学生が徒然なるままに書き綴ります。備忘録・技術記事・日常の記録など"
     copyright  = "Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) for my own creation"
     avatar = "/img/midna2.jpg"
     # Enter your email address to display your Gravatar icon in the profile. If not set the theme
