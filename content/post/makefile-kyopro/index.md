@@ -60,6 +60,6 @@ CXXFLAGS=-I <path_to_bits_directory> -std=c++14 -Wall
 ```
 としています。
 
-以上
+なお、
 
-P.S. 最近競プロを再開しましたが、実力が下がりまくってて愕然としたのでAtcoderのC過去問を埋めてます。一緒に頑張りましょう！
+以上
