@@ -38,10 +38,11 @@ menu: "main"
 
 * カラーテーマ[flatwhite](https://atom.io/themes/flatwhite-syntax)の[Vim移植版・flatwhite-vim](https://github.com/woodyZootopia/flatwhite-vim)
 ![screenshot of colortheme](/main/flatwhite-screenshot.jpg)
-    * **文字色ではなく背景の色を変える**という独特なカラーテーマ。もともとはAtom用に作られたもの。
+    * 文字色ではなく背景の色を変えるという独特なカラーテーマ。もともとはAtom用に作られたもの。
     * 既存のVim移植版は各言語への対応が貧弱だったので、フォークして改造中。
     * 現状、`C`, `C++`, `HTML`, `CSS`, `Markdown`, `Python`といった自分のよく使う言語にはほとんど対応済みで、本家とほぼ同じ色描画がなされる。
         * 自分が普段使いできるレベルで可読性が高く実用的なので是非試してみてほしい。
+			* 最近闇落ちしてgruvboxに逃げました。
         * 他の言語にはまだまだ対応していないので、気に入られた方でvimに詳しい人は改善点をPRしていただけると助かる。
     * 解説記事？は[こちら]({{< relref "../post/vim-flatwhite/index.md" >}})
 
@@ -79,19 +80,18 @@ PandasやMongoDBといったデータ処理用のライブラリも使ったり�
         * タイ(TJSSF 2015)で水の浄化に関してポスター発表をしたり
     * JOI2015/2016本選に出てた。
 
-* 2017/4より京都大学工学部電気電子工学科
+* 2017/4 - 京都大学工学部電気電子工学科
     * 京都大学ではESS（英語ディベート）および人工知能研究会(KaiRA)に所属。
         * なので英語をちょっと話せる（TOEFL iBTで106とか）
-    * 2018/8まで8ヶ月間、画像認識を専門とするベンチャーである[Rist](https://www.rist.co.jp/)でAIプログラマ
+    * 2018/1 - 2018/8 画像認識を専門とするベンチャーである[Rist](https://www.rist.co.jp/)でAIプログラマ
         * 詳しくは（たぶん企業秘密なので）書けないが、機械のログから異常のあった時刻を抜き出したり、CNNをつかって異物認識をするプログラムを書いたりしてた。
         * Ristはその実績を買われたらしく[京セラの子会社になったらしい](https://prtimes.jp/main/html/rd/p/000000098.000009956.html)。
-        * 気のいい人たちばかりで、とてもいい会社だった。
-* 2018/9よりUniversity of Waterlooに京都大学からの交換留学により派遣(2019/4まで、８ヶ月間)
+* 2018/9 - 2019/4 University of Waterlooに京都大学からの交換留学により派遣
     * 留学に際して[フクシマグローバル人材支援財団](https://www.fukushima-global.or.jp/index.html)から奨学金を頂いている。自分は１期生らしい。
         * 関西圏を中心とした特定大学の人のみなど条件が厳しいが、そのことにより倍率がそこまで高くならないことが予想されること、面接会場も大阪であり多くの人にとって金銭的負担が少ないことから、応募できる権利のある人にはおすすめな奨学金である。
-    * 2018/11よりUWaterlooの自動運転車プロジェクト[WATonomous](https://watonomous.ca)でObject Detection Engineer
+    * 2018/11 - 2019/4 UWaterlooの自動運転車プロジェクト[WATonomous](https://watonomous.ca)でObject Detection Engineer
         *   U-NetとかのSegmentation Networkを用いて自動運転車のLane Detectionを担当している。
-    * 2018/12より[KIMIA Lab](http://kimia.uwaterloo.ca) Undergraduate Research Assistant
+    * 2018/12 - 2019/4 [KIMIA Lab](http://kimia.uwaterloo.ca) Undergraduate Research Assistant
 * 工学が好きで、その中でも特に情報・電子・コンピュータに幅広く興味がある。
     * 最近でいうと統計、機械学習、画像処理、音声信号処理、CV、コンピュータネットワーク、低レイヤ実装など。
 
