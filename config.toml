@@ -56,10 +56,10 @@ pygmentsUseClasses = true
     label  = "Home"
     link   = "/"
 
-[[params.menu]]
-    before = true
-    label  = "About"
-    link   = "main/about/"
+# [[params.menu]]
+#     before = true
+#     label  = "About"
+#     link   = "main/about/"
 
 [[params.menu]]
     before = false
