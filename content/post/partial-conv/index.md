@@ -1,7 +1,7 @@
 ---
 title: "【論文解説】Partial Convolution"
 date: 2018-12-05T22:49:07-05:00
-description: "面白い論文があったので解説します。この手法は実装がそこまで難しくないしコンスタントに効果もあるので今後のスタンダードになりそう。"
+description: "面白い論文があったので解説します。この手法は実装がそこまで難しくないしコンスタントに効果もあるので今後広まりそう。"
 banner: "banners/top.png"
 # lead: "Example lead - highlighted near the title"
 # disable_comments: true # Optional, disable Disqus comments if true
