@@ -91,6 +91,7 @@ PandasやMongoDBといったデータ処理用のライブラリも使ったり�
     * 2018/11 - 2019/4 UWaterlooの自動運転車プロジェクト[WATonomous](https://watonomous.ca)でObject Detection Engineer
         *   U-NetとかのSegmentation Networkを用いて自動運転車のLane Detectionを担当している。
     * 2018/12 - 2019/4 [KIMIA Lab](http://kimia.uwaterloo.ca) Undergraduate Research Assistant
+	* 2019/5 - 2019/9 [株式会社METRICA](https://metrica.me/) インターン
 * 工学が好きで、その中でも特に情報・電子・コンピュータに幅広く興味がある。
     * 最近でいうと統計、機械学習、画像処理、音声信号処理、CV、コンピュータネットワーク、低レイヤ実装など。
 
