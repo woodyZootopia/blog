@@ -16,6 +16,7 @@ categories:
 # menu: main # Optional, add page to a menu. Options: main, side, footer
 ---
 
+*この記事は未完成です。今残りを書いています*
 
 # 論文の要旨
 
@@ -102,11 +103,10 @@ $$
 
 なんらかのコンボリューションブロック$\mathbf{F}$が終わったら、その出力$\mathbf{U}$を  
 1. Global average poolingする  
-2. 全結合層にかける（1x1 convのようにチャンネルごとに混ぜ合わせる働きを持つことに注目）  
-$$
+2. 全結合層にかける（1x1 convのようにチャンネルごとに混ぜ合わせる働きを持つことに注目）$$
 s = \mathbf{F}_{ex}(z, \mathbf{W})=\sigma(\mathbf{W}_2\mathrm{ReLU}(\mathbf{W}_1z))
-$$
-3. $s$をもとの特徴量にチャンネルごとに掛ける  
+$$  
+3. $s \in [0, 1]$を「倍率」として扱い、もとの特徴量にチャンネルごとに掛ける  
 というもの。**これだけで性能が向上する**
 
 これをSqueeze-and-Exciation Block略して**SE Block**という。
@@ -160,7 +160,7 @@ $$
 
 ## 最終層
 
-![これまでの最終層。inverted residual blockのあと、global average poolingをしている](Screenshot from 2019-09-07 00-14-00.png)
+![既存のモデルの最終層。inverted residual blockのあと、global average poolingをしている](Screenshot from 2019-09-07 00-14-00.png)
 
 これに則ってそれぞれのconvのMulAdd計算量を出すと、
 
@@ -172,12 +172,12 @@ $$
 
 チャンネル数を最後に広げるのは、豊富な特徴量のために不可欠だが、計算が重いのでどうにかしたい。
 
-なんでこんなに計算量が重いかというと、一つの理由が**7x7の解像度でやっているせいで計算量が約５０倍**になってしまっているためだろう。  
+こんなに計算量が重い理由の一つは、1x1 convを**7x7の解像度でやっているせいで計算量が約５０倍**になってしまっているためだろう。  
 これを解決するため、最後の層をaverage poolingのあとに移す。これで機能を保ったまま解像度が1x1に下がる。
 
 また、この手法をとったのなら、計算量を減らすために一つ前に入れられていたボトルネックも不要だ。これでさらに計算量を減らすことができ、最終的に下図のようになる。
 
-![最終層がこのように変更される](Screenshot from 2019-09-06 23-50-48.png)
+![最終層が上から下に変更される](Screenshot from 2019-09-06 23-50-48.png)
 
 実際、計算量は
 
@@ -234,13 +234,21 @@ $$
 
 * 深くなると解像度が半分になり、したがって使われる回数は1/4だが、チャンネル数はそんなに増えないので
 
-したがって、今回は**最初の層と後半の層のみ**にh-swishを使った。詳しくは以下の表を見よ。
+実際、今回は**最初の層と後半の層のみ**にh-swishが使われている。詳しくは以下の表を見よ。
 
-![MobilenetV3-Largeのスペック。SE: Squeeze-and-Exciteが使われているか否か、NL: 非線形関数の種類（RElu or Hard-Swish)、NBN: No Batch Normalization](Screenshot from 2019-09-07 10-31-39.png)
+![MobilenetV3-Largeのスペック。SE: Squeeze-and-Exciteが使われているか否か、NL: 非線形関数の種類（ReLU or Hard-Swish)、NBN: No Batch Normalization](Screenshot from 2019-09-07 10-31-39.png)
 
 ![MobilenetV3-Smallのスペック](Screenshot from 2019-09-07 10-31-47.png)
 
 ![MobilenetV3のブロック構造。SE Blockのbottleneck部のチャンネル数はもとの1/4とすると、遅延はほぼなく性能が向上することがわかった](Screenshot from 2019-09-07 10-48-09.png)
+
+
+# 効率的なセグメンテーションモジュール
+
+![](Screenshot%20from%202019-09-07%2011-50-25.png)
+
+![](Screenshot from 2019-09-07 14-33-29.png)
+
 
 # 結果
 
@@ -270,8 +278,7 @@ $$
 
 $\dagger$の改良は、性能を変えないままレイテンシを15%下げている。ImagenetとCOCOには異なる形状の特徴量抽出器を使ったほうがいいのかもしれない。
 
-
-
+## Semantic Segmentation
 # 感想
 
 <!-- 正直なところ、**これを知らなくてもMobileNetV3は使える**だろう。なので最初は徒労感があって論文を読むのがだるかったが、読めばなかなか面白かったですね。事業仕分けのようにムダを鋭く指摘してストイックにガリガリ削っていく様は読んでいてなかなか爽快です。 -->
