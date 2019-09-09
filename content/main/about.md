@@ -70,8 +70,7 @@ PandasやMongoDBといったデータ処理用のライブラリも使ったり�
 
 * 簡単なbash/zshシェルスクリプトを書ける。このホームページのデプロイ・バックアップ・画像の軽量化・ローカルテストサーバー設定等はシェルスクリプトで自動化されている。
 
-* Vim Scriptの文法がわかる。
-[Shougo](https://github.com/Shougo)さんのVimプラグインが心底お気に入りなので最近[Defx.nvim](https://github.com/Shougo/defx.nvim)にPRを送り始めた。
+* Vim Scriptが書ける。
 
 # 略歴
 * 地元の公立中、広島大学附属高等学校卒
