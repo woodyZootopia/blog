@@ -101,7 +101,8 @@ find / -user bandit7 -group bandit6 -size 33c 2> /dev/null
 `less`は`/`で検索機能が起動するので、`/millionth<Enter>`で検索できます。
 
 ### 解法2
-`cat data.txt | grep millionth`でも良し。
+パイプ(|)という「手前のコマンドの標準出力をあとのコマンドの標準入力とする」というものをつかうこともできます。`cat`はファイルの中身を標準出力に出しているので、`grep`という検索コマンドを使うことができます。
+したがって、`cat data.txt | grep millionth`
 
 ## Level 8 to 9
 ```bash
@@ -265,7 +266,7 @@ cat /tmp/answer.txt
 ```
 
 ### 解法2
-なお、パイプ(|)という「手前のコマンドの標準出力をあとのコマンドの標準入力とする」というものを使えば1行で書けることにあとで気づきました。スッキリですね。
+なお、パイプを使えば1行で書けることにあとで気づきました。スッキリですね。
 ```bash
 for i in `seq 0 10000`; do printf "<Level 24 password> %04d\n" $i; done | nc localhost 30002
 ```
