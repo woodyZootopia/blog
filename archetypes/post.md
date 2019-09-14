@@ -16,8 +16,6 @@ categories:
   - "論文"
   - "備忘録"
   - "数学"
-tags:
-  - "Latex"
   - "shell"
 # menu: main # Optional, add page to a menu. Options: main, side, footer
 ---
