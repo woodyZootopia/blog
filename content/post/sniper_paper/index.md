@@ -16,6 +16,8 @@ categories:
 # menu: main # Optional, add page to a menu. Options: main, side, footer
 ---
 
+**[WIP]**
+
 **訓練手法**を提案した論文。  
 multi-scale訓練時に画像の一部をいい感じにサンプリングして、解像度を下げておくことによって、単GPUでも20images/batchで訓練できるようになり、batch normalizationの恩恵を受けられるようにした
 
@@ -98,8 +100,13 @@ multi-scale訓練時に画像の一部をいい感じにサンプリングして
 * よって、RPNの訓練は全訓練時間の20%以下
 * 他にも、mixed precision trainingなど細かくいろいろ書かれていた
 
-![なんと、Recallはnegative chip samplingに影響されない](table1.png)
+![なんと、Recallはnegative chip samplingにまったく影響されていない](table1.png)
+
+* RecallはFPとは関係がないためと思われる
 
 ![](table2.png)
+
+* APは関係があるのでもちろん効果がある
+
 
 ![](table3.png)
