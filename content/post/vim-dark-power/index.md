@@ -249,6 +249,6 @@ numpyやTensorFlowなどなどがimportされているファイルでは補完�
 以上です。
 
 > 闇の世界にようこそ。\
-> <div align="right"><cite>--ShougoMatsu</cite></div>
+> <div align="right"><cite>---ShougoMatsu</cite></div>
 
 [^3]:これらは大きなライブラリなので最大で１０秒程度補完が効くまで掛かる可能性がある。ガマン。
