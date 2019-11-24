@@ -4,4 +4,3 @@ if [ $# -lt 1 ]; then
     exit 1
 fi
 hugo new post/$1/index.md
-nvim content/post/$1/index.md
