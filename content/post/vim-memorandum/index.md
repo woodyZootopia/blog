@@ -206,7 +206,7 @@ vim https://vim-jp.org
 
 # 誤タイプの自動修正
 
-`:iabbrev itn int`で`itn`が`int`に自動で変わる[^why abbrev]。
+`:iabbrev itn int`で`itn`が`int`に自動で変わる[^why abbrev]ように設定できる。
 
 `:imap itn int`でも同じような効果が起こる。だが、前者だと`itn<Space>`などと単語の終わりであることを明示する入力をして初めて`int<Space>`に書き換わるのに対し、こちらは`itn`と打った瞬間に書き換わる。
 
