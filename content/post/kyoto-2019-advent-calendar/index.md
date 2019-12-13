@@ -125,7 +125,7 @@ Callというキーワードが再び現れるのはしばらく先のことな�
 > We read the wind and the sky when the sun is high  
 > 日が高いときは風と空を読み
 >
-> We sail the length of the seas on the ocean breeze
+> We sail the length of the seas on the ocean breeze  
 > 海風に乗り海の果てまで駆ける
 >
 > At night, we name every star  
