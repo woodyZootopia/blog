@@ -10,9 +10,7 @@ disable_profile: true # no one wants to see my profile while reading articles
 # mathjax: true # Optional, enable MathJax for specific post
 # draft: true
 categories:
-  - "技術"
   - "ポエム"
-  - "備忘録"
 # menu: main # Optional, add page to a menu. Options: main, side, footer
 ---
 
