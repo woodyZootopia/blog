@@ -182,7 +182,9 @@ snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
 endsnippet
 ```
 
-理解するのは難しいですが，
+理解するのは難しいですが，これをすることで
+
+![](https://castel.dev/3f83f1bdc3078aa16382e80a276f199f/frac.gif)のような挙動をさせることが可能です．
 
 ```tex.snippets
 ```
