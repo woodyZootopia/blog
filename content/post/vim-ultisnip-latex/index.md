@@ -54,6 +54,8 @@ inoremap abr abbreviation
 
 [Ultisnip](https://github.com/SirVer/ultisnips)はVimのプラグインです。まずはこれをVimにインストールします。なお、このプラグインは今の所[NeoVimとの相性が悪い](https://github.com/neovim/neovim/issues/5702)ようで、まともに動かないのでVimを使いましょう。
 
+[2020-05-06 追記] どのタイミングで改善されたのかはわかりませんが、最新版のNeoVim(0.5.0-479-ge5022c61e)の場合、特に問題はなくなっています。NeoVimだけで完結するので嬉しいですね！
+
 ```.vimrc
 Plug 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="<Tab>"
