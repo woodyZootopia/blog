@@ -6,9 +6,9 @@ menu: "main"
 
 # 作ったもの
 * [太鼓の達人自動作譜AI]({{< relref "../post/taiko-jp/index.md" >}})（[英語の解説記事もあるよ](https://medium.com/datadriveninvestor/automatic-drummer-with-deep-learning-3e92723b5a79)）
-    * DFTで画像化した音楽データをCNNで学習した\
+    * DFTで画像化した音楽データをCNNで学習した
     * 音楽データはネットに転がっている譜面付きのもので、実時間に変換して教師データとしてある
-    * キャッチーなテーマだったこともありツイッターでちょっと伸びた\
+    * キャッチーなテーマだったこともありツイッターでちょっと伸びた
 <blockquote class="twitter-tweet" data-lang="en"><p lang="ja" dir="ltr">「音楽から全自動で太鼓の達人の譜面を作るAI」を作りました<br><br>またいつか解説記事書きます <a href="https://t.co/IW6qrd9knS">pic.twitter.com/IW6qrd9knS</a></p>&mdash; うっでぃ (@woodyOutOfABase) <a href="https://twitter.com/woodyOutOfABase/status/1018708633511575553?ref_src=twsrc%5Etfw">July 16, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -23,11 +23,11 @@ menu: "main"
 
 * [英文履歴書 (Resume)](https://github.com/woodyZootopia/resume/raw/master/resume.pdf)
     * LaTeXで作った。フォーマットなどはクラスファイルに分けて書いてあるので流用・拡張が容易
-    * [ソースファイル・解説はこちらの記事で]({{< relref "../post/platex-resume-class/index.md" >}})\
+    * [ソースファイル・解説はこちらの記事で]({{< relref "../post/platex-resume-class/index.md" >}})
 
 * このウェブサイト
-    * [Hugo](https://gohugo.io/)でビルドされており、[github.io](https://pages.github.com/)でホスティングされている\
-    * [Icarus](https://github.com/digitalcraftsman/hugo-icarus-theme)というブログ用テーマを使っているが、これは数年前から更新が途絶えており、自分の欲しい機能がなかったため[フォークして改造し](https://github.com/woodyZootopia/hugo-icarus-theme)ながら使っている\
+    * [Hugo](https://gohugo.io/)でビルドされており、[github.io](https://pages.github.com/)でホスティングされている
+    * [Icarus](https://github.com/digitalcraftsman/hugo-icarus-theme)というブログ用テーマを使っているが、これは数年前から更新が途絶えており、自分の欲しい機能がなかったため[フォークして改造し](https://github.com/woodyZootopia/hugo-icarus-theme)ながら使っている
         * 特に、左に出ているプロフィールを消しても本文がその分のスペースを広く使わないのが致命的だったので直した。ディスプレイの大きいデバイスでこのページ以外の記事を開くと本文が広くなっているのが確認できると思う
         * [2018/12/27追記] 色彩デザインが目に優しくなくて気に入らなかったので魔改造した結果、オリジナルの面影はほとんど消えた。もしこれを使いたいという人がいたら、`config.toml`や`archetypes`などの設定も変えているので、自分の[親リポジトリ](https://github.com/woodyZootopia/blog)から直接cloneしたほうが速いかもしれない
 
@@ -47,17 +47,17 @@ menu: "main"
         * `10*3/2-5*3` → $0$
         * `F{a+b*b} F(2,3)` → $11$
     * 関数内で関数を呼び出すこともできるので、再帰的呼び出しも可能:
-        * `F{?(a);F(a*2+3)} F(1)` → $1,5,13,29,61,125,\dots$\
+        * `F{?(a);F(a*2+3)} F(1)` → $1,5,13,29,61,125,\dots$
 
 
 # 使用プログラミング言語
-* Pythonをよく使う。特に、scikit-learn, TensorFlow, Keras, PyTorchといったライブラリを用いた機械学習が得意\
-PandasやMongoDBといったデータ処理用のライブラリも使ったりする\
+* Pythonをよく使う。特に、scikit-learn, TensorFlow, Keras, PyTorchといったライブラリを用いた機械学習が得意
+PandasやMongoDBといったデータ処理用のライブラリも使ったりする
 画像処理でよく遊んでいるのでOpenCVも使える（C++で書くこともあるがPythonラッパー版の方をよく使う）
 
-* C, C++も好き。低レベルに触るときなどに書く\
+* C, C++も好き。低レベルに触るときなどに書く
 
-* LaTeXに触ったことがある。クラスファイルを自作した\
+* LaTeXに触ったことがある。クラスファイルを自作した
 
 * Gitでバージョンをいじりながら開発できる。上の[作ったもの](#作ったもの)は全てGitでバージョン管理している
 
@@ -78,7 +78,7 @@ PandasやMongoDBといったデータ処理用のライブラリも使ったり�
     * 2018/1 - 2018/8 画像認識を専門とするベンチャーである[Rist](https://www.rist.co.jp/)でAIプログラマ
         * 詳しくは（たぶん企業秘密なので）書けないが、機械のログから異常のあった時刻を抜き出したり、CNNをつかって異物認識をするプログラムを書いたりしてた
 * 2018/9 - 2019/4 University of Waterlooに京都大学からの交換留学により派遣
-    * 留学に際して[フクシマグローバル人材支援財団](https://www.fukushima-global.or.jp/index.html)から奨学金をもらってた。自分は１期生らしい
+    * 留学に際して[フクシマグローバル人材支援財団](https://www.fukushima-global.or.jp/index.html)から奨学金を頂いた。自分は１期生らしい
     * 2018/11 - 2019/4 UWaterlooの自動運転車プロジェクト[WATonomous](https://watonomous.ca)でObject Detection Engineer
         *   U-Netとかのsemantic segmentationを用いて自動運転車のLane Detectionやってた
     * 2018/12 - 2019/4 [KIMIA Lab](http://kimia.uwaterloo.ca) Undergraduate Research Assistant
