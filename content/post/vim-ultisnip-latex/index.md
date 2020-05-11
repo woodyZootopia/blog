@@ -38,7 +38,9 @@ a_3 = \frac{1}{\pi} \int_{0}^{2\pi} f(x) \cos 3x \mathrm{d} x
 \end{equation}
 ```
 
-このとき、入力文字（ストローク）数はなんと**91文字**にもなります。今回の記事のスニペット設定をフルに活用すると、これを34文字にまで短縮することができます。約**3倍**の高速化です。実際には、ホームポジションから遠い特殊文字（`\`,`{`,`}`など）を入力する必要がほとんどなくなるのでもっと入力は楽です。
+このとき、入力文字（ストローク）数はなんと**91文字**にもなります。
+今回の記事のスニペット設定をフルに活用すると、これを34文字にまで短縮することができます。
+約**3倍**の高速化です。実際には、ホームポジションから遠い特殊文字（`\`,`{`,`}`など）を入力する必要がほとんどなくなるのでもっと入力は楽です。
 
 **スニペット**とは、特定のテキストの入力により発動する別のテキストへの置き換えです。例えば、Vimの標準機能である`map`も立派なスニペットと言えるでしょう。
 
@@ -173,7 +175,7 @@ call TexNewMathZone("N","multline",1)
 call TexNewMathZone("O","gather",1)
 ```
 Mからスタートしてアルファベットがかぶらないように追加します。  
-また、追加したもの（と、それに`S`を追加したもの）が`texMathZones`になるように上の`tex.snippets`の最初を変更してください。
+また、追加したもの（と、それに`S`を足したもの。今回なら`'M','MS','N', 'NS', 'O', 'OS'`）も`texMathZones`に含まれるように上の`tex.snippets`の最初を変更してください。
 
 ```tex.snippets
 texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C',
@@ -269,6 +271,6 @@ snippet "([^\\])max" "max" irA
 endsnippet
 ```
 
-これらの例を含め、僕の使っているスニペット一覧を[gistにあげている](https://gist.github.com/woodyZootopia/5eecd73b3abcba723e46603c0066b5ea)ので参考にしてください。
+これらの例を含め、僕の使っているスニペット一覧を[GitHubにあげている](https://github.com/woodyZootopia/nvim/blob/master/UltiSnips/tex.snippets)ので参考にしてください。
 
 それでは、Happy LaTeX life!
