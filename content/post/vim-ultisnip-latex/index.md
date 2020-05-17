@@ -272,5 +272,7 @@ endsnippet
 ```
 
 これらの例を含め、僕の使っているスニペット一覧を[GitHubにあげている](https://github.com/woodyZootopia/nvim/blob/master/UltiSnips/tex.snippets)ので参考にしてください。
+ただし、これは[自作のマクロファイル](https://github.com/woodyZootopia/latex-macros)と組み合わせて使うようになっており、
+`\paren{}`のような自作のコマンドを書き出すようなスニペットもあるのでそこだけ注意してください。
 
 それでは、Happy LaTeX life!
