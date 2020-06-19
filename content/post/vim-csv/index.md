@@ -11,11 +11,7 @@ disable_profile: true # no one wants to see my profile while reading articles
 # draft: true
 categories:
   - "技術"
-  - "ポエム"
-  - "翻訳記事"
-  - "論文"
   - "備忘録"
-  - "数学"
   - "shell"
 # menu: main # Optional, add page to a menu. Options: main, side, footer
 ---
