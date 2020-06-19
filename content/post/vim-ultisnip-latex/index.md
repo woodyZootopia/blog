@@ -175,7 +175,7 @@ call TexNewMathZone("N","multline",1)
 call TexNewMathZone("O","gather",1)
 ```
 Mからスタートしてアルファベットがかぶらないように追加します。  
-また、追加したもの（と、それに`S`を足したもの。今回なら`'M','MS','N', 'NS', 'O', 'OS'`）も`texMathZones`に含まれるように上の`tex.snippets`の最初を変更してください。
+また、追加したもの（と、それに`S`を足したもの。今回なら`'M','MS','N', 'NS', 'O', 'OS'`．これは`*`付き環境に対応します）も`texMathZones`に含まれるように上の`tex.snippets`の最初を変更してください。
 
 ```tex.snippets
 texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C',
