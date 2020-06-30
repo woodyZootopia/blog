@@ -30,7 +30,9 @@ repo = 'tpope/vim-fugitive'
 ```
 
 `vim-gitgutter`は変更があった行を左端に表示してくれます。
-![Screenshot](./ScreenShot 1.jpg)
+
+![Screenshot](./ScreenShot_1.jpg)
+
 実はこれ以外にも便利機能があるのでそれも紹介します。
 
 更新が反映されるまでの時間を短くしたいのでそれも設定しておきましょう。下の設定だと100msになります。
