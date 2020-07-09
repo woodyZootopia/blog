@@ -46,7 +46,7 @@ Linuxには`column`というコマンドがあります。これを使うと、C
 augroup CSV
     au!
     au BufReadPost *.csv %!column -s, -o, -t
-    au BufWritePre *.csv %s/\s\+,/,/g
+    au BufWritePre *.csv %s/\s\+,/,/ge
     au BufWritePost *.csv %!column -s, -o, -t
 augroup END
 ```
